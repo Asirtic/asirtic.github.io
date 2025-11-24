@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grimward SMP – Tienda Oficial</title>
-  <link rel="icon" type="image/png" href="/assets/logo/logo.png" />
-
+  <title>Peanut Reborn Studios – Centro oficial</title>
   <style>
     :root {
       --bg: #050510;
@@ -27,7 +25,6 @@
       color: var(--text);
       min-height: 100vh;
     }
-
     header {
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(12px);
@@ -47,7 +44,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 1.5rem;
-      gap: 1rem;
     }
     .logo {
       display: inline-flex;
@@ -59,12 +55,8 @@
       display: block;
       height: 28px;
     }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
     nav a {
+      margin-left: 1.5rem;
       text-decoration: none;
       color: var(--muted);
       font-size: 0.9rem;
@@ -73,7 +65,7 @@
       color: var(--accent);
     }
 
-    /* Barra de usuario, igual que Index */
+    /* Barra de usuario (login por nick) */
     .user-bar {
       max-width: 1100px;
       margin: 0 auto;
@@ -125,188 +117,43 @@
       color: var(--accent);
     }
 
-    main {
+    .hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 3.5rem;
-    }
-
-    .breadcrumb {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      color: var(--accent);
-    }
-
-    .hero-shop {
+      padding: 3.5rem 1.5rem 2rem;
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
-      margin-bottom: 2.5rem;
     }
-    .hero-copy h1 {
-      font-size: clamp(2rem, 3.3vw, 2.6rem);
-      margin-bottom: 0.6rem;
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
-    .hero-copy h1 span {
+    .hero h1 span {
       color: var(--accent);
     }
-    .hero-copy p {
+    .hero p {
       color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .tag {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-size: 0.98rem;
     }
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 0.8rem;
-    }
-    .hero-art {
-      background: radial-gradient(circle at top left, #242454, #0a0a18);
-      border-radius: 1.3rem;
-      padding: 1.1rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 22px 55px rgba(0,0,0,0.8);
-    }
-    .hero-art img {
-      width: 100%;
-      display: block;
-      border-radius: 1rem;
-    }
-    .hero-caption {
-      margin-top: 0.6rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .subnav {
-      display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 0 0 2.2rem;
     }
-    .subnav a {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      text-decoration: none;
-      background: rgba(5,5,16,0.8);
-    }
-    .subnav a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      margin-top: 2.5rem;
-      margin-bottom: 0.4rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-      max-width: 680px;
-      line-height: 1.5;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .product-card {
-      background: rgba(5, 5, 16, 0.85);
-      border-radius: 1rem;
-      padding: 1rem 1.3rem 1.1rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card img {
-      width: 100%;
-      border-radius: 0.8rem;
-      margin-bottom: 0.9rem;
-    }
-    .product-tagline {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 0.3rem;
-    }
-    .product-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .product-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-      line-height: 1.5;
-    }
-    .product-list {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-      padding-left: 1rem;
-    }
-    .product-list li {
-      margin-bottom: 0.2rem;
-    }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-    }
-    .price {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--accent);
-    }
-
     .btn {
       border-radius: 999px;
-      padding: 0.55rem 1.2rem;
-      font-size: 0.85rem;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
       border: 1px solid transparent;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
     }
     .btn-primary {
       background: var(--accent);
@@ -314,7 +161,7 @@
       font-weight: 600;
     }
     .btn-outline {
-      border-color: rgba(255,255,255,0.18);
+      border-color: rgba(255, 255, 255, 0.15);
       color: var(--muted);
       background: transparent;
     }
@@ -323,10 +170,145 @@
       color: var(--accent);
     }
 
-    .notice {
-      font-size: 0.8rem;
+    .hero-card {
+      background: radial-gradient(circle at top left, #242454, #0a0a18);
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+    }
+    .hero-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
       color: var(--muted);
-      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .projects-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    .project-card {
+      background: rgba(5, 5, 16, 0.7);
+      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.15s ease, border-color 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .project-tag {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .starter-card {
+      background: rgba(5, 5, 16, 0.85);
+      border-radius: 1.1rem;
+      padding: 1.6rem 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.5rem;
+    }
+    .starter-card ul {
+      margin-left: 1rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .starter-pill {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.8rem;
+    }
+    .starter-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+    .info-card {
+      background: rgba(5, 5, 16, 0.8);
+      border-radius: 0.9rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .info-card strong {
+      color: var(--text);
+    }
+
+    /* Trailer (YouTube embed) */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .footer {
@@ -335,20 +317,22 @@
       text-align: center;
       color: var(--muted);
       font-size: 0.8rem;
-      max-width: 1100px;
-      margin: 0 auto;
     }
     .footer a {
       color: var(--accent);
       text-decoration: none;
     }
 
-    @media (max-width: 900px) {
-      .hero-shop {
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 2.2rem;
+      }
+      .starter-card {
         grid-template-columns: 1fr;
       }
       nav {
-        gap: 1rem;
+        display: none;
       }
       .user-bar {
         flex-direction: column;
@@ -358,21 +342,22 @@
   </style>
 </head>
 <body>
-
   <header>
     <div class="nav">
       <a href="/" class="logo">
         <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios - Asirtic" />
       </a>
       <nav>
-        <a href="/">Inicio</a>
-        <a href="/grimward/">Grimward SMP</a>
-        <a href="/origins/">Espermadeath: Origins</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#starter-pack">Starter Pack</a>
+        <a href="#trailer">Tráiler</a>
+        <a href="/grimward/">Tienda Grimward</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- MISMA BARRA DE USUARIO QUE EN EL INDEX -->
+  <!-- Barra de usuario (login por nick de Minecraft) -->
   <div class="user-bar">
     <div class="user-bar-main">
       <span id="user-greeting">No has iniciado sesión con tu nick de Minecraft.</span>
@@ -398,526 +383,195 @@
   </div>
 
   <main>
-    <div class="breadcrumb">
-      <a href="/">Inicio</a> · Grimward SMP · Tienda oficial
-    </div>
-
-    <section class="hero-shop">
-      <div class="hero-copy">
-        <h1><span>Asirtic</span> · Projects</h1>
+    <!-- HERO PRINCIPAL -->
+    <section class="hero">
+      <div>
+        <h1>
+          El universo creativo de
+          <span>Asirtic</span>
+          y Peanut Reborn Studios
+        </h1>
         <p>
-          Aquí se gestionan todos los rangos, llaves, protecciones, mascotas y kits especiales
-          del servidor <strong>Grimward SMP</strong>. Todas las compras se validan manualmente
-          mediante <strong>PayPal</strong> y ticket en Discord para asegurar una entrega justa
-          y transparente. El nick de Minecraft que ves arriba se usará como referencia al validar tus compras.
+          Esta es la página oficial donde se gestionan las tiendas digitales y el apoyo directo
+          a los proyectos de Peanut Reborn Studios. Todo el soporte y la entrega de recompensas se
+          gestiona de forma honesta y manual, a través de Discord y pagos seguros por PayPal.
         </p>
-        <div class="hero-tags">
-          <span class="tag">Servidor survival</span>
-          <span class="tag">Economía & rangos</span>
-          <span class="tag">Mascotas especiales</span>
-        </div>
         <div class="hero-actions">
-          <a href="#rangos" class="btn btn-primary">Ver rangos principales →</a>
-          <a href="#starter" class="btn btn-outline">Starter Pack Capítulo IV</a>
+          <a href="/grimward/" class="btn btn-primary">
+            Ir a la tienda de Grimward SMP →
+          </a>
+          <a href="/origins/" class="btn btn-outline">
+            Ver proyecto Espermadeath: Origins
+          </a>
         </div>
-        <p class="notice">
-          Usa siempre tu <strong>nick de Minecraft</strong> al pagar y al abrir ticket de soporte.
-          Los rangos son de <strong>temporada</strong>, válidos solo durante el capítulo activo.
-        </p>
       </div>
 
-      <aside class="hero-art">
-        <img src="/assets/rangos/rey.png" alt="Rey Feudal de Grimward">
-        <div class="hero-caption">
-          Arte promocional de los rangos de élite de Grimward SMP. Las imágenes son ilustrativas;
-          los kits pueden cambiar entre temporadas.
+      <aside class="hero-card" id="proyectos">
+        <h2>Proyectos activos</h2>
+        <div class="badge-row">
+          <span class="badge">Servidor survival</span>
+          <span class="badge">Eventos especiales</span>
+          <span class="badge">Contenido exclusivo</span>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-title">Grimward SMP</div>
+            <div class="project-desc">
+              Servidor survival con rangos, llaves especiales, mascotas y kits de apoyo.
+              La tienda oficial se gestiona desde esta web y se renueva por capítulos.
+            </div>
+            <div class="project-tag">Tienda activa · Capítulo IV en preparación</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-title">Espermadeath: Origins</div>
+            <div class="project-desc">
+              Serie especial de un solo mes, con dificultad progresiva, bosses personalizados
+              y recompensas visuales pensadas para streaming y contenido intenso.
+              Su tienda y packs se abrirán más cerca del estreno en 2026.
+            </div>
+            <div class="project-tag">Proyecto futuro · Tienda próximamente</div>
+          </article>
         </div>
       </aside>
     </section>
 
-    <nav class="subnav">
-      <a href="#rangos">Rangos</a>
-      <a href="#llaves">Llaves Dragón</a>
-      <a href="#protecciones">Protecciones</a>
-      <a href="#mascotas">Mascotas</a>
-      <a href="#kits">Kits PayPal</a>
-    </nav>
-
-    <!-- RANGOS -->
-    <section id="rangos">
-      <h2 class="section-title">Rangos de temporada</h2>
-      <p class="section-subtitle">
-        Rangos válidos solo durante la <strong>temporada/capítulo actual</strong> de Grimward SMP.
-        Al terminar la temporada, los rangos se reinician junto con el mundo, pero siempre se
-        respeta el apoyo que has dado al proyecto.
-      </p>
-
-      <div class="grid">
-
-        <article class="product-card">
-          <img src="/assets/rangos/caballero.png" alt="Rango Caballero">
-          <div class="product-tagline">Rango inicial de nobleza · Temporada</div>
-          <h3 class="product-title">Rango Caballero</h3>
-          <p class="product-desc">
-            “Guardián del reino, honorable en batalla y leal a su señor.”
-            Los Caballeros han probado su valentía y han sido elevados a la nobleza guerrera.
-            Reciben ventajas en combate y exploración que les permiten aventurarse con más seguridad
-            durante la temporada activa.
+    <!-- STARTER PACK CAPÍTULO IV -->
+    <section id="starter-pack">
+      <h2 class="section-title">Novedad principal · Starter Pack Capítulo IV</h2>
+      <div class="starter-card">
+        <div>
+          <span class="starter-pill">Preventa limitada</span>
+          <h3 style="font-size:1.3rem; margin-bottom:0.6rem;">
+            Starter Pack – <span class="starter-highlight">Capítulo IV</span> de Grimward SMP
+          </h3>
+          <p style="color:var(--muted); font-size:0.96rem; line-height:1.6;">
+            Al igual que en el Capítulo III, este Starter Pack existe para apoyar el mantenimiento
+            del servidor y ayudarte a comenzar la nueva temporada con un impulso fuerte desde el día uno.
+            Se venderá <strong>antes de la apertura del capítulo</strong> y solo por tiempo limitado.
           </p>
-          <ul class="product-list">
-            <li>Kit Guerrero con armadura de hierro (sin casco, Protección V).</li>
-            <li>3 protecciones disponibles mediante el Night Market.</li>
-            <li>+1.000 de dinero dentro del servidor.</li>
-            <li>2 stacks de hierro y 60 panes.</li>
-            <li>30 manzanas doradas y 6 manzanas de Notch.</li>
-            <li>Comando <strong>/tpa</strong> para enviar solicitudes de teletransporte.</li>
-            <li>Duración: solo durante la temporada en curso.</li>
-          </ul>
-          <div class="product-footer">
-            <span class="price">4 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
-          </div>
-          <p class="notice">Tras pagar, abre un ticket en Discord con tu nick y comprobante.</p>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/rangos/baron.png" alt="Rango Barón">
-          <div class="product-tagline">Señor de tierras · Temporada</div>
-          <h3 class="product-title">Rango Barón</h3>
-          <p class="product-desc">
-            “Un señor de tierras, con dominio sobre su feudo y un estatus elevado en la corte.”
-            Los Barones son figuras influyentes con autoridad, recursos y reconocimiento dentro del
-            reino, destacando tanto en combate como en economía durante la temporada.
-          </p>
-          <ul class="product-list">
-            <li>Armadura Krontar completa (Protección V, Irrompibilidad III).</li>
-            <li>1 Tótem Culasirtic y skins cosméticas exclusivas (2 outfit, 1 alas).</li>
-            <li>10 Llaves Dragón y +1.500 de dinero.</li>
-            <li>3 protecciones y 3 <strong>sethome</strong> disponibles.</li>
-            <li>Prioridad para entrar al servidor.</li>
-            <li>Acceso adelantado a ciertos avances del servidor.</li>
-            <li>Comandos <strong>/tpa</strong> y <strong>/craft</strong>.</li>
-            <li>Duración: válido solo durante la temporada actual.</li>
-          </ul>
-          <div class="product-footer">
-            <span class="price">9 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
-          </div>
-          <p class="notice">Indica “Rango Barón” y tu nick en la nota de PayPal.</p>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/rangos/feudal.png" alt="Rango Feudal">
-          <div class="product-tagline">Cima del poder · Temporada</div>
-          <h3 class="product-title">Rango Feudal</h3>
-          <p class="product-desc">
-            “El amo de vastas tierras, con leales súbditos y dominio sobre la política del reino.”
-            El Feudal es la cúspide de la jerarquía de Grimward, con privilegios únicos en guerra,
-            comercio y gestión de territorio mientras dure la temporada.
-          </p>
-          <ul class="product-list">
-            <li>Kit Krontar completo (Protección VIII, Irrompibilidad V).</li>
-            <li>Hacha y pico de Neptuno (Eficiencia VI, Irrompibilidad III, Reparación).</li>
-            <li>Espada del Abismo y Escudo Espinoso.</li>
-            <li>20 Llaves Dragón y +3.000 de dinero.</li>
-            <li>Ender Chest portátil y 4 <strong>sethome</strong>.</li>
-            <li>4 protecciones disponibles mediante el Night Market.</li>
-            <li>Prioridad de entrada y acceso adelantado a avances.</li>
-            <li>Comandos <strong>/tpa</strong> y <strong>/craft</strong>.</li>
-            <li>Duración: rango de temporada, se reinicia al cambiar de capítulo.</li>
-          </ul>
-          <div class="product-footer">
-            <span class="price">15 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
-          </div>
-          <p class="notice">Pensado para quienes quieren apoyar al máximo el proyecto en esta temporada.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- STARTER PACK CAPÍTULO IV (reserva) -->
-    <section id="starter">
-      <h2 class="section-title">Starter Pack · Capítulo IV</h2>
-      <p class="section-subtitle">
-        Paquete especial de <strong>pretemporada</strong>. Al igual que en el Capítulo III, el Starter
-        Pack del Capítulo IV servirá para apoyar el mantenimiento del servidor y arrancar la temporada
-        con un equipo muy por encima del inicio estándar. El contenido exacto puede variar mientras
-        esté en fase beta.
-      </p>
-
-      <div class="grid">
-        <article class="product-card">
-          <div class="product-tagline">Preventa · solo antes de la apertura</div>
-          <h3 class="product-title">Starter Pack Capítulo IV</h3>
-          <p class="product-desc">
-            Ideal para quienes quieren comenzar la nueva temporada de Grimward con un impulso fuerte
-            desde el primer día. Todo el contenido se entrega manualmente antes o durante la apertura
-            oficial del Capítulo IV.
-          </p>
-          <ul class="product-list">
-            <li>Armadura y herramientas exclusivas de temporada.</li>
-            <li>Pack de Llaves Dragón para encantamientos avanzados.</li>
+          <ul>
+            <li>Armadura y herramientas exclusivas de la temporada.</li>
+            <li>Llaves Dragón para acceder a encantamientos especiales.</li>
             <li>Amuletos exclusivos de dimensión.</li>
             <li>Tótem personalizado al gusto del jugador.</li>
-            <li>Mascota personalizada (en diseño).</li>
-            <li>NPC personalizado dentro del mundo (en diseño).</li>
+            <li>Mascota personalizada (en fase de diseño).</li>
+            <li>NPC personalizado dentro del mundo (idea en fase beta).</li>
           </ul>
-          <div class="product-footer">
-            <span class="price">10 € (precio orientativo)</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Reservar por PayPal</a>
-          </div>
-          <p class="notice">
-            Importante: escribe “Starter Pack Capítulo IV” y tu nick de Minecraft en la nota de PayPal,
-            y abre un ticket en Discord para coordinar la entrega.
+          <p style="color:var(--muted); font-size:0.9rem; margin-top:0.9rem;">
+            Todo el contenido está en <strong>fase beta</strong> y puede ajustarse ligeramente, pero la
+            idea es clara: un pack único que <span class="starter-highlight">no se repetirá</span>
+            una vez comience el Capítulo IV.
           </p>
-        </article>
+        </div>
+        <div style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <p style="color:var(--muted); font-size:0.9rem; margin-bottom:0.6rem;">
+              La compra se realizará de forma manual mediante PayPal y confirmación por Discord.
+              Todo el proceso se gestionará de manera profesional: sin compras “por confianza”,
+              siempre con comprobante.
+            </p>
+            <p style="font-size:1.1rem; margin-bottom:0.4rem;">
+              Precio previsto: <span class="starter-highlight">10 €</span> (puede ajustarse antes del anuncio final).
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a href="/grimward/" class="btn btn-primary">
+              Ver packs de Grimward SMP →
+            </a>
+            <a href="https://paypal.me/asirtic" target="_blank" class="btn btn-outline">
+              Ir a PayPal (pago manual)
+            </a>
+          </div>
+        </div>
       </div>
-    </section>
-
-    <!-- LLAVES -->
-    <section id="llaves">
-      <h2 class="section-title">Llaves Dragón</h2>
-      <p class="section-subtitle">
-        Las <strong>Llaves Dragón</strong> te permiten acceder a cajas especiales con encantamientos únicos
-        y efectos imposibles de conseguir por medios normales. Son el corazón de la progresión mística
-        de Grimward.
+      <p style="color:var(--muted); font-size:0.85rem; margin-top:0.6rem;">
+        Nota: el Starter Pack se anunciará oficialmente en Discord con todos los detalles finales
+        antes de abrir las compras.
       </p>
-
-      <div class="grid">
-        <article class="product-card">
-          <img src="/assets/llaves/1llavedragon.png" alt="1 Llave Dragón">
-          <h3 class="product-title">1 Llave Dragón</h3>
-          <p class="product-desc">Prueba la suerte de la magia antigua con una sola apertura.</p>
-          <div class="product-footer">
-            <span class="price">1 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/llaves/6llavedragon.png" alt="6 Llaves Dragón">
-          <h3 class="product-title">6 Llaves Dragón</h3>
-          <p class="product-desc">Pack reducido para comenzar a coleccionar encantamientos poderosos.</p>
-          <div class="product-footer">
-            <span class="price">4 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/llaves/15llavedragon.png" alt="15 Llaves Dragón">
-          <h3 class="product-title">15 Llaves Dragón</h3>
-          <p class="product-desc">Pack ideal para aventureros constantes que buscan builds muy fuertes.</p>
-          <div class="product-footer">
-            <span class="price">8 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/llaves/30llavesdragon.png" alt="30 Llaves Dragón">
-          <h3 class="product-title">30 Llaves Dragón</h3>
-          <p class="product-desc">Máximo valor para quienes quieren farmear encantamientos legendarios.</p>
-          <div class="product-footer">
-            <span class="price">15 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-      </div>
     </section>
 
-    <!-- PROTECCIONES -->
-    <section id="protecciones">
-      <h2 class="section-title">Protecciones de territorio</h2>
-      <p class="section-subtitle">
-        🧱 Protege tu base, tu casa o tu reino con bloques especiales que activan una zona segura donde
-        nadie podrá romper, abrir cofres o construir sin tu permiso. Cada bloque genera un área protegida
-        de distinto tamaño, perfecta para todo tipo de proyectos.
+    <!-- TRÁILER -->
+    <section id="trailer">
+      <h2 class="section-title">Tráiler de Grimward SMP</h2>
+      <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;">
+        Por ahora se muestra el tráiler del Capítulo III. 
       </p>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/TBjiLMT6l44"
+          title="Tráiler Grimward SMP"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
 
-      <div class="grid">
-        <article class="product-card">
-          <img src="/assets/protecciones/carbon.png" alt="Protección de Carbón">
-          <div class="product-tagline">Bloque de protección · 8x8</div>
-          <h3 class="product-title">Protección de Carbón (8x8)</h3>
-          <p class="product-desc">Ideal para una casa pequeña, zona de cofres o base inicial.</p>
-          <div class="product-footer">
-            <span class="price">1.20 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
+    <!-- CÓMO FUNCIONA LA TIENDA -->
+    <section>
+      <h2 class="section-title">¿Cómo funciona la tienda?</h2>
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>1. Inicias sesión con tu nick</strong><br />
+          En la barra superior escribe tu nick de Minecraft y pulsa <em>Iniciar sesión</em>.
+          Ese será el nombre que se usará como referencia para tus compras dentro del servidor.
         </article>
 
-        <article class="product-card">
-          <img src="/assets/protecciones/hierro.png" alt="Protección de Hierro">
-          <div class="product-tagline">Bloque de protección · 16x16</div>
-          <h3 class="product-title">Protección de Hierro (16x16)</h3>
-          <p class="product-desc">Zona segura para una base media con almacén y cultivos.</p>
-          <div class="product-footer">
-            <span class="price">2.30 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
+        <article class="info-card">
+          <strong>2. Eliges tu paquete y pagas por PayPal</strong><br />
+          Todos los pagos se realizan mediante <strong>PayPal</strong> usando el enlace oficial:
+          <a href="https://paypal.me/asirtic" target="_blank">paypal.me/asirtic</a>.
+          Puedes indicar tu nick de Minecraft en la nota del pago para dejar constancia.
         </article>
 
-        <article class="product-card">
-          <img src="/assets/protecciones/oro.png" alt="Protección de Oro">
-          <div class="product-tagline">Bloque de protección · 24x24</div>
-          <h3 class="product-title">Protección de Oro (24x24)</h3>
-          <p class="product-desc">Perfecta para proyectos más ambiciosos con varias construcciones.</p>
-          <div class="product-footer">
-            <span class="price">3.60 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/protecciones/esmeralda.png" alt="Protección de Esmeralda">
-          <div class="product-tagline">Bloque de protección · 32x32</div>
-          <h3 class="product-title">Protección de Esmeralda (32x32)</h3>
-          <p class="product-desc">Terreno amplio para reinos en crecimiento o bases de clanes.</p>
-          <div class="product-footer">
-            <span class="price">4.80 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/protecciones/cobre.png" alt="Protección de Cobre">
-          <div class="product-tagline">Bloque de protección · 36x36</div>
-          <h3 class="product-title">Protección de Cobre (36x36)</h3>
-          <p class="product-desc">Extensión extra para bases con varios edificios conectados.</p>
-          <div class="product-footer">
-            <span class="price">5.60 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/protecciones/diamante.png" alt="Protección de Diamante">
-          <div class="product-tagline">Bloque de protección · 44x44</div>
-          <h3 class="product-title">Protección de Diamante (44x44)</h3>
-          <p class="product-desc">Gran territorio para clanes, castillos o proyectos enormes.</p>
-          <div class="product-footer">
-            <span class="price">7.10 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/protecciones/redstone.png" alt="Protección de Redstone">
-          <div class="product-tagline">Bloque de protección · 1 Chunk</div>
-          <h3 class="product-title">Protección de Redstone (1 Chunk)</h3>
-          <p class="product-desc">Protege exactamente un chunk completo, ideal para granjas técnicas.</p>
-          <div class="product-footer">
-            <span class="price">8.00 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/protecciones/lapislazuli.png" alt="Protección de Lapislázuli">
-          <div class="product-tagline">Bloque de protección · 60x60</div>
-          <h3 class="product-title">Protección de Lapislázuli (60x60)</h3>
-          <p class="product-desc">La protección más grande, pensada para mega proyectos y ciudades.</p>
-          <div class="product-footer">
-            <span class="price">10.00 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
+        <article class="info-card">
+          <strong>3. Confirmas por Discord</strong><br />
+          Tras pagar, abres un ticket en el Discord de Grimward SMP enviando tu comprobante,
+          tu nick (el mismo que aparece arriba) y el producto que has comprado. Desde ahí se
+          entregan rangos, llaves, mascotas, kits o packs especiales de forma manual y transparente.
         </article>
       </div>
     </section>
 
-    <!-- MASCOTAS -->
-    <section id="mascotas">
-      <h2 class="section-title">Mascotas</h2>
-      <p class="section-subtitle">
-        Compañeros cúbicos con personalidad propia. Todas las mascotas son puramente cosméticas,
-        pero muchas se han convertido en símbolos dentro de la comunidad de Grimward.
+    <!-- CONTACTO / REDES -->
+    <section id="contacto">
+      <h2 class="section-title">Contacto y soporte</h2>
+      <p style="color:var(--muted); font-size:0.95rem; line-height:1.7; max-width:720px;">
+        Todo el soporte se gestiona a través de Discord. Si tienes dudas sobre pagos, recompensas,
+        fechas de apertura o cualquier tema relacionado con Grimward SMP o Espermadeath: Origins,
+        utiliza siempre los canales oficiales:
       </p>
-
-      <div class="grid">
-
-        <article class="product-card">
-          <img src="/assets/mascotas/totem-of-moss.png" alt="Totem Of Moss">
-          <h3 class="product-title">Totem Of Moss</h3>
-          <p class="product-desc">
-            Forjado por la misma tierra y adornado con el suave manto del musgo, el Totem of Moss
-            es un pequeño golem que encarna la calma del bosque y la fuerza de la piedra. Perfecto
-            para aventuras tranquilas o para decorar reinos druídicos.
-          </p>
-          <div class="product-footer">
-            <span class="price">2 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
+      <div class="info-grid" style="margin-top:1.2rem;">
+        <article class="info-card">
+          <strong>Discord</strong><br />
+          Servidor oficial de Grimward SMP:<br />
+          <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">https://discord.gg/EWRyq4Hsjt</a><br /><br />
+          Ahí podrás abrir tickets, preguntar por el estado de tu compra y enterarte de los anuncios
+          del Capítulo IV y de Espermadeath: Origins.
         </article>
 
-        <article class="product-card">
-          <img src="/assets/mascotas/capibara.png" alt="Capibara">
-          <h3 class="product-title">Capibara</h3>
-          <p class="product-desc">
-            Capybara / carpincho cúbico, adorable y calmado, con cuerpo compacto y orejitas pequeñas.
-            Ideal para quienes buscan compañía tranquila en sus viajes por el reino.
-          </p>
-          <div class="product-footer">
-            <span class="price">5 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
+        <article class="info-card">
+          <strong>YouTube</strong><br />
+          Canal principal donde se documentan proyectos, temporadas y series:<br />
+          <a href="https://www.youtube.com/@Asirtic" target="_blank">youtube.com/@Asirtic</a>
         </article>
 
-        <article class="product-card">
-          <img src="/assets/mascotas/dragon-aether.png" alt="Dragón del Aether">
-          <h3 class="product-title">Dragón del Aether</h3>
-          <p class="product-desc">
-            ¿Listo para dominar los cielos? El Aether Dragon llega desde las alturas no solo como
-            adorno, sino como un ícono de poder, además de una mascota fiel que te acompaña en todas
-            tus aventuras.
-          </p>
-          <div class="product-footer">
-            <span class="price">10 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/mascotas/ghastling.png" alt="Ghastling">
-          <h3 class="product-title">Ghastling</h3>
-          <p class="product-desc">
-            Versión amigable y juguetona del Ghast, con una sonrisa encantadora y un aspecto que
-            te hará sonreír cada vez que la veas. Pequeño, flotante y adorable.
-          </p>
-          <div class="product-footer">
-            <span class="price">6 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/mascotas/guardia-real.png" alt="Guardia Real">
-          <h3 class="product-title">Guardia Real</h3>
-          <p class="product-desc">
-            Este imponente guardia está listo para vigilar tu base, proteger tus cofres (al menos
-            con la mirada) y acompañarte con orgullo en tus viajes.
-          </p>
-          <div class="product-footer">
-            <span class="price">1 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/mascotas/knight.png" alt="Knight">
-          <h3 class="product-title">Knight</h3>
-          <p class="product-desc">
-            Un caballero cúbico como salido de una cruzada gloriosa, listo para seguirte a donde
-            vayas con honor, espada en mano y cruz roja al frente.
-          </p>
-          <div class="product-footer">
-            <span class="price">1.50 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/mascotas/bebe-leviatan.png" alt="Bebé Leviatán">
-          <h3 class="product-title">Bebé Leviatán</h3>
-          <p class="product-desc">
-            Desde las profundidades abisales llega este tierno pero majestuoso Leviatán Bebé,
-            versión adorable del titán marino más temido del Cataclysm.
-          </p>
-          <div class="product-footer">
-            <span class="price">7 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/mascotas/modern-remnant.png" alt="Modern Remnant">
-          <h3 class="product-title">Modern Remnant</h3>
-          <p class="product-desc">
-            Esqueleto de aspecto regio desenterrado de antiguas ruinas. Una mascota fiel con
-            espíritu ancestral que da presencia a cualquier sala del trono.
-          </p>
-          <div class="product-footer">
-            <span class="price">4 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img src="/assets/mascotas/skeletosaurus.png" alt="Skeletosaurus">
-          <h3 class="product-title">Skeletosaurus</h3>
-          <p class="product-desc">
-            Desde eras prehistóricas hasta tu inventario, el Skeletosaurus es perfecto para
-            quienes quieren llevar un fósil viviente a su lado.
-          </p>
-          <div class="product-footer">
-            <span class="price">5 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- KITS PAYPAL -->
-    <section id="kits">
-      <h2 class="section-title">Kits de apoyo por PayPal</h2>
-      <p class="section-subtitle">
-        Estos kits <strong>no otorgan rangos adicionales</strong> ni ventajas permanentes; son paquetes
-        especiales pensados para apoyar el mantenimiento de Grimward SMP de forma directa a través
-        de <strong>PayPal</strong>. Todo se entrega manualmente mediante ticket.
-      </p>
-
-      <div class="grid">
-        <article class="product-card">
-          <h3 class="product-title">Kit Colaborador</h3>
-          <p class="product-desc">
-            Kit de apoyo pensado para quienes quieren ayudar al servidor con una contribución
-            moderada. Incluye recursos útiles, materiales valiosos y algún detalle cosmético
-            para distinguir tu paso por esta temporada.
-          </p>
-          <div class="product-footer">
-            <span class="price">6 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar</a>
-          </div>
-          <p class="notice">
-            Tras pagar, abre un ticket en Discord indicando “Kit Colaborador” y tu nick de Minecraft.
-          </p>
-        </article>
-
-        <article class="product-card">
-          <h3 class="product-title">Kit Sponsor</h3>
-          <p class="product-desc">
-            Versión ampliada del kit de apoyo, pensada para quienes desean sostener el proyecto
-            a lo largo de la temporada. Incluye más recursos, mejores materiales y extras cosméticos,
-            sin convertir el servidor en pay to win.
-          </p>
-          <div class="product-footer">
-            <span class="price">13 €</span>
-            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar</a>
-          </div>
-          <p class="notice">
-            Tras el pago, abre un ticket con el concepto “Kit Sponsor” y tu nick de Minecraft
-            para recibir tu contenido.
-          </p>
+        <article class="info-card">
+          <strong>Arte y anuncios</strong><br />
+          Arte, adelantos visuales y anuncios rápidos en X (Twitter):<br />
+          <a href="https://x.com/_Asirtic" target="_blank">@_Asirtic</a>
         </article>
       </div>
     </section>
-
   </main>
 
   <footer class="footer">
-    Grimward SMP · Peanut Reborn Studios
-    <br><br>
-    Discord: <a href="https://discord.gg/EWRyq4Hsjt">Únete aquí</a>
-    <br>
-    YouTube: <a href="https://www.youtube.com/@Asirtic">Asirtic</a>
-    <br>
-    Twitter / Art: <a href="https://x.com/_Asirtic">_Asirtic</a>
+    Peanut Reborn Studios · Todos los derechos reservados
   </footer>
 
   <script>
-    // MISMO SISTEMA DE NICK QUE EN EL INDEX
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
     function updateUserBar() {
@@ -928,7 +582,7 @@
       const loginBtn = document.getElementById('btn-login');
       const logoutBtn = document.getElementById('btn-logout');
 
-      if (!greetEl || !inputEl || !loginBtn || !logoutBtn || !currentEl) {
+      if (!greetEl || !inputEl || !loginBtn || !logoutBtn) {
         return;
       }
 
@@ -966,6 +620,5 @@
 
     document.addEventListener('DOMContentLoaded', updateUserBar);
   </script>
-
 </body>
 </html>
