@@ -186,6 +186,33 @@
       color: var(--muted);
       margin-bottom: 1rem;
     }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .social-card {
+      background: rgba(5, 5, 16, 0.8);
+      border-radius: 0.9rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .social-name {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .social-link {
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .social-link:hover {
+      text-decoration: underline;
+    }
+
     .footer {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding: 1.4rem 1.5rem 1.8rem;
@@ -212,7 +239,7 @@
       <div class="logo">Peanut Reborn Studios</div>
       <nav>
         <a href="#proyectos">Proyectos</a>
-        <a href="#tienda">Tienda</a>
+        <a href="#redes">Redes</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -222,19 +249,22 @@
     <section class="hero">
       <div>
         <h1>
-          Tu centro oficial para
+          Centro oficial de
           <span>Grimward SMP</span> y
           <span>Espermadeath: Origins</span>
         </h1>
 
         <p>
-          Aquí podrás encontrar todos los paquetes digitales, rangos y contenido especial para tus proyectos.
-          Pagos seguros mediante PayPal, gestión honesta y transparente por parte de Peanut Reborn Studios.
+          Esta es la página oficial donde se gestionan las tiendas digitales y el apoyo
+          directo a los proyectos de Peanut Reborn Studios. Todo el soporte y la entrega
+          de recompensas se gestiona de forma honesta y manual, a través de Discord.
         </p>
 
         <div class="hero-actions">
-          <a href="/grimward/" class="btn btn-primary">Tienda Grimward SMP →</a>
-          <a href="/origins/" class="btn btn-outline">Tienda Espermadeath: Origins →</a>
+          <a href="/grimward/" class="btn btn-primary">Ir a la tienda de Grimward SMP →</a>
+          <a href="https://discord.gg/EWRyq4Hsjt" target="_blank" class="btn btn-outline">
+            Entrar al Discord / Abrir ticket
+          </a>
         </div>
       </div>
 
@@ -251,42 +281,68 @@
           <article class="project-card">
             <div class="project-title">Grimward SMP</div>
             <div class="project-desc">
-              Servidor survival con progresión única, economía personalizada y eventos diseñados a mano.
+              Servidor survival con rangos, llaves especiales, mascotas y kits de apoyo.
+              La tienda oficial se gestiona desde esta web.
             </div>
-            <div class="project-tag">Tienda y rangos próximamente</div>
+            <div class="project-tag">Tienda activa</div>
           </article>
 
           <article class="project-card">
             <div class="project-title">Espermadeath: Origins</div>
             <div class="project-desc">
-              Serie especial de un solo mes con dificultad progresiva, bosses personalizados y recompensas visuales.
+              Serie especial de un mes con dificultad progresiva y bosses personalizados.
+              Muy pronto contará con su propia sección y tienda dedicada.
             </div>
-            <div class="project-tag">Soporte al proyecto mediante packs</div>
+            <div class="project-tag">Próximamente</div>
           </article>
         </div>
       </aside>
     </section>
 
-    <section id="tienda">
-      <h2 class="section-title">Tienda (muy pronto)</h2>
-      <p style="color: var(--muted); font-size: 0.95rem;">
-        Aquí aparecerán los paquetes de <strong>Grimward SMP</strong> y <strong>Espermadeath: Origins</strong>.
-        En la siguiente fase conectaremos todo con PayPal y listas de productos que tú podrás editar fácilmente.
+    <section id="redes">
+      <h2 class="section-title">Redes oficiales</h2>
+      <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0.7rem;">
+        Estas son las únicas redes oficiales de Peanut Reborn Studios / Asirtic relacionadas
+        con Grimward SMP y Espermadeath: Origins.
       </p>
+
+      <div class="social-grid">
+        <div class="social-card">
+          <div class="social-name">Discord (Soporte & Comunidad)</div>
+          <a class="social-link" href="https://discord.gg/EWRyq4Hsjt" target="_blank">
+            https://discord.gg/EWRyq4Hsjt
+          </a>
+        </div>
+        <div class="social-card">
+          <div class="social-name">YouTube – Asirtic</div>
+          <a class="social-link" href="https://www.youtube.com/@Asirtic" target="_blank">
+            https://www.youtube.com/@Asirtic
+          </a>
+        </div>
+        <div class="social-card">
+          <div class="social-name">X (Art / Actualizaciones)</div>
+          <a class="social-link" href="https://x.com/_Asirtic" target="_blank">
+            https://x.com/_Asirtic
+          </a>
+        </div>
+      </div>
     </section>
 
     <section id="contacto">
       <h2 class="section-title">Contacto / Soporte</h2>
       <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.6;">
-        • Correo de soporte: <strong>tu-correo@ejemplo.com</strong><br />
-        • Discord: <strong>tu usuario de Discord</strong><br /><br />
-        Aquí explicarás cómo entregas los artículos tras el pago por PayPal.
+        Todo el soporte se gestiona exclusivamente mediante Discord.<br /><br />
+        • Únete al servidor de Discord con el enlace de arriba.<br />
+        • Abre un ticket en el canal correspondiente indicando tu usuario de Minecraft,
+          el producto que compraste y el comprobante de pago de PayPal.<br /><br />
+        De esta forma se validan las compras y se entregan los rangos, llaves, mascotas
+        o kits dentro de Grimward SMP.
       </p>
     </section>
   </main>
 
   <footer class="footer">
-    Peanut Reborn Studios · Todos los derechos reservados
+    Peanut Reborn Studios · Asirtic · Todos los derechos reservados
   </footer>
 </body>
 </html>
