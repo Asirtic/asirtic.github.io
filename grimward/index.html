@@ -17,8 +17,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     body {
       background: radial-gradient(circle at top, #191938 0, #050510 55%);
@@ -31,11 +30,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: linear-gradient(
-        to bottom,
-        rgba(5, 5, 16, 0.95),
-        rgba(5, 5, 16, 0.7)
-      );
+      background: linear-gradient(to bottom, rgba(5, 5, 16, 0.95), rgba(5, 5, 16, 0.7));
     }
     .nav {
       max-width: 1100px;
@@ -87,9 +82,19 @@
       font-size: 0.95rem;
       margin-bottom: 2rem;
     }
+    .category {
+      margin-bottom: 2.3rem;
+    }
+    .category-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
     .product-card {
@@ -144,6 +149,15 @@
       color: #1b1307;
       font-weight: 600;
     }
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--muted);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     .notice {
       margin-top: 2rem;
       font-size: 0.85rem;
@@ -168,7 +182,7 @@
       <nav>
         <a href="/">Inicio</a>
         <a href="/grimward/">Grimward SMP</a>
-        <a href="/origins/">Espermadeath: Origins</a>
+        <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">Discord / Ticket</a>
       </nav>
     </div>
   </header>
@@ -180,53 +194,265 @@
 
     <h1 class="title">Grimward SMP – Tienda Oficial</h1>
     <p class="subtitle">
-      Aquí encontrarás los rangos y paquetes digitales para apoyar el servidor survival.
-      Esta es una versión base; pronto conectaremos los botones con PayPal.
+      Aquí podrás apoyar el servidor Grimward SMP adquiriendo rangos, llaves especiales,
+      mascotas y kits de apoyo. Todos los pagos se validan manualmente mediante Discord
+      y PayPal.
     </p>
 
-    <div class="grid">
-      <article class="product-card">
-        <div>
-          <div class="product-tagline">Rango inicial</div>
-          <h2 class="product-title">Rango Explorador</h2>
-          <p class="product-desc">
-            Acceso a comandos básicos, pequeños boosts de calidad de vida y reconocimiento
-            dentro del servidor Grimward SMP.
-          </p>
-        </div>
-        <div class="product-footer">
-          <span class="price">5 €</span>
-          <a class="btn btn-primary" href="#"
-            >Comprar (PayPal próximamente)</a>
-        </div>
-      </article>
+    <!-- Rangos -->
+    <section class="category" id="rangos">
+      <h2 class="category-title">Rangos</h2>
+      <div class="grid">
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Rango mensual</div>
+            <h3 class="product-title">Rango Caballero</h3>
+            <p class="product-desc">
+              Primer rango de pago por encima de Vasallo. Ideal para quienes quieren
+              apoyar el servidor y obtener mejoras básicas de calidad de vida.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">4 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
 
-      <article class="product-card">
-        <div>
-          <div class="product-tagline">Paquete de apoyo</div>
-          <h2 class="product-title">Pack Fundador Grimward</h2>
-          <p class="product-desc">
-            Incluye rango especial de fundador, cosméticos exclusivos y mención en el
-            proyecto. Ideal para apoyar el desarrollo inicial.
-          </p>
-        </div>
-        <div class="product-footer">
-          <span class="price">15 €</span>
-          <a class="btn btn-primary" href="#"
-            >Comprar (PayPal próximamente)</a>
-        </div>
-      </article>
-    </div>
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Rango mensual</div>
+            <h3 class="product-title">Rango Barón</h3>
+            <p class="product-desc">
+              Rango intermedio con más ventajas, prestigio y acceso a mejores beneficios
+              dentro del servidor.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">9 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Rango mensual</div>
+            <h3 class="product-title">Rango Feudal</h3>
+            <p class="product-desc">
+              Rango superior orientado a quienes quieren apoyar fuertemente el proyecto,
+              con ventajas destacadas y reconocimiento dentro de la comunidad.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">15 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Llaves Dragón -->
+    <section class="category" id="llaves">
+      <h2 class="category-title">Llaves Dragón</h2>
+      <div class="grid">
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Cofre mágico</div>
+            <h3 class="product-title">1 Llave Dragón</h3>
+            <p class="product-desc">
+              Una única llave para probar suerte y acceder a encantamientos especiales.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">1 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Pack ahorro</div>
+            <h3 class="product-title">6 Llaves Dragón</h3>
+            <p class="product-desc">
+              Paquete con mejor relación calidad/precio para quienes quieren varias tiradas.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">4 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Pack avanzado</div>
+            <h3 class="product-title">15 Llaves Dragón</h3>
+            <p class="product-desc">
+              Opción ideal para cazadores de encantamientos poco comunes.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">8 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Pack masivo</div>
+            <h3 class="product-title">30 Llaves Dragón</h3>
+            <p class="product-desc">
+              Para quienes quieren ir con todo y aprovechar al máximo las cajas mágicas.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">15 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Mascotas -->
+    <section class="category" id="mascotas">
+      <h2 class="category-title">Mascotas</h2>
+      <div class="grid">
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Compañero fiel</div>
+            <h3 class="product-title">Guardia Real</h3>
+            <p class="product-desc">
+              Un guardia leal que te acompaña en tus aventuras como símbolo de protección.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">1 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Compañero fiel</div>
+            <h3 class="product-title">Knight</h3>
+            <p class="product-desc">
+              Mascota temática de caballero, perfecta para acompañar tu rango.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">1.50 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Tótem</div>
+            <h3 class="product-title">Totem Of Moss</h3>
+            <p class="product-desc">
+              Un compañero con estética única vinculada a la naturaleza y la vida.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">2 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Raro</div>
+            <h3 class="product-title">Modern Remnant</h3>
+            <p class="product-desc">
+              Mascota de estética misteriosa y moderna, para destacar entre la multitud.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">4 €</span>
+            <a class="btn btn-primary" href="#">
+              Comprar (PayPal próximamente)
+            </a>
+          </div>
+        </article>
+
+        <!-- Puedes seguir añadiendo las demás mascotas (Skeletosaurus, Capibara, etc.) igual que estas -->
+      </div>
+    </section>
+
+    <!-- Kits Sponsor/Colaborador -->
+    <section class="category" id="kits">
+      <h2 class="category-title">Kits especiales (Colaborador & Sponsor)</h2>
+      <div class="grid">
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Apoyo directo</div>
+            <h3 class="product-title">Kit Colaborador</h3>
+            <p class="product-desc">
+              Kit exclusivo para quienes aportan 6 € directamente al servidor. Incluye
+              objetos personalizados, recursos valiosos y skins visuales exclusivas.
+              La entrega se gestiona manualmente vía Discord tras el pago.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">6 €</span>
+            <a class="btn btn-outline" href="https://paypal.me/asirtic/6" target="_blank">
+              Pagar por PayPal
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Apoyo máximo</div>
+            <h3 class="product-title">Kit Sponsor</h3>
+            <p class="product-desc">
+              Kit premium para quienes desean apoyar el proyecto con 13 €. Incluye equipo
+              poderoso, mascotas, Monedovich y skins exclusivas. Entrega manual vía Discord.
+            </p>
+          </div>
+          <div class="product-footer">
+            <span class="price">13 €</span>
+            <a class="btn btn-outline" href="https://paypal.me/asirtic/13" target="_blank">
+              Pagar por PayPal
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <p class="notice">
-      ⚠️ Nota: Los precios y contenidos de los paquetes son de ejemplo. Más adelante
-      ajustaremos todo a los precios reales y conectaremos los botones a PayPal usando
-      tu cuenta.
+      ⚠️ Tras realizar cualquier pago, es obligatorio abrir un ticket en el servidor de Discord
+      (<a href="https://discord.gg/EWRyq4Hsjt" target="_blank" style="color: var(--accent); text-decoration: none;">https://discord.gg/EWRyq4Hsjt</a>)
+      indicando:<br />
+      • Tu usuario de Minecraft<br />
+      • Qué producto compraste<br />
+      • Captura o ID del pago de PayPal<br /><br />
+      Las entregas se realizan manualmente por Asirtic para garantizar que todo se gestiona
+      de forma segura y honesta.
     </p>
   </main>
 
   <footer class="footer">
-    Peanut Reborn Studios · Grimward SMP
+    Peanut Reborn Studios · Grimward SMP · Todos los derechos reservados
   </footer>
 </body>
 </html>
