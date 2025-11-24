@@ -46,6 +46,7 @@
       text-transform: uppercase;
       font-size: 0.95rem;
       color: var(--accent);
+      text-decoration: none;
     }
     nav a {
       margin-left: 1.5rem;
@@ -236,7 +237,7 @@
 <body>
   <header>
     <div class="nav">
-      <div class="logo">Peanut Reborn Studios</div>
+      <a href="/" class="logo">Peanut Reborn Studios</a>
       <nav>
         <a href="#proyectos">Proyectos</a>
         <a href="#redes">Redes</a>
@@ -255,9 +256,9 @@
         </h1>
 
         <p>
-          Esta es la página oficial donde se gestionan las tiendas digitales y el apoyo
-          directo a los proyectos de Peanut Reborn Studios. Todo el soporte y la entrega
-          de recompensas se gestiona de forma honesta y manual, a través de Discord.
+          Aquí se gestionan las tiendas digitales y el apoyo directo a los proyectos
+          de Peanut Reborn Studios. Todas las recompensas se entregan de forma
+          honesta y manual a través de Discord, sin intermediarios externos.
         </p>
 
         <div class="hero-actions">
@@ -268,7 +269,7 @@
         </div>
       </div>
 
-      <aside class="hero-card">
+      <aside class="hero-card" id="proyectos">
         <h2>Proyectos activos</h2>
 
         <div class="badge-row">
@@ -277,12 +278,13 @@
           <span class="badge">Contenido exclusivo</span>
         </div>
 
-        <div class="projects-grid" id="proyectos">
+        <div class="projects-grid">
           <article class="project-card">
             <div class="project-title">Grimward SMP</div>
             <div class="project-desc">
-              Servidor survival con rangos, llaves especiales, mascotas y kits de apoyo.
-              La tienda oficial se gestiona desde esta web.
+              Servidor survival principal de Peanut Reborn Studios. Progresión cuidada,
+              rangos especiales, llaves antiguas, mascotas únicas y eventos diseñados
+              a mano. Toda la tienda oficial se centraliza en esta web.
             </div>
             <div class="project-tag">Tienda activa</div>
           </article>
@@ -290,10 +292,11 @@
           <article class="project-card">
             <div class="project-title">Espermadeath: Origins</div>
             <div class="project-desc">
-              Serie especial de un mes con dificultad progresiva y bosses personalizados.
-              Muy pronto contará con su propia sección y tienda dedicada.
+              Serie-evento limitada con dificultad progresiva, bosses personalizados
+              y narrativa propia. Prevista para mediados de 2026, contará con su
+              propia sección y sistema de apoyo independiente.
             </div>
-            <div class="project-tag">Próximamente</div>
+            <div class="project-tag">Próximamente en 2026</div>
           </article>
         </div>
       </aside>
@@ -302,8 +305,8 @@
     <section id="redes">
       <h2 class="section-title">Redes oficiales</h2>
       <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0.7rem;">
-        Estas son las únicas redes oficiales de Peanut Reborn Studios / Asirtic relacionadas
-        con Grimward SMP y Espermadeath: Origins.
+        Estas son las únicas redes oficiales de Peanut Reborn Studios / Asirtic para
+        Grimward SMP y Espermadeath: Origins.
       </p>
 
       <div class="social-grid">
@@ -333,10 +336,10 @@
       <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.6;">
         Todo el soporte se gestiona exclusivamente mediante Discord.<br /><br />
         • Únete al servidor de Discord con el enlace de arriba.<br />
-        • Abre un ticket en el canal correspondiente indicando tu usuario de Minecraft,
-          el producto que compraste y el comprobante de pago de PayPal.<br /><br />
-        De esta forma se validan las compras y se entregan los rangos, llaves, mascotas
-        o kits dentro de Grimward SMP.
+        • Abre un ticket indicando tu usuario de Minecraft, el producto que compraste
+          y el comprobante de pago de PayPal.<br /><br />
+        Desde ahí se validan las compras y se entregan rangos, llaves, mascotas o kits
+        dentro de Grimward SMP.
       </p>
     </section>
   </main>
