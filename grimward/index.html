@@ -4,20 +4,229 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grimward SMP – Tienda Oficial</title>
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-card: #111122;
+      --accent: #ffb347;
+      --accent-soft: rgba(255, 179, 71, 0.15);
+      --text: #f5f5f5;
+      --muted: #aaaacc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at top, #191938 0, #050510 55%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 16, 0.95),
+        rgba(5, 5, 16, 0.7)
+      );
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 3rem;
+    }
+    .breadcrumb {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      color: var(--accent);
+    }
+    .title {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin-bottom: 0.3rem;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: rgba(5, 5, 16, 0.8);
+      border-radius: 1rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .product-tagline {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.6rem;
+    }
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+    }
+    .price {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #1b1307;
+      font-weight: 600;
+    }
+    .notice {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.4rem 1.5rem 1.8rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Grimward SMP</h1>
-  <p>Aquí aparecerán los rangos, kits y paquetes exclusivos del servidor.</p>
+  <header>
+    <div class="nav">
+      <div class="logo">Peanut Reborn Studios</div>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/grimward/">Grimward SMP</a>
+        <a href="/origins/">Espermadeath: Origins</a>
+      </nav>
+    </div>
+  </header>
 
-  <p>Muy pronto añadiremos:</p>
-  <ul>
-    <li>Rangos (Rank-ups)</li>
-    <li>Kits especiales</li>
-    <li>Cosméticos</li>
-    <li>Mascotas</li>
-    <li>Packs de apoyo</li>
-  </ul>
+  <main>
+    <div class="breadcrumb">
+      <a href="/">Inicio</a> · Grimward SMP
+    </div>
 
-  <p><a href="/">Volver al inicio</a></p>
+    <h1 class="title">Grimward SMP – Tienda Oficial</h1>
+    <p class="subtitle">
+      Aquí encontrarás los rangos y paquetes digitales para apoyar el servidor survival.
+      Esta es una versión base; pronto conectaremos los botones con PayPal.
+    </p>
+
+    <div class="grid">
+      <article class="product-card">
+        <div>
+          <div class="product-tagline">Rango inicial</div>
+          <h2 class="product-title">Rango Explorador</h2>
+          <p class="product-desc">
+            Acceso a comandos básicos, pequeños boosts de calidad de vida y reconocimiento
+            dentro del servidor Grimward SMP.
+          </p>
+        </div>
+        <div class="product-footer">
+          <span class="price">5 €</span>
+          <a class="btn btn-primary" href="#"
+            >Comprar (PayPal próximamente)</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div>
+          <div class="product-tagline">Paquete de apoyo</div>
+          <h2 class="product-title">Pack Fundador Grimward</h2>
+          <p class="product-desc">
+            Incluye rango especial de fundador, cosméticos exclusivos y mención en el
+            proyecto. Ideal para apoyar el desarrollo inicial.
+          </p>
+        </div>
+        <div class="product-footer">
+          <span class="price">15 €</span>
+          <a class="btn btn-primary" href="#"
+            >Comprar (PayPal próximamente)</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="notice">
+      ⚠️ Nota: Los precios y contenidos de los paquetes son de ejemplo. Más adelante
+      ajustaremos todo a los precios reales y conectaremos los botones a PayPal usando
+      tu cuenta.
+    </p>
+  </main>
+
+  <footer class="footer">
+    Peanut Reborn Studios · Grimward SMP
+  </footer>
 </body>
 </html>
