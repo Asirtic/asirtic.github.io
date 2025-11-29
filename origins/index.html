@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Espermadeath: Origins – Tienda Oficial</title>
+  <title>Espermadeath: Origins – Proyecto en desarrollo</title>
+  <link rel="icon" type="image/png" href="/assets/logo/logo.png">
+
   <style>
     :root {
       --bg: #050510;
@@ -25,6 +27,8 @@
       color: var(--text);
       min-height: 100vh;
     }
+
+    /* HEADER */
     header {
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(12px);
@@ -44,16 +48,31 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 1.5rem;
+      gap: 1rem;
     }
     .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+    .logo img {
+      display: block;
+      height: 28px;
+    }
+    .logo span {
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--accent);
     }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
     nav a {
-      margin-left: 1.5rem;
       text-decoration: none;
       color: var(--muted);
       font-size: 0.9rem;
@@ -61,13 +80,67 @@
     nav a:hover {
       color: var(--accent);
     }
+
+    /* BARRA DE USUARIO (MISMA QUE INDEX/GRIMWARD) */
+    .user-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.6rem 1.5rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: rgba(5, 5, 16, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .user-bar-main {
+      display: flex;
+      flex-direction: column;
+    }
+    .user-bar-main strong {
+      color: var(--text);
+    }
+    .user-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .user-input {
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    .user-input::placeholder {
+      color: #666a8f;
+    }
+    .btn-small {
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .btn-small:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 3rem;
+      padding: 3rem 1.5rem 3.5rem;
     }
+
     .breadcrumb {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--muted);
       margin-bottom: 1.5rem;
     }
@@ -78,59 +151,70 @@
     .breadcrumb a:hover {
       color: var(--accent);
     }
-    .title {
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      margin-bottom: 0.3rem;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-    .grid {
+
+    /* HERO PRINCIPAL (similar a Grimward) */
+    .hero-origins {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
     }
-    .product-card {
-      background: rgba(5, 5, 16, 0.8);
-      border-radius: 1rem;
-      padding: 1.2rem 1.3rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .product-tagline {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+    .hero-copy h1 {
+      font-size: clamp(2rem, 3.3vw, 2.6rem);
       margin-bottom: 0.6rem;
     }
-    .product-desc {
+    .hero-copy h1 span {
+      color: var(--accent);
+    }
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .hero-art {
+      background: radial-gradient(circle at top left, #242454, #0a0a18);
+      border-radius: 1.3rem;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.8);
       font-size: 0.9rem;
       color: var(--muted);
+      line-height: 1.6;
+    }
+    .hero-art h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
       margin-bottom: 0.8rem;
     }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-    }
-    .price {
-      font-weight: 600;
-      font-size: 1rem;
-    }
+
+    /* BOTONES GENERALES */
     .btn {
       border-radius: 999px;
-      padding: 0.55rem 1.2rem;
+      padding: 0.6rem 1.3rem;
       font-size: 0.85rem;
       border: 1px solid transparent;
       cursor: pointer;
@@ -144,12 +228,104 @@
       color: #1b1307;
       font-weight: 600;
     }
-    .notice {
-      margin-top: 2rem;
-      font-size: 0.85rem;
+    .btn-outline {
+      border-color: rgba(255,255,255,0.18);
+      color: var(--muted);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* SECCIONES Y CARDS */
+    .section-title {
+      font-size: 1.1rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .info-card {
+      background: rgba(5, 5, 16, 0.8);
+      border-radius: 0.9rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.6;
     }
+    .info-card strong {
+      color: var(--text);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .product-card {
+      background: rgba(5, 5, 16, 0.8);
+      border-radius: 1rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-tagline {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.4rem;
+    }
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+    .disabled-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .notice {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 0.3rem;
+      max-width: 780px;
+    }
+
     .footer {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding: 1.4rem 1.5rem 1.8rem;
@@ -159,12 +335,33 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 800px) {
+      .hero-origins {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        gap: 1rem;
+      }
+      .user-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <div class="nav">
-      <div class="logo">Peanut Reborn Studios</div>
+      <a href="/" class="logo">
+        <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios - Asirtic" />
+        <span>Peanut Reborn Studios</span>
+      </a>
       <nav>
         <a href="/">Inicio</a>
         <a href="/grimward/">Grimward SMP</a>
@@ -173,65 +370,311 @@
     </div>
   </header>
 
+  <!-- BARRA DE USUARIO COMPARTIDA -->
+  <div class="user-bar">
+    <div class="user-bar-main">
+      <span id="user-greeting">No has iniciado sesión con tu nick de Minecraft.</span>
+      <span style="font-size:0.8rem;">
+        Nick actual: <strong><span id="user-current">—</span></strong>
+      </span>
+    </div>
+    <div class="user-bar-actions">
+      <input
+        id="mcname-input"
+        class="user-input"
+        type="text"
+        placeholder="Tu nick en Grimward"
+        autocomplete="off"
+      />
+      <button id="btn-login" class="btn-small" type="button" onclick="loginMcName()">
+        Iniciar sesión
+      </button>
+      <button id="btn-logout" class="btn-small" type="button" onclick="logoutMcName()" style="display:none;">
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
+
   <main>
     <div class="breadcrumb">
       <a href="/">Inicio</a> · Espermadeath: Origins
     </div>
 
-    <h1 class="title">Espermadeath: Origins – Tienda Oficial</h1>
-    <p class="subtitle">
-      Packs especiales para apoyar la serie mensual de dificultad progresiva,
-      bosses personalizados y eventos únicos. Esta es una base visual: pronto
-      conectaremos estos paquetes con pagos reales mediante PayPal.
-    </p>
+    <!-- HERO -->
+    <section class="hero-origins">
+      <div class="hero-copy">
+        <h1><span>Espermadeath: Origins</span> · Proyecto en desarrollo</h1>
+        <p>
+          <strong>Espermadeath: Origins</strong> será una serie especial de un solo mes,
+          con dificultad progresiva, bosses personalizados, modpack propio y un enfoque
+          total en el espectáculo: muertes tensas, decisiones difíciles y mucho contenido
+          pensado para streaming y vídeos.
+        </p>
 
-    <div class="grid">
-      <article class="product-card">
-        <div>
-          <div class="product-tagline">Pack de apoyo</div>
-          <h2 class="product-title">Pack Apoyo Origins</h2>
-          <p class="product-desc">
-            Ideal si quieres apoyar el proyecto sin elementos pay-to-win.
-            Incluye reconocimiento dentro de la serie y acceso anticipado
-            a alguna información o contenido visual del proyecto.
-          </p>
+        <div class="hero-tags">
+          <span class="tag">Serie mensual</span>
+          <span class="tag">Ultrahardcore custom</span>
+          <span class="tag">Proyecto pre-cuela</span>
+          <span class="tag">En preparación</span>
         </div>
-        <div class="product-footer">
-          <span class="price">5 €</span>
-          <a class="btn btn-primary" href="#">
-            Comprar (PayPal próximamente)
-          </a>
-        </div>
-      </article>
 
-      <article class="product-card">
-        <div>
-          <div class="product-tagline">Pack cosmético</div>
-          <h2 class="product-title">Pack Visual Espermadeath</h2>
-          <p class="product-desc">
-            Pensado para recompensar a quienes apoyan el proyecto con
-            elementos estéticos: roles especiales en Discord, menciones
-            en créditos del proyecto, o recompensas visuales dentro del servidor.
-          </p>
+        <div class="hero-actions">
+          <a href="/" class="btn btn-primary">Volver al hub principal →</a>
+          <a href="/grimward/" class="btn btn-outline">Ver tienda de Grimward SMP</a>
         </div>
-        <div class="product-footer">
-          <span class="price">12 €</span>
-          <a class="btn btn-primary" href="#">
-            Comprar (PayPal próximamente)
-          </a>
-        </div>
-      </article>
-    </div>
 
-    <p class="notice">
-      ⚠️ Nota: Los precios y contenidos de estos packs son de ejemplo. Más adelante
-      los ajustaremos a lo que realmente quieras ofrecer y enlazaremos cada botón
-      con su pago en PayPal usando tu cuenta.
-    </p>
+        <p class="notice">
+          Actualmente <strong>no hay ningún pack a la venta</strong> para Origins. Toda la parte
+          económica se definirá más cerca del estreno (objetivo 2026), siempre con la idea
+          de evitar el pay to win y centrarnos en recompensas visuales o de apoyo.
+        </p>
+      </div>
+
+      <aside class="hero-art">
+        <h2>Precuela de Espermadeath II</h2>
+        <p>
+          Origins cuenta los eventos previos a <strong>Espermadeath II</strong>, situando la historia
+          en un mundo más controlado pero igual de letal. Un solo mes de servidor, reglas claras,
+          dificultad ascendente y momentos diseñados para que cada muerte importe.
+        </p>
+        <p style="margin-top:0.8rem;">
+          Aquí se irán publicando los <strong>anuncios oficiales</strong>, cambios de diseño,
+          sneak peeks del modpack y, más adelante, los posibles packs de apoyo.
+        </p>
+      </aside>
+    </section>
+
+    <!-- SECCIÓN: DE QUÉ VA ORIGINS -->
+    <section>
+      <h2 class="section-title">¿De qué tratará Espermadeath: Origins?</h2>
+      <p class="section-subtitle">
+        La idea es condensar en un solo mes una experiencia intensa, clara y muy visual.
+        No será un survival normal, sino una temporada de <strong>ultrahardcore custom</strong>
+        con reglas, eventos y bosses hechos a medida para contar una historia concreta.
+      </p>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>Formato de la serie</strong><br />
+          Temporada única de aproximadamente <strong>30 días</strong>, servidor Java con
+          modpack propio y normas pensadas para castigar los errores pero recompensar
+          la organización. Todo enfocado a que cada sesión tenga algo que contar.
+        </article>
+
+        <article class="info-card">
+          <strong>Dificultad progresiva</strong><br />
+          El mundo comenzará “jugable” pero se irá volviendo cada vez más hostil:
+          nuevas mecánicas, enemigos mejorados, eventos globales, penalizaciones
+          a la muerte y recompensas especiales para quienes sobrevivan.
+        </article>
+
+        <article class="info-card">
+          <strong>Bosses y contenido custom</strong><br />
+          Habrá uno o dos <strong>bosses principales</strong> diseñados a medida,
+          probablemente uno en el End y otro invocable en el overworld.
+          Además se integrarán sistemas de misiones, tótems personalizados
+          y una dimensión nueva dentro del mod propio.
+        </article>
+
+        <article class="info-card">
+          <strong>Enfoque para streaming</strong><br />
+          Todo el diseño (reglas, eventos, recompensas visuales) se hace pensando
+          en YouTube y Twitch: momentos clipeables, tensión constante, progresión
+          clara y una narrativa que acompañe al gameplay.
+        </article>
+      </div>
+    </section>
+
+    <!-- ESTADO ACTUAL DEL PROYECTO -->
+    <section>
+      <h2 class="section-title">Estado actual del proyecto</h2>
+      <p class="section-subtitle">
+        Origins todavía está en fase de preparación. No hay fechas finales ni tienda activa,
+        pero ya hay una ruta de trabajo clara para que el proyecto llegue fuerte cuando toque.
+      </p>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>1. Diseño de reglas y dificultades</strong><br />
+          Ajuste de mecánicas de muerte, castigos al morir, limitaciones de cura,
+          balance de mobs y definición de cómo escala la dificultad semana a semana.
+        </article>
+
+        <article class="info-card">
+          <strong>2. Mod propio y datapacks</strong><br />
+          Creación de <strong>un mod desde cero</strong> con tótems especiales,
+          dimensión exclusiva, ítems únicos y datapacks que complementen la experiencia
+          sin romper la identidad de Minecraft.
+        </article>
+
+        <article class="info-card">
+          <strong>3. Misiones y progreso de historia</strong><br />
+          Uso de sistemas tipo <strong>FTB Quests</strong> para guiar a los jugadores
+          por una progresión narrativa: objetivos claros, capítulos, recompensas visuales
+          y pistas sobre lo que está pasando en el mundo.
+        </article>
+
+        <article class="info-card">
+          <strong>4. Pruebas internas y anuncio final</strong><br />
+          Antes del lanzamiento habrá pruebas privadas, ajustes a la dificultad,
+          corrección de bugs y, cuando todo esté listo, se anunciará la fecha oficial
+          junto con los posibles packs de apoyo.
+        </article>
+      </div>
+    </section>
+
+    <!-- FUTURA TIENDA / PACKS DE APOYO -->
+    <section>
+      <h2 class="section-title">Futuros packs de apoyo (no disponibles aún)</h2>
+      <p class="section-subtitle">
+        La idea es que, llegado el momento, existan algunos <strong>packs opcionales</strong>
+        para quienes quieran apoyar el proyecto. Serán siempre complementos visuales
+        o de reconocimiento, evitando ventajas de poder directas.
+      </p>
+
+      <div class="grid">
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Idea de diseño</div>
+            <h3 class="product-title">Pack Apoyo Origins</h3>
+            <p class="product-desc">
+              Pensado para quienes quieren apoyar el proyecto de forma sencilla.
+              Podría incluir reconocimiento en créditos, algún detalle visual
+              en Discord y pequeños gestos dentro del servidor (sin ventajas de poder).
+            </p>
+          </div>
+          <div>
+            <span class="disabled-pill">En preparación – No disponible</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Idea de diseño</div>
+            <h3 class="product-title">Pack Visual Espermadeath</h3>
+            <p class="product-desc">
+              Enfocado en recompensas estéticas: skins especiales, cosméticos,
+              marcos o insignias visibles en el servidor y en Discord, pensados
+              para dejar huella de que formaste parte de Origins.
+            </p>
+          </div>
+          <div>
+            <span class="disabled-pill">En preparación – No disponible</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div>
+            <div class="product-tagline">Idea de diseño</div>
+            <h3 class="product-title">Pack Coleccionista</h3>
+            <p class="product-desc">
+              Concepto para un pack limitado con recompensas visuales únicas,
+              quizá algún NPC con tu nombre, referencias dentro del mapa
+              o elementos conmemorativos. Solo se activará si encaja con
+              la economía y el tono del proyecto.
+            </p>
+          </div>
+          <div>
+            <span class="disabled-pill">En estudio – No disponible</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="notice">
+        ⚠️ Todos los packs mostrados arriba son <strong>ideas</strong>, no productos reales.
+        No existe ningún enlace de compra activo para Origins. Cuando llegue el momento,
+        los packs definitivos se anunciarán primero en Discord y luego se activarán
+        desde el hub principal y la tienda correspondiente.
+      </p>
+    </section>
+
+    <!-- CONTACTO / DONDE SE ANUNCIARÁ TODO -->
+    <section>
+      <h2 class="section-title">Dónde se anunciará todo</h2>
+      <p class="section-subtitle">
+        Si quieres seguir el desarrollo de Espermadeath: Origins y enterarte de fechas,
+        trailers y posibles packs de apoyo, estos serán los lugares principales:
+      </p>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>Discord de Grimward / Peanut Reborn Studios</strong><br />
+          Aquí se abrirán los canales dedicados a Origins, se publicarán anuncios
+          importantes y se gestionará cualquier soporte relacionado:
+          <br /><br />
+          <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">https://discord.gg/EWRyq4Hsjt</a>
+        </article>
+
+        <article class="info-card">
+          <strong>YouTube</strong><br />
+          El lugar donde se verá la serie, avances, diarios de desarrollo y clips:
+          <br /><br />
+          <a href="https://www.youtube.com/@Asirtic" target="_blank">youtube.com/@Asirtic</a>
+        </article>
+
+        <article class="info-card">
+          <strong>Arte y adelantos rápidos</strong><br />
+          Arte conceptual, pequeñas filtraciones y anuncios cortos se publicarán en X:
+          <br /><br />
+          <a href="https://x.com/_Asirtic" target="_blank">@_Asirtic</a>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     Peanut Reborn Studios · Espermadeath: Origins
   </footer>
+
+  <script>
+    // MISMO SISTEMA DE NICK QUE EN EL INDEX / GRIMWARD
+    const PBS_KEY_MCNAME = 'pbs_mcname';
+
+    function updateUserBar() {
+      const name = localStorage.getItem(PBS_KEY_MCNAME) || '';
+      const greetEl = document.getElementById('user-greeting');
+      const currentEl = document.getElementById('user-current');
+      const inputEl = document.getElementById('mcname-input');
+      const loginBtn = document.getElementById('btn-login');
+      const logoutBtn = document.getElementById('btn-logout');
+
+      if (!greetEl || !inputEl || !loginBtn || !logoutBtn || !currentEl) {
+        return;
+      }
+
+      if (name) {
+        greetEl.textContent = 'Has iniciado sesión como: ' + name;
+        currentEl.textContent = name;
+        inputEl.style.display = 'none';
+        loginBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-flex';
+      } else {
+        greetEl.textContent = 'No has iniciado sesión con tu nick de Minecraft.';
+        currentEl.textContent = '—';
+        inputEl.style.display = 'inline-block';
+        loginBtn.style.display = 'inline-flex';
+        logoutBtn.style.display = 'none';
+      }
+    }
+
+    function loginMcName() {
+      const inputEl = document.getElementById('mcname-input');
+      if (!inputEl) return;
+      const value = (inputEl.value || '').trim();
+      if (!value) {
+        alert('Por favor, escribe un nick válido.');
+        return;
+      }
+      localStorage.setItem(PBS_KEY_MCNAME, value);
+      updateUserBar();
+    }
+
+    function logoutMcName() {
+      localStorage.removeItem(PBS_KEY_MCNAME);
+      updateUserBar();
+    }
+
+    document.addEventListener('DOMContentLoaded', updateUserBar);
+  </script>
 </body>
 </html>
