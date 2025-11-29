@@ -257,6 +257,41 @@
       border-radius: 0.8rem;
       margin-bottom: 0.9rem;
     }
+    /* Layout especial para el Starter Pack */
+.starter-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.starter-layout .starter-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.starter-layout .starter-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 25px rgba(0,0,0,0.45);
+}
+
+/* Un pelín de borde extra para que destaque */
+#starter .product-card {
+  box-shadow: 0 18px 45px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .starter-layout {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
     .product-tagline {
       font-size: 0.8rem;
       color: var(--accent);
@@ -539,16 +574,11 @@
 <section id="starter">
   <h2 class="section-title">Starter Pack · Capítulo IV</h2>
   <p class="section-subtitle">
-    Pack de apoyo para el inicio del <strong>Capítulo IV</strong> de Grimward SMP. Incluye
-    equipo avanzado para empezar la temporada con una ventaja justa sin romper el equilibrio.
+    Pack de apoyo para el inicio del <strong>Capítulo IV</strong> de Grimward SMP.
+    Incluye equipo avanzado para empezar la temporada con una ventaja justa sin romper el equilibrio.
   </p>
 
-  <div class="product-card" style="
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    align-items: center;
-    gap: 2rem;
-  ">
+  <div class="product-card starter-layout">
 
     <!-- TEXTO -->
     <div>
@@ -581,7 +611,9 @@
 
       <div class="product-footer">
         <span class="price">16 €</span>
-        <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar Starter Pack</a>
+        <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">
+          Comprar Starter Pack
+        </a>
       </div>
 
       <p class="notice">
@@ -590,6 +622,13 @@
       </p>
     </div>
 
+    <!-- IMAGEN -->
+    <div class="starter-image">
+      <img src="/assets/starterpack/spt4.png" alt="Starter Pack Capítulo IV">
+    </div>
+
+  </div>
+</section>
     <!-- IMAGEN -->
     <div style="display:flex; justify-content:center; align-items:center;">
       <img src="/assets/starterpack/spt4.png" alt="Starter Pack Capítulo IV" 
