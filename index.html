@@ -262,6 +262,17 @@
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: 1.5rem;
     }
+    .starter-thumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .starter-thumb img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 0.9rem;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.55);
+    }
     .starter-card ul {
       margin-left: 1rem;
       margin-top: 0.7rem;
@@ -449,54 +460,72 @@
     <section id="starter-pack">
       <h2 class="section-title">Novedad principal · Starter Pack Capítulo IV</h2>
       <div class="starter-card">
+        <!-- COLUMNA TEXTO -->
         <div>
-          <span class="starter-pill">Preventa limitada</span>
+          <span class="starter-pill">Nuevo · Capítulo IV</span>
           <h3 style="font-size:1.3rem; margin-bottom:0.6rem;">
-            Starter Pack – <span class="starter-highlight">Capítulo IV</span> de Grimward SMP
+            Starter Pack – <span class="starter-highlight">Grimward SMP</span>
           </h3>
-          <p style="color:var(--muted); font-size:0.96rem; line-height:1.6;">
-            Al igual que en el Capítulo III, este Starter Pack existe para apoyar el mantenimiento
-            del servidor y ayudarte a comenzar la nueva temporada con un impulso fuerte desde el día uno.
-            Se venderá <strong>antes de la apertura del capítulo</strong> y solo por tiempo limitado.
+
+          <p style="color:var(--muted); font-size:0.96rem; line-height:1.6; margin-bottom:0.7rem;">
+            Pack de apoyo para el inicio del <strong>Capítulo IV</strong> de Grimward SMP.
+            Incluye equipo muy por encima del arranque normal, pensado para quienes quieren
+            ayudar al mantenimiento del servidor y empezar la temporada con una base sólida
+            sin romper el equilibrio general.
           </p>
+
           <ul>
-            <li>Armadura y herramientas exclusivas de la temporada.</li>
-            <li>Llaves Dragón para acceder a encantamientos especiales.</li>
-            <li>Amuletos exclusivos de dimensión.</li>
-            <li>Tótem personalizado al gusto del jugador.</li>
-            <li>Mascota personalizada (en fase de diseño).</li>
-            <li>NPC personalizado dentro del mundo (idea en fase beta).</li>
+            <li><strong>8 Llaves Dragón</strong> para abrir cajas especiales.</li>
+            <li><strong>8 Charm of Keeping</strong> (mantienes tus ítems tras el respawn).</li>
+            <li><strong>10 Monedovich</strong> para la economía especial del servidor.</li>
+            <li><strong>Hasta 2 skins exclusivas</strong> diseñadas para tu personaje.</li>
+            <li><strong>Armadura de Cristal completa</strong> (Prot VI, Irromp IV, Mending).</li>
+            <li><strong>Botas de Cristal</strong> adicionales con <strong>Soul Speed III</strong>.</li>
+            <li><strong>Mascota Capibara +100 HP</strong> (Velocidad + Regeneración).</li>
+            <li><strong>Tótem personalizado</strong> con efectos y skin a tu gusto.</li>
           </ul>
+
           <p style="color:var(--muted); font-size:0.9rem; margin-top:0.9rem;">
-            Todo el contenido está en <strong>fase beta</strong> y puede ajustarse ligeramente, pero la
-            idea es clara: un pack único que <span class="starter-highlight">no se repetirá</span>
-            una vez comience el Capítulo IV.
+            Se entrega <strong>una sola vez por jugador</strong> y solo está disponible
+            durante el Capítulo IV. El contenido puede ajustarse ligeramente si el equilibrio
+            del servidor lo requiere, pero la idea es mantenerlo como un pack único
+            y exclusivo de esta temporada.
           </p>
         </div>
+
+        <!-- COLUMNA IMAGEN + CTA -->
         <div style="display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <p style="color:var(--muted); font-size:0.9rem; margin-bottom:0.6rem;">
-              La compra se realizará de forma manual mediante PayPal y confirmación por Discord.
-              Todo el proceso se gestionará de manera profesional: sin compras “por confianza”,
-              siempre con comprobante.
-            </p>
-            <p style="font-size:1.1rem; margin-bottom:0.4rem;">
-              Precio previsto: <span class="starter-highlight">10 €</span> (puede ajustarse antes del anuncio final).
-            </p>
+          <div class="starter-thumb" style="margin-bottom:1rem;">
+            <img src="/assets/starterpack/spt4.png" alt="Starter Pack Capítulo IV">
           </div>
-          <div class="hero-actions">
-            <a href="/grimward/" class="btn btn-primary">
-              Ver packs de Grimward SMP →
-            </a>
-            <a href="https://paypal.me/asirtic" target="_blank" class="btn btn-outline">
-              Ir a PayPal (pago manual)
-            </a>
+
+          <div>
+            <p style="font-size:1.05rem; margin-bottom:0.3rem;">
+              Precio: <span class="starter-highlight">16 €</span>
+            </p>
+            <p style="color:var(--muted); font-size:0.9rem; margin-bottom:0.8rem;">
+              La compra se gestiona mediante <strong>PayPal</strong> y
+              <strong>ticket en Discord</strong>, igual que el resto de productos
+              de la tienda. El <strong>detalle completo</strong> y la ficha oficial del pack
+              están en la Tienda de Grimward SMP.
+            </p>
+
+            <div class="hero-actions">
+              <a href="/grimward/#starter" class="btn btn-primary">
+                Ver Starter Pack en la tienda →
+              </a>
+              <a href="https://paypal.me/asirtic" target="_blank" class="btn btn-outline">
+                Ir a PayPal (pago manual)
+              </a>
+            </div>
           </div>
         </div>
       </div>
+
       <p style="color:var(--muted); font-size:0.85rem; margin-top:0.6rem;">
-        Nota: el Starter Pack se anunciará oficialmente en Discord con todos los detalles finales
-        antes de abrir las compras.
+        Nota: asegúrate de usar siempre tu <strong>nick de Minecraft</strong> al realizar el pago
+        y al abrir tu ticket en Discord. El Starter Pack es exclusivo del Capítulo IV y
+        <span class="starter-highlight">no se repetirá en futuras temporadas</span>.
       </p>
     </section>
 
