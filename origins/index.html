@@ -626,7 +626,7 @@
     Peanut Reborn Studios · Espermadeath: Origins
   </footer>
 
-  <script>
+    <script>
     // MISMO SISTEMA DE NICK QUE EN EL INDEX / GRIMWARD
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
@@ -676,6 +676,22 @@
 
     document.addEventListener('DOMContentLoaded', updateUserBar);
   </script>
-<script src="protect.js"></script>
+
+  <!-- 🔒 Bloqueo de click derecho y atajos -->
+  <script>
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      const key = e.key.toLowerCase();
+      if ((e.ctrlKey || e.metaKey) && (key === "s" || key === "u")) {
+        e.preventDefault();
+      }
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
+    });
+  </script>
 </body>
 </html>
