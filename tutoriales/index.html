@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutoriales – Peanut Reborn Studios</title>
+  <title>Tutoriales – Pagos & Modpack Grimward SMP</title>
   <link rel="icon" type="image/png" href="/assets/logo/logo.png">
   <style>
     :root {
@@ -79,7 +79,7 @@
       color: var(--accent);
     }
 
-    /* Barra de usuario, igual que Index */
+    /* Barra de usuario */
     .user-bar {
       max-width: 1100px;
       margin: 0 auto;
@@ -286,6 +286,33 @@
       margin-bottom: 0.2rem;
     }
 
+    /* Videos modpack */
+    .modpack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .video-card {
+      gap: 0.7rem;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 0.8rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+      margin: 0.4rem 0 0.7rem;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     .btn {
       border-radius: 999px;
       padding: 0.55rem 1.2rem;
@@ -390,259 +417,180 @@
     <!-- HERO TUTORIALES -->
     <section class="hero-tuts">
       <div class="hero-copy">
-        <h1><span>Tutoriales</span> · Centro de guías oficiales</h1>
+        <h1><span>Tutoriales</span> · Pagos & Modpack Grimward SMP</h1>
         <p>
-          Aquí encontrarás explicaciones claras sobre cómo entrar a
-          <strong>Grimward SMP</strong>, cómo funcionan los rangos de temporada,
-          cómo reclamar tus compras y, más adelante, todo lo relacionado con
-          <strong>Espermadeath: Origins</strong>.  
-          El objetivo es que nadie se pierda, aunque sea tu primer servidor.
+          Aquí tienes solo lo importante: cómo pagar bien sin liarla y cómo instalar el
+          <strong>modpack oficial de Grimward SMP</strong>, tanto si tienes cuenta
+          <strong>premium</strong> como si juegas <strong>no premium</strong>.
         </p>
         <div class="hero-tags">
-          <span class="tag">Guías para jugadores nuevos</span>
-          <span class="tag">Compras y tickets</span>
-          <span class="tag">Proyectos de Peanut Reborn Studios</span>
+          <span class="tag">Pagos seguros</span>
+          <span class="tag">Modpack oficial</span>
+          <span class="tag">Premium / No premium</span>
         </div>
         <div class="hero-actions">
-          <a href="#grimward-tuts" class="btn btn-primary">Ver tutoriales de Grimward SMP →</a>
-          <a href="#pagos" class="btn btn-outline">Cómo funcionan los pagos y tickets</a>
+          <a href="#pagos" class="btn btn-primary">Ver guía rápida de pagos →</a>
+          <a href="#modpack" class="btn btn-outline">Instalar modpack Grimward</a>
         </div>
       </div>
 
       <aside class="hero-card">
-        <h2>Cómo usar este apartado</h2>
+        <h2>Antes de empezar</h2>
         <ul>
-          <li><strong>Elige una sección</strong> según lo que quieras aprender: Grimward, pagos, etc.</li>
-          <li>
-            <strong>Lee el tutorial completo</strong> para evitar errores al pagar o al entrar al servidor.
-          </li>
-          <li>
-            <strong>Ten tu nick arriba</strong> siempre correcto: es el que usaré para entregarte las cosas.
-          </li>
-          <li>
-            Si te queda alguna duda, al final tienes un bloque dedicado a
-            <strong>soporte por Discord</strong>.
-          </li>
+          <li>Asegúrate de que tu <strong>nick arriba</strong> es el mismo que usas en el servidor.</li>
+          <li>Sigue los pasos de pagos <strong>en orden</strong> para evitar errores.</li>
+          <li>El modpack es el mismo para todos; solo cambia el método (premium / no premium).</li>
+          <li>Si algo falla, al final tienes el apartado de <strong>soporte</strong>.</li>
         </ul>
       </aside>
     </section>
 
     <!-- SUBNAV -->
     <nav class="subnav">
-      <a href="#grimward-tuts">Grimward SMP</a>
-      <a href="#origins-tuts">Espermadeath: Origins</a>
       <a href="#pagos">Pagos & tickets</a>
-      <a href="#soporte">Soporte y contacto</a>
+      <a href="#modpack">Instalar modpack Grimward SMP</a>
+      <a href="#soporte">Soporte</a>
     </nav>
-
-    <!-- SECCIÓN: GRIMWARD -->
-    <section id="grimward-tuts">
-      <h2 class="section-title">Guías para Grimward SMP</h2>
-      <p class="section-subtitle">
-        Todo lo esencial para jugar correctamente en <strong>Grimward SMP</strong>:
-        acceso, rangos de temporada y cómo se gestionan las recompensas de la tienda.
-      </p>
-
-      <div class="grid">
-        <article class="tutorial-card">
-          <div class="tutorial-meta">Grimward SMP · Paso 1</div>
-          <h3 class="tutorial-title">Cómo entrar a Grimward SMP</h3>
-          <p>
-            Para poder jugar y que tus compras tengan sentido, lo primero es entrar
-            correctamente al servidor. Los pasos básicos son:
-          </p>
-          <ul class="tutorial-list">
-            <li>Abre <strong>Minecraft Java</strong> en la versión indicada en el Discord.</li>
-            <li>Ve a <em>Multijugador</em> y añade la IP oficial de Grimward SMP (anunciada en el servidor de Discord).</li>
-            <li>Conéctate y espera a que cargue el lobby o el mundo survival.</li>
-            <li>
-              Únete al <strong>Discord oficial</strong> para estar al día de
-              capítulos, eventos y noticias:  
-              <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">discord.gg/EWRyq4Hsjt</a>.
-            </li>
-          </ul>
-          <p>
-            Una vez dentro, ya puedes usar tu nick para compras, tickets y todo
-            lo relacionado con la tienda web.
-          </p>
-        </article>
-
-        <article class="tutorial-card">
-          <div class="tutorial-meta">Grimward SMP · Rangos</div>
-          <h3 class="tutorial-title">Cómo funcionan los rangos de temporada</h3>
-          <p>
-            Los rangos como <strong>Caballero</strong>, <strong>Barón</strong> o
-            <strong>Feudal</strong> pertenecen a un <strong>Capítulo concreto</strong>
-            del servidor. Eso significa:
-          </p>
-          <ul class="tutorial-list">
-            <li>Solo son válidos durante el <strong>Capítulo/temporada actual</strong>.</li>
-            <li>Cuando empieza un nuevo Capítulo, el mundo y los rangos se reinician.</li>
-            <li>El apoyo que has dado se respeta, y se reflejará en futuras temporadas con nuevas oportunidades.</li>
-            <li>
-              En la tienda de Grimward puedes ver siempre <strong>qué Capítulo está activo</strong>
-              y qué incluye cada rango en esa temporada.
-            </li>
-          </ul>
-          <p>
-            Esto mantiene el servidor fresco y equilibrado para todos, sin ventajas permanentes
-            que rompan el juego.
-          </p>
-        </article>
-
-        <article class="tutorial-card">
-          <div class="tutorial-meta">Grimward SMP · Compras</div>
-          <h3 class="tutorial-title">Cómo reclamar tus compras correctamente</h3>
-          <p>
-            Para evitar errores y asegurarte de recibir todo lo que has pagado, sigue siempre
-            este flujo:
-          </p>
-          <ul class="tutorial-list">
-            <li>Escribe tu <strong>nick de Minecraft</strong> arriba en la barra y pulsa “Iniciar sesión”.</li>
-            <li>
-              Realiza el pago en <strong>PayPal</strong> usando el enlace oficial:
-              <a href="https://paypal.me/asirtic" target="_blank">paypal.me/asirtic</a>.
-            </li>
-            <li>
-              En la nota del pago puedes indicar el producto y tu nick
-              (por ejemplo: “Rango Barón – Capítulo IV · Nick: TuNick”).
-            </li>
-            <li>
-              Después, ve al Discord y <strong>abre un ticket</strong> adjuntando el comprobante de pago,
-              tu nick y el producto comprado.
-            </li>
-          </ul>
-          <p>
-            Todo se entrega de forma <strong>manual y transparente</strong>, por lo que seguir
-            estos pasos ahorra tiempo y evita confusiones.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN: ESPERMADEATH ORIGINS -->
-    <section id="origins-tuts">
-      <h2 class="section-title">Espermadeath: Origins</h2>
-      <p class="section-subtitle">
-        Aquí se irá recopilando toda la información importante sobre
-        <strong>Espermadeath: Origins</strong>: concepto de la serie, normas base
-        y cómo se conectará con el resto de proyectos.
-      </p>
-
-      <div class="grid">
-        <article class="tutorial-card">
-          <div class="tutorial-meta">Espermadeath: Origins · Visión general</div>
-          <h3 class="tutorial-title">¿Qué es Espermadeath: Origins?</h3>
-          <p>
-            Es una serie especial de un solo mes, con dificultad progresiva,
-            bosses personalizados y un enfoque muy visual pensado para contenido.
-          </p>
-          <p>
-            El objetivo es ofrecer una experiencia intensa, limitada en el tiempo,
-            donde cada muerte, mejora o combate tenga impacto real. Funcionará como
-            <strong>precuela</strong> de proyectos futuros.
-          </p>
-          <p>
-            A medida que se acerque la fecha, aquí se publicarán guías más concretas:
-            cómo entrar, qué mods o recursos se usan y qué reglas especiales habrá.
-          </p>
-        </article>
-
-        <article class="tutorial-card">
-          <div class="tutorial-meta">Espermadeath: Origins · Próximamente</div>
-          <h3 class="tutorial-title">Normas básicas y funcionamiento</h3>
-          <p>
-            Esta sección se reservará para explicar con detalle:
-          </p>
-          <ul class="tutorial-list">
-            <li>Normas de comportamiento dentro del servidor/evento.</li>
-            <li>Cómo funciona la progresión de dificultad.</li>
-            <li>Qué tipo de recompensas visuales o cosméticas habrá.</li>
-            <li>Qué cosas se guardan y qué cosas se pierden al terminar la serie.</li>
-          </ul>
-          <p>
-            Cuando la fecha esté más cerca, esta guía se actualizará para que puedas
-            entrar el primer día sin dudas.
-          </p>
-        </article>
-      </div>
-    </section>
 
     <!-- SECCIÓN: PAGOS -->
     <section id="pagos">
-      <h2 class="section-title">Pagos, seguridad y tickets</h2>
+      <h2 class="section-title">Pagos & tickets</h2>
       <p class="section-subtitle">
-        Todo el sistema de tienda se basa en transparencia total: pagos manuales por PayPal
-        y entrega mediante tickets en Discord. Aquí tienes el resumen paso a paso.
+        Guía rápida para que tus compras se registren sin problemas y puedas recibir rangos, kits
+        y otros paquetes de Grimward SMP sin retrasos.
       </p>
 
       <div class="grid">
         <article class="tutorial-card">
-          <div class="tutorial-meta">Pagos</div>
-          <h3 class="tutorial-title">Cómo pagar de forma correcta</h3>
-          <p>
-            Todos los pagos se realizan mediante <strong>PayPal</strong> usando
-            <a href="https://paypal.me/asirtic" target="_blank">paypal.me/asirtic</a>.
-          </p>
+          <div class="tutorial-meta">Paso a paso</div>
+          <h3 class="tutorial-title">Cómo pagar correctamente</h3>
           <ul class="tutorial-list">
-            <li>Revisa bien el <strong>precio</strong> en la web antes de pagar.</li>
+            <li>1️⃣ Escribe tu <strong>nick</strong> arriba y pulsa <em>“Iniciar sesión”</em>.</li>
+            <li>2️⃣ En la tienda, revisa bien el <strong>producto</strong> y el <strong>precio</strong>.</li>
             <li>
-              Indica en la nota: producto + Capítulo + tu nick  
-              (ejemplo: “Starter Pack Capítulo IV – Nick: TuNick”).
+              3️⃣ Paga con <strong>PayPal</strong> usando  
+              <a href="https://paypal.me/asirtic" target="_blank">paypal.me/asirtic</a>.
             </li>
             <li>
-              Asegúrate de escribir siempre el <strong>mismo nick</strong> que usas en el servidor
-              y el que aparece arriba en la barra de usuario.
+              4️⃣ En la nota de PayPal pon: producto + Capítulo + nick  
+              (ejemplo: “Rango Barón – Capítulo IV · Nick: TuNick”).
             </li>
+            <li>5️⃣ Guarda el comprobante del pago (captura o ID de transacción).</li>
           </ul>
-          <p>
-            Un pago bien descrito acelera mucho la entrega del rango, kit o mascota que hayas comprado.
-          </p>
         </article>
 
         <article class="tutorial-card">
-          <div class="tutorial-meta">Tickets</div>
-          <h3 class="tutorial-title">Cómo abrir un ticket en Discord</h3>
-          <p>
-            Después de pagar, es obligatorio abrir un ticket en el Discord oficial:
-          </p>
+          <div class="tutorial-meta">Ticket en Discord</div>
+          <h3 class="tutorial-title">Cómo reclamar tu compra</h3>
           <ul class="tutorial-list">
-            <li>Entra a <strong>discord.gg/EWRyq4Hsjt</strong>.</li>
-            <li>Busca el canal de <strong>tickets o soporte</strong>.</li>
-            <li>Abre un ticket nuevo y escribe:
+            <li>
+              1️⃣ Entra al Discord oficial:  
+              <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">discord.gg/EWRyq4Hsjt</a>.
+            </li>
+            <li>2️⃣ Ve al canal de <strong>tickets / soporte</strong>.</li>
+            <li>3️⃣ Abre un ticket nuevo.</li>
+            <li>
+              4️⃣ Escribe:
               <ul class="tutorial-list">
                 <li>Tu <strong>nick de Minecraft</strong>.</li>
                 <li>Qué has comprado exactamente.</li>
                 <li>Captura o ID del pago de PayPal.</li>
               </ul>
             </li>
+            <li>5️⃣ Espera respuesta: la entrega es manual y queda todo registrado.</li>
           </ul>
-          <p>
-            Desde ahí se coordina todo: entrega en el servidor, dudas sobre rangos, problemas
-            con kits, etc. Es el canal principal de soporte.
-          </p>
         </article>
       </div>
     </section>
 
+    <!-- SECCIÓN: MODPACK -->
+    <section id="modpack">
+      <h2 class="section-title">Instalar modpack Grimward SMP</h2>
+      <p class="section-subtitle">
+        Dos métodos para el <strong>mismo modpack oficial</strong> de Grimward SMP:
+        uno para jugadores con cuenta <strong>premium</strong> y otro para quienes usan
+        lanzadores <strong>no premium</strong>. Mira solo el vídeo que te toque.
+      </p>
+
+      <div class="modpack-grid">
+        <!-- PREMIUM -->
+        <article class="tutorial-card video-card">
+          <div class="tutorial-meta">Modpack Grimward SMP</div>
+          <h3 class="tutorial-title">Instalación para Minecraft <strong>Premium</strong></h3>
+          <p>
+            Si tienes Minecraft Java comprado, utiliza este método. El vídeo te guía paso a paso
+            para dejar el modpack listo y entrar al servidor sin errores.
+          </p>
+
+          <!-- SUSTITUYE EL ID DEL VÍDEO PREMIUM AQUÍ -->
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/ID_VIDEO_PREMIUM"
+              title="Instalar modpack Grimward SMP (Premium)"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <ul class="tutorial-list">
+            <li>Descarga del modpack desde el enlace oficial.</li>
+            <li>Instalación en el launcher correspondiente.</li>
+            <li>Selección del perfil del modpack.</li>
+            <li>Conexión al servidor de Grimward SMP.</li>
+          </ul>
+        </article>
+
+        <!-- NO PREMIUM -->
+        <article class="tutorial-card video-card">
+          <div class="tutorial-meta">Modpack Grimward SMP</div>
+          <h3 class="tutorial-title">Instalación para Minecraft <strong>No premium</strong></h3>
+          <p>
+            Si juegas con un launcher no premium, sigue este vídeo. Es el mismo modpack, pero
+            adaptado al flujo típico de lanzadores alternativos.
+          </p>
+
+          <!-- SUSTITUYE EL ID DEL VÍDEO NO PREMIUM AQUÍ -->
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/ID_VIDEO_NOPREMIUM"
+              title="Instalar modpack Grimward SMP (No premium)"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <ul class="tutorial-list">
+            <li>Preparar el launcher no premium.</li>
+            <li>Colocar el modpack en la carpeta correcta.</li>
+            <li>Asignar memoria y ajustes básicos.</li>
+            <li>Entrar al servidor con el perfil del modpack.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="section-subtitle" style="margin-top:0;">
+        Si tras seguir el vídeo sigues teniendo crasheos o errores al entrar, haz captura del mensaje
+        y coméntalo en un <strong>ticket de soporte</strong> en Discord.
+      </p>
+    </section>
+
     <!-- SECCIÓN: SOPORTE -->
     <section id="soporte">
-      <h2 class="section-title">Soporte y contacto</h2>
+      <h2 class="section-title">Soporte</h2>
       <p class="section-subtitle">
-        Si después de leer estos tutoriales sigues con dudas, siempre puedes recurrir a los
-        canales oficiales. Es mejor preguntar que asumir algo y equivocarse al pagar.
+        Si algo no funciona como en los vídeos o tienes dudas con pagos, tickets o el modpack,
+        estos son los únicos canales oficiales donde pedir ayuda.
       </p>
 
       <div class="grid">
         <article class="tutorial-card">
-          <div class="tutorial-meta">Soporte oficial</div>
-          <h3 class="tutorial-title">Dónde pedir ayuda</h3>
-          <p>
-            Los únicos canales oficiales para soporte del proyecto son:
-          </p>
+          <div class="tutorial-meta">Contactar</div>
+          <h3 class="tutorial-title">Canales oficiales</h3>
           <ul class="tutorial-list">
             <li>
-              <strong>Discord</strong> de Grimward SMP:  
+              <strong>Discord</strong> (principal para soporte):  
               <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">discord.gg/EWRyq4Hsjt</a>
             </li>
             <li>
@@ -650,13 +598,12 @@
               <a href="https://www.youtube.com/@Asirtic" target="_blank">youtube.com/@Asirtic</a>
             </li>
             <li>
-              <strong>X (Twitter)</strong> para anuncios rápidos y arte:  
+              <strong>X / Twitter</strong> (anuncios rápidos y arte):  
               <a href="https://x.com/_Asirtic" target="_blank">@_Asirtic</a>
             </li>
           </ul>
-          <p>
-            Para temas de compras, siempre prioriza <strong>el sistema de tickets</strong> en Discord.
-            Ahí queda todo registrado y es más fácil seguir cada caso.
+          <p style="margin-top:0.5rem;">
+            Para compras y problemas técnicos, usa siempre <strong>tickets en Discord</strong>.
           </p>
         </article>
       </div>
@@ -664,7 +611,7 @@
   </main>
 
   <footer class="footer">
-    Tutoriales · Grimward SMP & Espermadeath: Origins · Peanut Reborn Studios
+    Tutoriales · Grimward SMP – Peanut Reborn Studios
     <br><br>
     Discord: <a href="https://discord.gg/EWRyq4Hsjt">Únete aquí</a>
     <br>
@@ -674,7 +621,7 @@
   </footer>
 
   <script>
-    // MISMO SISTEMA DE NICK QUE EN EL INDEX
+    // SISTEMA DE NICK (igual que en el index y la tienda)
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
     function updateUserBar() {
@@ -735,7 +682,7 @@
       if ((e.ctrlKey || e.metaKey) && (key === "s" || key === "u")) {
         e.preventDefault();
       }
-      if (e.key === "F12") {
+      if (e.key === "f12") {
         e.preventDefault();
       }
     });
