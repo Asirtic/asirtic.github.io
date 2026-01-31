@@ -1,1 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora SMP – Tienda Oficial</title>
+  <link rel="icon" type="image/png" href="/assets/logo/logo.png">
 
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-card: #111122;
+      --accent: #ffb347;
+      --accent-soft: rgba(255, 179, 71, 0.15);
+      --text: #f5f5f5;
+      --muted: #aaaacc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at top, #191938 0, #050510 55%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 16, 0.95),
+        rgba(5, 5, 16, 0.7)
+      );
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+    .logo img {
+      display: block;
+      height: 28px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Barra de usuario (login por nick) */
+    .user-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.6rem 1.5rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: rgba(5, 5, 16, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .user-bar-main {
+      display: flex;
+      flex-direction: column;
+    }
+    .user-bar-main strong {
+      color: var(--text);
+    }
+    .user-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .user-input {
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    .user-input::placeholder {
+      color: #666a8f;
+    }
+    .btn-small {
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .btn-small:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 3.5rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      color: var(--accent);
+    }
+
+    .hero-shop {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero-copy h1 {
+      font-size: clamp(2rem, 3.3vw, 2.6rem);
+      margin-bottom: 0.6rem;
+    }
+    .hero-copy h1 span {
+      color: var(--accent);
+    }
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .hero-art {
+      background: radial-gradient(circle at top left, #242454, #0a0a18);
+      border-radius: 1.3rem;
+      padding: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.8);
+    }
+    .hero-art img {
+      width: 100%;
+      display: block;
+      border-radius: 1rem;
+    }
+    .hero-caption {
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .subnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0 0 2.2rem;
+    }
+    .subnav a {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      text-decoration: none;
+      background: rgba(5,5,16,0.8);
+    }
+    .subnav a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .product-card {
+      background: rgba(5, 5, 16, 0.85);
+      border-radius: 1rem;
+      padding: 1rem 1.3rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+    .product-tagline {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.3rem;
+    }
+    .product-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+    .product-list {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      padding-left: 1rem;
+    }
+    .product-list li {
+      margin-bottom: 0.2rem;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #1b1307;
+      font-weight: 600;
+    }
+    .btn-outline {
+      border-color: rgba(255,255,255,0.18);
+      color: var(--muted);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    /* Bloque info (cómo funciona) */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .info-card {
+      background: rgba(5, 5, 16, 0.8);
+      border-radius: 0.9rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .info-card strong { color: var(--text); }
+
+    /* Trailer (YouTube embed) */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+      margin-top: 1rem;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.4rem 1.5rem 1.8rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-shop { grid-template-columns: 1fr; }
+      .user-bar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="logo">
+        <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios - Asirtic" />
+      </a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/aurora/">Aurora SMP</a>
+        <a href="/origins/">Espermadeath: Origins</a>
+        <a href="/tutoriales/">Tutoriales</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BARRA DE USUARIO (nick) -->
+  <div class="user-bar">
+    <div class="user-bar-main">
+      <span id="user-greeting">No has iniciado sesión con tu nick de Minecraft.</span>
+      <span style="font-size:0.8rem;">
+        Nick actual: <strong><span id="user-current">—</span></strong>
+      </span>
+    </div>
+    <div class="user-bar-actions">
+      <input
+        id="mcname-input"
+        class="user-input"
+        type="text"
+        placeholder="Tu nick en Aurora SMP"
+        autocomplete="off"
+      />
+      <button id="btn-login" class="btn-small" type="button" onclick="loginMcName()">
+        Iniciar sesión
+      </button>
+      <button id="btn-logout" class="btn-small" type="button" onclick="logoutMcName()" style="display:none;">
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <div class="breadcrumb">
+      <a href="/">Inicio</a> · Aurora SMP · Tienda oficial
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-shop">
+      <div class="hero-copy">
+        <h1><span>Aurora SMP</span> · Tienda digital del reino</h1>
+        <p>
+          Aquí se gestionan los <strong>rangos</strong>, <strong>Monedas de Dragonita</strong> y
+          <strong>protecciones</strong> de <strong>Aurora SMP</strong>.
+          Todas las compras se validan de forma <strong>manual</strong> mediante <strong>PayPal</strong>
+          y ticket en Discord para asegurar una entrega justa y transparente.
+          El nick de Minecraft que ves arriba se usará como referencia al validar tus compras.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Servidor survival</span>
+          <span class="tag">Economía & tienda</span>
+          <span class="tag">Entrega manual</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#rangos" class="btn btn-primary">Ver rangos →</a>
+          <a href="#dragonita" class="btn btn-outline">Monedas de Dragonita</a>
+          <a href="#protecciones" class="btn btn-outline">Protecciones</a>
+          <a href="#trailer" class="btn btn-outline">Tráiler</a>
+        </div>
+
+        <p class="notice">
+          Usa siempre tu <strong>nick</strong> al pagar y al abrir ticket de soporte.
+          Si no has iniciado sesión con tu nick, hazlo arriba antes de comprar.
+        </p>
+      </div>
+
+      <aside class="hero-art">
+        <img src="/assets/rangos/elite_aurora.PNG" alt="Aurora SMP - Rango Elite" />
+        <div class="hero-caption">
+          Aurora SMP abre con tienda desde el comienzo. Los kits y contenidos pueden ajustarse si el equilibrio lo requiere.
+        </div>
+      </aside>
+    </section>
+
+    <nav class="subnav">
+      <a href="#rangos">Rangos</a>
+      <a href="#kits">Kit Sponsor</a>
+      <a href="#dragonita">Monedas de Dragonita</a>
+      <a href="#protecciones">Protecciones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#trailer">Tráiler</a>
+    </nav>
+
+    <!-- RANGOS -->
+    <section id="rangos">
+      <h2 class="section-title">Rangos de temporada</h2>
+      <p class="section-subtitle">
+        Rangos para Aurora SMP. Todo se valida mediante <strong>PayPal</strong> y ticket en <strong>Discord</strong>.
+        (Si el precio de algún rango cambia, se actualizará aquí).
+      </p>
+
+      <div class="grid">
+        <!-- PREMIUM -->
+        <article class="product-card">
+          <img src="/assets/rangos/premium_aurora.PNG" alt="Rango Premium Aurora SMP">
+          <div class="product-tagline">Rango de apoyo · Aurora</div>
+          <h3 class="product-title">Rango Premium</h3>
+          <p class="product-desc">
+            Un inicio sólido con recursos y monedas para progresar rápido sin depender de terceros.
+          </p>
+
+          <ul class="product-list">
+            <li>x1 Armadura de Diamante <strong>[Sin casco]</strong> (Protección V)</li>
+            <li>x60 Bistec</li>
+            <li>x64 Diamante</li>
+            <li>x64 Esmeralda</li>
+            <li>x64 Lingote de Oro</li>
+            <li>x64 Lingote de Hierro</li>
+            <li>x32 Zanahoria Dorada</li>
+            <li>x3 Moneda de Dragonita</li>
+            <li>x3 Monedovich</li>
+          </ul>
+
+          <div class="product-footer">
+            <span class="price">— €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
+          </div>
+
+          <p class="notice">
+            Tras pagar, abre ticket indicando “<strong>Premium – Aurora SMP</strong>” y tu nick.
+          </p>
+        </article>
+
+        <!-- VIP -->
+        <article class="product-card">
+          <img src="/assets/rangos/vip_aurora.PNG" alt="Rango VIP Aurora SMP">
+          <div class="product-tagline">Rango avanzado · Aurora</div>
+          <h3 class="product-title">Rango VIP</h3>
+          <p class="product-desc">
+            Un salto real de poder: armadura Imperium, amuletos y monedas para mantener el ritmo.
+          </p>
+
+          <ul class="product-list">
+            <li>x1 Armadura de Imperium (Protección IV, Irrompibilidad III)</li>
+            <li>x32 Diamante</li>
+            <li>x32 Esmeralda</li>
+            <li>x32 Lingote de Oro</li>
+            <li>x32 Lingote de Hierro</li>
+            <li>x64 Zanahoria Dorada</li>
+            <li>x32 Manzana Dorada</li>
+            <li>x48 Botella de Experiencia</li>
+            <li>x2 Amuleto de KeepInventory III</li>
+            <li>x2 Amuleto de la vida II</li>
+            <li>x1 Pico de Esmeralda VIP (Eficiencia IV, Irrompibilidad V)</li>
+            <li>x2 Skin Exclusiva (Alas)</li>
+            <li>x10 Monedovich</li>
+            <li>x10 Moneda de Dragonita</li>
+          </ul>
+
+          <div class="product-footer">
+            <span class="price">— €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
+          </div>
+
+          <p class="notice">
+            Tras pagar, abre ticket indicando “<strong>VIP – Aurora SMP</strong>” y tu nick.
+          </p>
+        </article>
+
+        <!-- ELITE -->
+        <article class="product-card">
+          <img src="/assets/rangos/elite_aurora.PNG" alt="Rango Elite Aurora SMP">
+          <div class="product-tagline">Élite del reino · Aurora</div>
+          <h3 class="product-title">Rango Elite</h3>
+          <p class="product-desc">
+            Equipo Imperium completo con encantamientos máximos, herramientas especiales y utilidades únicas.
+          </p>
+
+          <ul class="product-list">
+            <li>Casco de Imperium (Prot VI, Irromp V, Reparación, Respiración III, Afinidad Acuática)</li>
+            <li>Pechera de Imperium (Prot VI, Irromp V, Reparación)</li>
+            <li>Pantalones de Imperium (Prot VI, Irromp V, Reparación, Sigilo Veloz III)</li>
+            <li>Botas de Imperium (Prot VI, Irromp V, Reparación, Caída de Pluma V, Agilidad Acuática III)</li>
+            <li>x2 Jamón Ibérico</li>
+            <li>x64 Diamante</li>
+            <li>x64 Esmeralda</li>
+            <li>x64 Lingote de Oro</li>
+            <li>x64 Lingote de Hierro</li>
+            <li>x64 Manzana Dorada</li>
+            <li>x3 Skin Exclusiva (Alas)</li>
+            <li>x1 Skin Exclusiva (Outfit)</li>
+            <li>x8 Moneda de Dragonita</li>
+            <li>x8 Monedovich</li>
+            <li>x1 Culasirtic Leyenda</li>
+            <li>x1 Hacha de Goblin (Filo VI, Eficiencia VI, Irromp V, Reparación)</li>
+            <li>x1 Pala de Hueso de Dragón (Eficiencia VI, Irromp V, Reparación)</li>
+            <li>x1 Pico de Esmeralda VIP (Eficiencia IV, Irromp V)</li>
+            <li>x1 Ender Chest Portable</li>
+            <li>x4 Amuleto de KeepInventory III</li>
+            <li>x4 Amuleto de la vida II</li>
+          </ul>
+
+          <div class="product-footer">
+            <span class="price">— €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
+          </div>
+
+          <p class="notice">
+            Tras pagar, abre ticket indicando “<strong>Elite – Aurora SMP</strong>” y tu nick.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- KIT SPONSOR -->
+    <section id="kits">
+      <h2 class="section-title">Kit Sponsor</h2>
+      <p class="section-subtitle">
+        Este kit es como en Grimward: <strong>apoyo directo</strong>, con objetos y recompensas cosméticas.
+        <strong>No otorga rango</strong>. Se entrega manualmente mediante ticket.
+      </p>
+
+      <div class="grid">
+        <article class="product-card">
+          <img src="/assets/rangos/sponsor_aurora.PNG" alt="Kit Sponsor Aurora SMP">
+          <div class="product-tagline">Kit de apoyo · Sin rango</div>
+          <h3 class="product-title">Kit Sponsor</h3>
+          <p class="product-desc">
+            Pack completo para apoyar el proyecto y recibir utilidades, amuletos y skins exclusivas.
+          </p>
+
+          <ul class="product-list">
+            <li>x8 Antorcha Vidente (Visión Nocturna)</li>
+            <li>x8 Antorcha Olímpica (Velocidad)</li>
+            <li>x8 Antorcha del Cazador (Fuerza)</li>
+            <li>x8 Antorcha Vital (Regeneración)</li>
+            <li>x1 Grappling Squok</li>
+            <li>x2 Skin Exclusiva (casco)</li>
+            <li>x1 Skin Exclusiva (Outfit)</li>
+            <li>x1 Skin Exclusiva (Alas)</li>
+            <li>x6 Amuleto de la vida II</li>
+            <li>x6 Amuleto de KeepInventory III</li>
+            <li>x64 Lingote de Hierro</li>
+            <li>x64 Lingote de Oro</li>
+            <li>x64 Zanahoria Dorada</li>
+            <li>x32 Manzana Dorada</li>
+            <li>x128 Confeti</li>
+            <li>x8 Monedovich</li>
+            <li>x8 Moneda de Dragonita</li>
+          </ul>
+
+          <div class="product-footer">
+            <span class="price">13 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Pagar con PayPal</a>
+          </div>
+
+          <p class="notice">
+            Tras pagar, abre ticket indicando “<strong>Kit Sponsor – Aurora SMP</strong>” y tu nick.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MONEDAS DE DRAGONITA -->
+    <section id="dragonita">
+      <h2 class="section-title">Monedas de Dragonita</h2>
+      <p class="section-subtitle">
+        Antes conocidas como “Llaves Dragón”. Mantienen <strong>las mismas imágenes</strong> y funcionamiento,
+        pero con el nombre actualizado para Aurora SMP.
+      </p>
+
+      <div class="grid">
+        <article class="product-card">
+          <img src="/assets/llaves/1llavedragon.png" alt="1 Moneda de Dragonita">
+          <h3 class="product-title">1 Moneda de Dragonita</h3>
+          <p class="product-desc">Para una compra rápida o probar el sistema.</p>
+          <div class="product-footer">
+            <span class="price">1 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/llaves/6llavedragon.png" alt="6 Monedas de Dragonita">
+          <h3 class="product-title">6 Monedas de Dragonita</h3>
+          <p class="product-desc">Pack equilibrado para empezar con buen margen.</p>
+          <div class="product-footer">
+            <span class="price">4 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/llaves/15llavedragon.png" alt="15 Monedas de Dragonita">
+          <h3 class="product-title">15 Monedas de Dragonita</h3>
+          <p class="product-desc">Ideal para quienes quieren progreso constante.</p>
+          <div class="product-footer">
+            <span class="price">8 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/llaves/30llavesdragon.png" alt="30 Monedas de Dragonita">
+          <h3 class="product-title">30 Monedas de Dragonita</h3>
+          <p class="product-desc">Máximo valor para compras grandes y builds fuertes.</p>
+          <div class="product-footer">
+            <span class="price">15 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="notice">
+        Tras pagar, abre ticket con tu nick y la cantidad comprada.
+      </p>
+    </section>
+
+    <!-- PROTECCIONES -->
+    <section id="protecciones">
+      <h2 class="section-title">Protecciones de territorio</h2>
+      <p class="section-subtitle">
+        🧱 Protege tu base con bloques que crean una zona segura. Mismas protecciones que en Grimward,
+        con las mismas imágenes y tamaños.
+      </p>
+
+      <div class="grid">
+        <article class="product-card">
+          <img src="/assets/protecciones/carbon.png" alt="Protección de Carbón 8x8">
+          <div class="product-tagline">Bloque de protección · 8x8</div>
+          <h3 class="product-title">Protección de Carbón (8x8)</h3>
+          <p class="product-desc">Ideal para base inicial o almacén pequeño.</p>
+          <div class="product-footer">
+            <span class="price">1.20 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/hierro.png" alt="Protección de Hierro 16x16">
+          <div class="product-tagline">Bloque de protección · 16x16</div>
+          <h3 class="product-title">Protección de Hierro (16x16)</h3>
+          <p class="product-desc">Para bases medias con cofres y cultivos.</p>
+          <div class="product-footer">
+            <span class="price">2.30 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/oro.png" alt="Protección de Oro 24x24">
+          <div class="product-tagline">Bloque de protección · 24x24</div>
+          <h3 class="product-title">Protección de Oro (24x24)</h3>
+          <p class="product-desc">Perfecta para proyectos con varias estructuras.</p>
+          <div class="product-footer">
+            <span class="price">3.60 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/esmeralda.png" alt="Protección de Esmeralda 32x32">
+          <div class="product-tagline">Bloque de protección · 32x32</div>
+          <h3 class="product-title">Protección de Esmeralda (32x32)</h3>
+          <p class="product-desc">Terreno amplio para reinos en crecimiento.</p>
+          <div class="product-footer">
+            <span class="price">4.80 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/cobre.png" alt="Protección de Cobre 36x36">
+          <div class="product-tagline">Bloque de protección · 36x36</div>
+          <h3 class="product-title">Protección de Cobre (36x36)</h3>
+          <p class="product-desc">Más espacio para bases conectadas.</p>
+          <div class="product-footer">
+            <span class="price">5.60 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/diamante.png" alt="Protección de Diamante 44x44">
+          <div class="product-tagline">Bloque de protección · 44x44</div>
+          <h3 class="product-title">Protección de Diamante (44x44)</h3>
+          <p class="product-desc">Gran territorio para castillos o clanes.</p>
+          <div class="product-footer">
+            <span class="price">7.10 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/redstone.png" alt="Protección de Redstone 1 chunk">
+          <div class="product-tagline">Bloque de protección · 1 Chunk</div>
+          <h3 class="product-title">Protección de Redstone (1 Chunk)</h3>
+          <p class="product-desc">Ideal para granjas técnicas por chunk.</p>
+          <div class="product-footer">
+            <span class="price">8.00 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="/assets/protecciones/lapislazuli.png" alt="Protección de Lapislázuli 60x60">
+          <div class="product-tagline">Bloque de protección · 60x60</div>
+          <h3 class="product-title">Protección de Lapislázuli (60x60)</h3>
+          <p class="product-desc">La más grande: mega proyectos y ciudades.</p>
+          <div class="product-footer">
+            <span class="price">10.00 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank">Comprar</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="notice">
+        Tras pagar, abre ticket indicando el tipo de protección y tu nick.
+      </p>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como-funciona">
+      <h2 class="section-title">¿Cómo funciona la tienda?</h2>
+      <p class="section-subtitle">
+        Sin texto innecesario: 3 pasos y listo. Todo se gestiona por PayPal y Discord.
+      </p>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>1) Inicia sesión con tu nick</strong><br/>
+          Escribe tu nick en la barra superior y pulsa <em>Iniciar sesión</em>.
+          Ese nombre será tu referencia para validar compras.
+        </article>
+
+        <article class="info-card">
+          <strong>2) Paga por PayPal</strong><br/>
+          Realiza el pago usando el enlace oficial de PayPal. En la nota, escribe tu nick y el producto.
+        </article>
+
+        <article class="info-card">
+          <strong>3) Abre ticket en Discord</strong><br/>
+          Envía comprobante + nick + producto comprado. La entrega es manual y transparente.
+        </article>
+      </div>
+
+      <p class="notice">
+        Discord oficial: <a href="https://discord.gg/yzZRu8yTF5" target="_blank">https://discord.gg/yzZRu8yTF5</a>
+      </p>
+    </section>
+
+    <!-- TRÁILER -->
+    <section id="trailer">
+      <h2 class="section-title">Tráiler de Aurora SMP</h2>
+      <p class="section-subtitle">
+        Aquí podrás ver el tráiler principal del proyecto.
+      </p>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/F4mNqV07uls"
+          title="Tráiler Aurora SMP"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Aurora SMP · Peanut Reborn Studios
+    <br><br>
+    Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank">Únete aquí</a>
+    <br>
+    YouTube: <a href="https://www.youtube.com/@Asirtic" target="_blank">Asirtic</a>
+  </footer>
+
+  <script>
+    // Sistema de nick global
+    const PBS_KEY_MCNAME = 'pbs_mcname';
+
+    function updateUserBar() {
+      const name = localStorage.getItem(PBS_KEY_MCNAME) || '';
+      const greetEl = document.getElementById('user-greeting');
+      const currentEl = document.getElementById('user-current');
+      const inputEl = document.getElementById('mcname-input');
+      const loginBtn = document.getElementById('btn-login');
+      const logoutBtn = document.getElementById('btn-logout');
+
+      if (!greetEl || !inputEl || !loginBtn || !logoutBtn || !currentEl) return;
+
+      if (name) {
+        greetEl.textContent = 'Has iniciado sesión como: ' + name;
+        currentEl.textContent = name;
+        inputEl.style.display = 'none';
+        loginBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-flex';
+      } else {
+        greetEl.textContent = 'No has iniciado sesión con tu nick de Minecraft.';
+        currentEl.textContent = '—';
+        inputEl.style.display = 'inline-block';
+        loginBtn.style.display = 'inline-flex';
+        logoutBtn.style.display = 'none';
+      }
+    }
+
+    function loginMcName() {
+      const inputEl = document.getElementById('mcname-input');
+      if (!inputEl) return;
+      const value = (inputEl.value || '').trim();
+      if (!value) {
+        alert('Por favor, escribe un nick válido.');
+        return;
+      }
+      localStorage.setItem(PBS_KEY_MCNAME, value);
+      updateUserBar();
+    }
+
+    function logoutMcName() {
+      localStorage.removeItem(PBS_KEY_MCNAME);
+      updateUserBar();
+    }
+
+    document.addEventListener('DOMContentLoaded', updateUserBar);
+  </script>
+
+  <!-- 🔒 Bloqueo de click derecho y atajos -->
+  <script>
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      const key = e.key.toLowerCase();
+      if ((e.ctrlKey || e.metaKey) && (key === "s" || key === "u")) {
+        e.preventDefault();
+      }
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
