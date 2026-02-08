@@ -3,46 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Espermadeath: Origins – Proyecto en desarrollo</title>
+  <title>Espermadeath: Origins – Evento Permadeath</title>
+  <meta name="description" content="Espermadeath: Origins es un evento PVE técnico con permadeath real, modpack y progresión por fases. Discord es el centro para acceso, anuncios y soporte." />
   <link rel="icon" type="image/png" href="/assets/logo/logo.png">
 
   <style>
-    :root {
+    :root{
       --bg: #050510;
-      --bg-card: #111122;
-      --accent: #ffb347;
-      --accent-soft: rgba(255, 179, 71, 0.15);
+      --bg-2: #07071a;
+      --card: rgba(6, 6, 18, 0.82);
+      --card-2: rgba(12, 10, 20, 0.82);
+
+      /* Origins theme (oscuro + rojizo) */
+      --accent: #ff4d4d;
+      --accent-2: #ff7a5c;
+      --accent-soft: rgba(255, 77, 77, 0.14);
+      --accent-soft-2: rgba(255, 122, 92, 0.12);
+
       --text: #f5f5f5;
-      --muted: #aaaacc;
+      --muted: #a7a7c7;
+
+      --border: rgba(255,255,255,0.07);
+      --border-2: rgba(255,255,255,0.10);
+      --shadow: 0 18px 45px rgba(0,0,0,0.72);
+
+      /* Discord accent (sutil) */
+      --discord: #8be9ff;
+      --discord-soft: rgba(139, 233, 255, 0.14);
     }
-    * {
+
+    *{
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    body {
-      background: radial-gradient(circle at top, #191938 0, #050510 55%);
+
+    body{
+      background:
+        radial-gradient(1000px 520px at 18% 0%, rgba(255,77,77,0.14), transparent 60%),
+        radial-gradient(900px 520px at 85% 10%, rgba(255,122,92,0.10), transparent 62%),
+        radial-gradient(circle at top, #17173a 0, var(--bg) 55%),
+        radial-gradient(circle at 30% 70%, rgba(255,77,77,0.05), transparent 55%);
       color: var(--text);
       min-height: 100vh;
     }
 
-    /* HEADER */
-    header {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Top “heat line” */
+    .heat-line{
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), var(--accent), transparent);
+      opacity: 0.92;
+    }
+
+    header{
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 10;
-      background: linear-gradient(
-        to bottom,
-        rgba(5, 5, 16, 0.95),
-        rgba(5, 5, 16, 0.7)
-      );
+      background: linear-gradient(to bottom, rgba(5,5,16,0.95), rgba(5,5,16,0.72));
     }
-    .nav {
-      max-width: 1100px;
+
+    .nav{
+      max-width: 1120px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -50,340 +74,496 @@
       padding: 1rem 1.5rem;
       gap: 1rem;
     }
-    .logo {
+
+    .logo{
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.55rem;
       text-decoration: none;
     }
-    .logo img {
-      display: block;
-      height: 28px;
-    }
-    .logo span {
-      font-weight: 700;
-      letter-spacing: 0.08em;
+    .logo img{ display: block; height: 28px; }
+    .logo span{
+      font-weight: 750;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      opacity: 0.95;
+    }
+    .logo span b{
       color: var(--accent);
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    nav a:hover {
-      color: var(--accent);
+      font-weight: 850;
     }
 
-    /* BARRA DE USUARIO (MISMA QUE INDEX/GRIMWARD) */
-    .user-bar {
-      max-width: 1100px;
+    nav{
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+    nav a{
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 0.35rem 0.55rem;
+      border-radius: 999px;
+      transition: 0.15s ease;
+    }
+    nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    nav a.cta-discord{
+      border: 1px solid rgba(139,233,255,0.25);
+      background: rgba(139,233,255,0.08);
+      color: var(--text);
+    }
+    nav a.cta-discord:hover{
+      border-color: rgba(139,233,255,0.55);
+      background: rgba(139,233,255,0.12);
+    }
+
+    /* Barra de usuario (nick global) */
+    .user-bar{
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0.6rem 1.5rem 0.8rem;
+      padding: 0.65rem 1.5rem 0.85rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: var(--muted);
-      background: rgba(5, 5, 16, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5,5,16,0.80);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .user-bar-main {
+
+    .user-bar-main{
       display: flex;
       flex-direction: column;
+      gap: 0.1rem;
     }
-    .user-bar-main strong {
-      color: var(--text);
-    }
-    .user-bar-actions {
+    .user-bar-main strong{ color: var(--text); }
+
+    .user-bar-actions{
       display: flex;
       align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
-    .user-input {
-      padding: 0.4rem 0.6rem;
+
+    .user-input{
+      padding: 0.42rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.35);
       color: var(--text);
-      font-size: 0.85rem;
+      font-size: 0.86rem;
+      min-width: 210px;
+      outline: none;
     }
-    .user-input::placeholder {
-      color: #666a8f;
-    }
-    .btn-small {
+    .user-input::placeholder{ color: #6b6fa0; }
+
+    .btn-small{
       border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      font-size: 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.38rem 0.85rem;
+      font-size: 0.82rem;
+      border: 1px solid rgba(255,255,255,0.18);
       background: transparent;
       color: var(--muted);
       cursor: pointer;
+      transition: 0.15s ease;
     }
-    .btn-small:hover {
+    .btn-small:hover{
       border-color: var(--accent);
       color: var(--accent);
     }
 
-    main {
-      max-width: 1100px;
+    main{ padding-bottom: 2rem; }
+
+    section{
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 3.5rem;
+      padding: 1.2rem 1.5rem 3.2rem;
     }
 
-    .breadcrumb {
+    .breadcrumb{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 0.2rem;
+      color: var(--muted);
       font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
     }
-    .breadcrumb a {
+    .breadcrumb a{ color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover{ color: var(--accent); }
+
+    .section-title{
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       color: var(--muted);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      color: var(--accent);
+      margin-bottom: 1rem;
     }
 
-    /* HERO PRINCIPAL (similar a Grimward) */
-    .hero-origins {
+    /* HERO */
+    .hero{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.6rem 1.5rem 1.8rem;
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 2rem;
+      gap: 2.2rem;
       align-items: center;
-      margin-bottom: 2.5rem;
-    }
-    .hero-copy h1 {
-      font-size: clamp(2rem, 3.3vw, 2.6rem);
-      margin-bottom: 0.6rem;
-    }
-    .hero-copy h1 span {
-      color: var(--accent);
-    }
-    .hero-copy p {
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.1rem;
-    }
-    .tag {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    .hero-art {
-      background: radial-gradient(circle at top left, #242454, #0a0a18);
-      border-radius: 1.3rem;
-      padding: 1.3rem 1.4rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 22px 55px rgba(0,0,0,0.8);
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .hero-art h2 {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
     }
 
-    /* BOTONES GENERALES */
-    .btn {
+    .hero h1{
+      font-size: clamp(2.15rem, 3.6vw, 2.9rem);
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 900;
+    }
+
+    .hero p{
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.0rem;
+      line-height: 1.65;
+      max-width: 70ch;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn{
       border-radius: 999px;
-      padding: 0.6rem 1.3rem;
-      font-size: 0.85rem;
+      padding: 0.72rem 1.35rem;
+      font-size: 0.92rem;
       border: 1px solid transparent;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
+      transition: 0.15s ease;
+      white-space: nowrap;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #1b1307;
-      font-weight: 600;
+
+    .btn-primary{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #180b0b;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(255,77,77,0.10);
     }
-    .btn-outline {
-      border-color: rgba(255,255,255,0.18);
+
+    .btn-outline{
+      border-color: rgba(255,255,255,0.16);
       color: var(--muted);
       background: transparent;
     }
-    .btn-outline:hover {
+    .btn-outline:hover{
       border-color: var(--accent);
       color: var(--accent);
     }
 
-    /* SECCIONES Y CARDS */
-    .section-title {
-      font-size: 1.1rem;
-      margin-top: 2.5rem;
-      margin-bottom: 0.4rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+    .btn-discord{
+      border-color: rgba(139,233,255,0.25);
+      background: rgba(139,233,255,0.10);
+      color: var(--text);
     }
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-      max-width: 720px;
-      line-height: 1.6;
+    .btn-discord:hover{
+      border-color: rgba(139,233,255,0.55);
+      background: rgba(139,233,255,0.14);
     }
 
-    .info-grid {
+    /* Panel lateral HERO */
+    .hero-card{
+      background:
+        radial-gradient(circle at top left, rgba(255,77,77,0.12), rgba(10,10,24,0.95)),
+        radial-gradient(circle at bottom right, rgba(255,122,92,0.10), transparent 58%);
+      border-radius: 1.2rem;
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2{
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .badge-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .badge{
+      font-size: 0.74rem;
+      padding: 0.26rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .badge.hot{
+      background: var(--accent-soft);
+      border-color: rgba(255,77,77,0.22);
+    }
+    .badge.discord{
+      background: var(--discord-soft);
+      border-color: rgba(139,233,255,0.18);
+    }
+
+    .facts{
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.3rem;
+    }
+    .fact{
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0.95rem;
+      padding: 0.75rem 0.85rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .fact b{ color: var(--text); }
+
+    /* Info cards */
+    .info-grid{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-bottom: 2rem;
+      gap: 1.15rem;
     }
-    .info-card {
-      background: rgba(5, 5, 16, 0.8);
-      border-radius: 0.9rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.9rem;
+
+    .info-card{
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.05rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.65;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+    .info-card strong{ color: var(--text); }
+
+    /* Bullets list */
+    .bullets{
+      margin-left: 1rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.92rem;
+    }
+    .bullets li{ margin-bottom: 0.25rem; }
+
+    /* Discord Feature Block */
+    .discord-block{
+      background:
+        radial-gradient(circle at top left, rgba(139,233,255,0.12), transparent 55%),
+        linear-gradient(to bottom, rgba(5,5,16,0.92), rgba(5,5,16,0.78));
+      border: 1px solid rgba(139,233,255,0.18);
+      border-radius: 1.15rem;
+      padding: 1.35rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.65);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .discord-block h3{
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+    }
+    .discord-block p{
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0.8rem;
+      max-width: 70ch;
+    }
+    .discord-side{
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    .discord-side .mini{
+      font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.6;
+      margin-top: 0.55rem;
     }
-    .info-card strong {
+
+    /* FAQ */
+    details{
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0.9rem;
+      padding: 0.8rem 0.95rem;
+    }
+    summary{
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 750;
+      font-size: 0.95rem;
+      list-style: none;
+    }
+    summary::-webkit-details-marker{ display: none; }
+    .faq-answer{
+      margin-top: 0.6rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .faq-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Store placeholder cards */
+    .store-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+    }
+    .store-card{
+      background: rgba(5,5,16,0.66);
+      border-radius: 1rem;
+      padding: 1.05rem 1.15rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.30);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-size: 0.76rem;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .pill.soon{
+      background: var(--accent-soft);
+      border-color: rgba(255,77,77,0.22);
       color: var(--text);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .product-card {
-      background: rgba(5, 5, 16, 0.8);
+    /* Trailer */
+    .video-wrapper{
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
       border-radius: 1rem;
-      padding: 1.2rem 1.3rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.06);
     }
-    .product-tagline {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 0.4rem;
-    }
-    .product-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-    .product-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-      line-height: 1.5;
-    }
-    .disabled-pill {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.25rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+    .video-wrapper iframe{
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
     }
 
-    .notice {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-top: 0.3rem;
-      max-width: 780px;
-    }
-
-    .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    .footer{
+      border-top: 1px solid rgba(255,255,255,0.05);
       padding: 1.4rem 1.5rem 1.8rem;
       text-align: center;
       color: var(--muted);
-      font-size: 0.8rem;
-      max-width: 1100px;
+      font-size: 0.82rem;
+      max-width: 1120px;
       margin: 0 auto;
     }
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .footer a{ color: var(--accent); text-decoration: none; }
 
-    @media (max-width: 800px) {
-      .hero-origins {
+    @media (max-width: 860px){
+      .hero{
         grid-template-columns: 1fr;
+        padding-top: 2.0rem;
       }
-      nav {
-        gap: 1rem;
-      }
-      .user-bar {
+      nav{ display: none; }
+      .user-bar{
         flex-direction: column;
         align-items: flex-start;
+      }
+      .user-bar-actions{
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .user-input{ min-width: 180px; width: 100%; }
+      .discord-block{
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
+  <div class="heat-line"></div>
 
   <header>
     <div class="nav">
       <a href="/" class="logo">
-        <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios - Asirtic" />
-        <span>Peanut Reborn Studios</span>
+        <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios" />
+        <span>Peanut <b>Reborn</b> Studios</span>
       </a>
+
       <nav>
-        <a href="/">Inicio</a>
-        <a href="/grimward/">Grimward SMP</a>
-        <a href="/origins/">Espermadeath: Origins</a>
+        <a href="#que-es">Qué es</a>
+        <a href="#fechas">Fechas</a>
+        <a href="#como-entrar">Cómo entrar</a>
+        <a href="#faq">FAQ</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#teaser">Teaser</a>
+        <a href="/aurora/">Aurora</a>
+        <a href="/tutoriales/">Tutoriales</a>
+        <a class="cta-discord" href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener noreferrer">Unirse al Discord</a>
       </nav>
     </div>
   </header>
 
-  <!-- BARRA DE USUARIO COMPARTIDA -->
+  <!-- Barra de usuario -->
   <div class="user-bar">
     <div class="user-bar-main">
       <span id="user-greeting">No has iniciado sesión con tu nick de Minecraft.</span>
-      <span style="font-size:0.8rem;">
+      <span style="font-size:0.82rem;">
         Nick actual: <strong><span id="user-current">—</span></strong>
       </span>
     </div>
+
     <div class="user-bar-actions">
       <input
         id="mcname-input"
         class="user-input"
         type="text"
-        placeholder="Tu nick en Grimward"
+        placeholder="Tu nick de Minecraft (para compras y tickets)"
         autocomplete="off"
       />
       <button id="btn-login" class="btn-small" type="button" onclick="loginMcName()">
@@ -395,239 +575,345 @@
     </div>
   </div>
 
-  <main>
-    <div class="breadcrumb">
-      <a href="/">Inicio</a> · Espermadeath: Origins
+  <div class="breadcrumb">
+    <a href="/">Inicio</a> · Espermadeath: Origins
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1><span>Espermadeath: Origins</span> · Evento permadeath</h1>
+
+      <p>
+        No es un SMP “normal”. <strong>Origins</strong> es una serie/evento de supervivencia con modpack,
+        dificultad por fases y foco total en <strong>PVE técnico</strong>. La idea es simple:
+        jugar bien, adaptarte y aguantar. Si mueres, sales.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener noreferrer" class="btn btn-discord">Entrar al Discord</a>
+        <a href="#como-entrar" class="btn btn-primary">Cómo entrar →</a>
+        <a href="#teaser" class="btn btn-outline">Ver teaser</a>
+      </div>
+
+      <p style="margin-top:1rem; color:var(--muted); font-size:0.94rem; line-height:1.65; max-width:72ch;">
+        Lanzamiento estimado: <strong>2026</strong> (fecha final por anunciar). Todo se comunica primero por Discord.
+      </p>
     </div>
 
-    <!-- HERO -->
-    <section class="hero-origins">
-      <div class="hero-copy">
-        <h1><span>Espermadeath: Origins</span> · Proyecto en desarrollo</h1>
-        <p>
-          <strong>Espermadeath: Origins</strong> será una serie especial de un solo mes,
-          con dificultad progresiva, bosses personalizados, modpack propio y un enfoque
-          total en el espectáculo: muertes tensas, decisiones difíciles y mucho contenido
-          pensado para streaming y vídeos.
-        </p>
+    <aside class="hero-card">
+      <h2>Resumen rápido</h2>
+      <div class="badge-row">
+        <span class="badge hot">Permadeath real</span>
+        <span class="badge hot">PVE técnico</span>
+        <span class="badge">Evento por tiempo</span>
+        <span class="badge discord">Discord = centro</span>
+      </div>
 
-        <div class="hero-tags">
-          <span class="tag">Serie mensual</span>
-          <span class="tag">Ultrahardcore custom</span>
-          <span class="tag">Proyecto pre-cuela</span>
-          <span class="tag">En preparación</span>
+      <div class="facts">
+        <div class="fact"><b>Capacidad objetivo:</b> mínimo <strong>80 jugadores simultáneos</strong> (y los que entren si el hardware da).</div>
+        <div class="fact"><b>Regla base:</b> sin teleports de seguridad, sin estrategias rotas. Se sobrevive jugando bien.</div>
+        <div class="fact"><b>Resultado final:</b> no gana solo el “último vivo”; gana el mejor rendimiento global (juego + social).</div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section id="que-es">
+    <h2 class="section-title">Qué es</h2>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <strong>Evento, no SMP clásico</strong><br/>
+        Servidor abierto por un periodo definido. La prioridad es la serie: progresión, ritmo y retos. El mundo está pensado
+        para forzar adaptación, no para “vivir tranquilo”.
+      </article>
+
+      <article class="info-card">
+        <strong>PVE como amenaza principal</strong><br/>
+        El peligro viene del entorno, de los mobs y de la dificultad por fases. La cooperación existe porque conviene,
+        incluso cuando hay competitividad.
+      </article>
+
+      <article class="info-card">
+        <strong>Permadeath real</strong><br/>
+        Muerte = expulsión del evento. Sin “info extra” para los supervivientes. Puedes quedarte como espectador externo
+        consumiendo streams y contenido.
+      </article>
+
+      <article class="info-card">
+        <strong>Regulación para que nadie se dispare</strong><br/>
+        Parte del diseño es limitar lo que rompe el ritmo. Habrá restricciones claras (teleports fuera, exploits fuera) y
+        objetivos obligatorios para evitar que “campear casa” sea la estrategia dominante.
+      </article>
+    </div>
+  </section>
+
+  <!-- REGLAS CLAVE -->
+  <section id="reglas-clave">
+    <h2 class="section-title">Reglas clave</h2>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <strong>Lo que está fuera</strong>
+        <ul class="bullets">
+          <li>Teleports de escape / salvación.</li>
+          <li>Ítems con capacidades “raras” que rompan el reto (salvo que sean la norma del modpack).</li>
+          <li>Estrategias rotas que trivialicen el PVE.</li>
+        </ul>
+      </article>
+
+      <article class="info-card">
+        <strong>Anti-camping</strong>
+        <ul class="bullets">
+          <li>Objetivos obligatorios extra (para que moverse sea parte del juego).</li>
+          <li>Ritmo de dificultad por tandas de días.</li>
+          <li>Eventos puntuales para empujar acción sin volverse caos constante.</li>
+        </ul>
+      </article>
+
+      <article class="info-card">
+        <strong>Ventanas de respiro (posible)</strong>
+        <ul class="bullets">
+          <li>Se baraja dejar 1–2 horas con menos peligros en ciertos tramos.</li>
+          <li>Objetivo: evitar fatiga, no “bajar la dificultad”.</li>
+          <li>Si se aplica, será transparente y anunciado con antelación.</li>
+        </ul>
+      </article>
+
+      <article class="info-card">
+        <strong>Eventos / bosses</strong>
+        <ul class="bullets">
+          <li>Pocos, porque no son el foco.</li>
+          <li>Orientación: 1 cada 2–3 semanas (si encaja con el ritmo).</li>
+          <li>Recompensas por participación y actividad, no por “llevarse todo el loot”.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- FECHAS -->
+  <section id="fechas">
+    <h2 class="section-title">Fechas</h2>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <strong>Ventana de lanzamiento</strong><br/>
+        Objetivo: <strong>2026</strong> (mitad/final). La fecha exacta se anuncia cuando el modpack y la dificultad estén cerrados.
+      </article>
+
+      <article class="info-card">
+        <strong>Duración del evento</strong><br/>
+        Base: 1 mes. Puede extenderse hasta <strong>2 meses</strong> si el evento lo pide (o si aún quedan suficientes jugadores).
+      </article>
+
+      <article class="info-card">
+        <strong>Servidor abierto</strong><br/>
+        Desde apertura hasta cierre, el servidor se mantiene abierto a diario y el final llega cuando se cumple la condición del evento.
+      </article>
+
+      <article class="info-card">
+        <strong>Capacidad</strong><br/>
+        Se diseña para un mínimo de <strong>80 simultáneos</strong> y escalado si es posible. Si hay límite, se gestiona por Discord.
+      </article>
+    </div>
+  </section>
+
+  <!-- CÓMO ENTRAR -->
+  <section id="como-entrar">
+    <h2 class="section-title">Cómo entrar</h2>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <strong>1) Entra al Discord</strong><br/>
+        Ahí van anuncios, normas, descargas y soporte. Es el canal oficial.
+        <div class="hero-actions" style="margin-top:0.85rem;">
+          <a class="btn btn-discord" href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener noreferrer">Unirse al Discord</a>
         </div>
+      </article>
 
-        <div class="hero-actions">
-          <a href="/" class="btn btn-primary">Volver al hub principal →</a>
-          <a href="/grimward/" class="btn btn-outline">Ver tienda de Grimward SMP</a>
-        </div>
+      <article class="info-card">
+        <strong>2) Instala el modpack</strong><br/>
+        Se publicará con instrucciones claras y cambios versionados. Si no puedes moverte con soltura en juegos, aquí se nota.
+      </article>
 
-        <p class="notice">
-          Actualmente <strong>no hay ningún pack a la venta</strong> para Origins. Toda la parte
-          económica se definirá más cerca del estreno (objetivo 2026), siempre con la idea
-          de evitar el pay to win y centrarnos en recompensas visuales o de apoyo.
-        </p>
-      </div>
+      <article class="info-card">
+        <strong>3) Acceso y normas</strong><br/>
+        Lista, roles y procesos se gestionan por Discord. Si hay whitelist o fases, se define antes del inicio.
+      </article>
 
-      <aside class="hero-art">
-        <h2>Precuela de Espermadeath II</h2>
+      <article class="info-card">
+        <strong>4) Participa (y cuida el ambiente)</strong><br/>
+        Buen rollo y cero dramas. Si hay tensiones que afecten al evento: avisos y expulsión.
+      </article>
+    </div>
+  </section>
+
+  <!-- DISCORD -->
+  <section id="discord">
+    <h2 class="section-title">Discord</h2>
+
+    <div class="discord-block">
+      <div>
+        <h3>El centro del proyecto</h3>
         <p>
-          Origins cuenta los eventos previos a <strong>Espermadeath II</strong>, situando la historia
-          en un mundo más controlado pero igual de letal. Un solo mes de servidor, reglas claras,
-          dificultad ascendente y momentos diseñados para que cada muerte importe.
+          Origins se maneja desde Discord: anuncios, soporte, bugs, sugerencias, eventos y tickets.
+          Si quieres enterarte de fechas, reglas finales y acceso, es donde ocurre.
         </p>
-        <p style="margin-top:0.8rem;">
-          Aquí se irán publicando los <strong>anuncios oficiales</strong>, cambios de diseño,
-          sneak peeks del modpack y, más adelante, los posibles packs de apoyo.
-        </p>
-      </aside>
-    </section>
 
-    <!-- SECCIÓN: DE QUÉ VA ORIGINS -->
-    <section>
-      <h2 class="section-title">¿De qué tratará Espermadeath: Origins?</h2>
-      <p class="section-subtitle">
-        La idea es condensar en un solo mes una experiencia intensa, clara y muy visual.
-        No será un survival normal, sino una temporada de <strong>ultrahardcore custom</strong>
-        con reglas, eventos y bosses hechos a medida para contar una historia concreta.
-      </p>
+        <ul class="bullets">
+          <li>Anuncios y cambios de versión del modpack.</li>
+          <li>Soporte, reportes de bugs y sugerencias.</li>
+          <li>Eventos y comunicación rápida.</li>
+          <li>Clips semanales y recompensas por actividad.</li>
+        </ul>
 
-      <div class="info-grid">
-        <article class="info-card">
-          <strong>Formato de la serie</strong><br />
-          Temporada única de aproximadamente <strong>30 días</strong>, servidor Java con
-          modpack propio y normas pensadas para castigar los errores pero recompensar
-          la organización. Todo enfocado a que cada sesión tenga algo que contar.
-        </article>
-
-        <article class="info-card">
-          <strong>Dificultad progresiva</strong><br />
-          El mundo comenzará “jugable” pero se irá volviendo cada vez más hostil:
-          nuevas mecánicas, enemigos mejorados, eventos globales, penalizaciones
-          a la muerte y recompensas especiales para quienes sobrevivan.
-        </article>
-
-        <article class="info-card">
-          <strong>Bosses y contenido custom</strong><br />
-          Habrá uno o dos <strong>bosses principales</strong> diseñados a medida,
-          probablemente uno en el End y otro invocable en el overworld.
-          Además se integrarán sistemas de misiones, tótems personalizados
-          y una dimensión nueva dentro del mod propio.
-        </article>
-
-        <article class="info-card">
-          <strong>Enfoque para streaming</strong><br />
-          Todo el diseño (reglas, eventos, recompensas visuales) se hace pensando
-          en YouTube y Twitch: momentos clipeables, tensión constante, progresión
-          clara y una narrativa que acompañe al gameplay.
-        </article>
-      </div>
-    </section>
-
-    <!-- ESTADO ACTUAL DEL PROYECTO -->
-    <section>
-      <h2 class="section-title">Estado actual del proyecto</h2>
-      <p class="section-subtitle">
-        Origins todavía está en fase de preparación. No hay fechas finales ni tienda activa,
-        pero ya hay una ruta de trabajo clara para que el proyecto llegue fuerte cuando toque.
-      </p>
-
-      <div class="info-grid">
-        <article class="info-card">
-          <strong>1. Diseño de reglas y dificultades</strong><br />
-          Ajuste de mecánicas de muerte, castigos al morir, limitaciones de cura,
-          balance de mobs y definición de cómo escala la dificultad semana a semana.
-        </article>
-
-        <article class="info-card">
-          <strong>2. Mod propio y datapacks</strong><br />
-          Creación de <strong>un mod desde cero</strong> con tótems especiales,
-          dimensión exclusiva, ítems únicos y datapacks que complementen la experiencia
-          sin romper la identidad de Minecraft.
-        </article>
-
-        <article class="info-card">
-          <strong>3. Misiones y progreso de historia</strong><br />
-          Uso de sistemas tipo <strong>FTB Quests</strong> para guiar a los jugadores
-          por una progresión narrativa: objetivos claros, capítulos, recompensas visuales
-          y pistas sobre lo que está pasando en el mundo.
-        </article>
-
-        <article class="info-card">
-          <strong>4. Pruebas internas y anuncio final</strong><br />
-          Antes del lanzamiento habrá pruebas privadas, ajustes a la dificultad,
-          corrección de bugs y, cuando todo esté listo, se anunciará la fecha oficial
-          junto con los posibles packs de apoyo.
-        </article>
-      </div>
-    </section>
-
-    <!-- FUTURA TIENDA / PACKS DE APOYO -->
-    <section>
-      <h2 class="section-title">Futuros packs de apoyo (no disponibles aún)</h2>
-      <p class="section-subtitle">
-        La idea es que, llegado el momento, existan algunos <strong>packs opcionales</strong>
-        para quienes quieran apoyar el proyecto. Serán siempre complementos visuales
-        o de reconocimiento, evitando ventajas de poder directas.
-      </p>
-
-      <div class="grid">
-        <article class="product-card">
-          <div>
-            <div class="product-tagline">Idea de diseño</div>
-            <h3 class="product-title">Pack Apoyo Origins</h3>
-            <p class="product-desc">
-              Pensado para quienes quieren apoyar el proyecto de forma sencilla.
-              Podría incluir reconocimiento en créditos, algún detalle visual
-              en Discord y pequeños gestos dentro del servidor (sin ventajas de poder).
-            </p>
-          </div>
-          <div>
-            <span class="disabled-pill">En preparación – No disponible</span>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div>
-            <div class="product-tagline">Idea de diseño</div>
-            <h3 class="product-title">Pack Visual Espermadeath</h3>
-            <p class="product-desc">
-              Enfocado en recompensas estéticas: skins especiales, cosméticos,
-              marcos o insignias visibles en el servidor y en Discord, pensados
-              para dejar huella de que formaste parte de Origins.
-            </p>
-          </div>
-          <div>
-            <span class="disabled-pill">En preparación – No disponible</span>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div>
-            <div class="product-tagline">Idea de diseño</div>
-            <h3 class="product-title">Pack Coleccionista</h3>
-            <p class="product-desc">
-              Concepto para un pack limitado con recompensas visuales únicas,
-              quizá algún NPC con tu nombre, referencias dentro del mapa
-              o elementos conmemorativos. Solo se activará si encaja con
-              la economía y el tono del proyecto.
-            </p>
-          </div>
-          <div>
-            <span class="disabled-pill">En estudio – No disponible</span>
-          </div>
-        </article>
+        <div class="hero-actions" style="margin-top:0.9rem;">
+          <a class="btn btn-discord" href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener noreferrer">Entrar al Discord</a>
+          <a class="btn btn-outline" href="/tutoriales/">Ver tutoriales</a>
+        </div>
       </div>
 
-      <p class="notice">
-        ⚠️ Todos los packs mostrados arriba son <strong>ideas</strong>, no productos reales.
-        No existe ningún enlace de compra activo para Origins. Cuando llegue el momento,
-        los packs definitivos se anunciarán primero en Discord y luego se activarán
-        desde el hub principal y la tienda correspondiente.
-      </p>
-    </section>
-
-    <!-- CONTACTO / DONDE SE ANUNCIARÁ TODO -->
-    <section>
-      <h2 class="section-title">Dónde se anunciará todo</h2>
-      <p class="section-subtitle">
-        Si quieres seguir el desarrollo de Espermadeath: Origins y enterarte de fechas,
-        trailers y posibles packs de apoyo, estos serán los lugares principales:
-      </p>
-
-      <div class="info-grid">
-        <article class="info-card">
-          <strong>Discord de Grimward / Peanut Reborn Studios</strong><br />
-          Aquí se abrirán los canales dedicados a Origins, se publicarán anuncios
-          importantes y se gestionará cualquier soporte relacionado:
-          <br /><br />
-          <a href="https://discord.gg/EWRyq4Hsjt" target="_blank">https://discord.gg/EWRyq4Hsjt</a>
-        </article>
-
-        <article class="info-card">
-          <strong>YouTube</strong><br />
-          El lugar donde se verá la serie, avances, diarios de desarrollo y clips:
-          <br /><br />
-          <a href="https://www.youtube.com/@Asirtic" target="_blank">youtube.com/@Asirtic</a>
-        </article>
-
-        <article class="info-card">
-          <strong>Arte y adelantos rápidos</strong><br />
-          Arte conceptual, pequeñas filtraciones y anuncios cortos se publicarán en X:
-          <br /><br />
-          <a href="https://x.com/_Asirtic" target="_blank">@_Asirtic</a>
-        </article>
+      <div class="discord-side">
+        <div style="font-weight:800;">Enlaces oficiales</div>
+        <div class="mini">
+          Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener noreferrer" style="color:var(--discord); text-decoration:none;">discord.gg/yzZRu8yTF5</a><br/>
+          YouTube: <a href="https://www.youtube.com/@Asirtic" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:none;">@Asirtic</a><br/>
+          PayPal: <a href="https://paypal.me/asirtic" target="_blank" rel="noopener noreferrer" style="color:var(--accent-2); text-decoration:none;">paypal.me/asirtic</a>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2 class="section-title">FAQ</h2>
+
+    <div class="faq-grid">
+      <details>
+        <summary>¿Es un SMP normal?</summary>
+        <div class="faq-answer">
+          No. Es un evento/serie con estructura, ritmo y reglas orientadas a PVE técnico y permadeath.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Qué pasa si muero?</summary>
+        <div class="faq-answer">
+          Sales del evento sin opción de volver. No hay “info extra” para los supervivientes.
+          Puedes seguir el contenido desde fuera (streams, clips, etc.).
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Se puede revivir de alguna forma?</summary>
+        <div class="faq-answer">
+          La idea base es no. Si en pruebas se añade alguna excepción, se anunciará con total claridad antes del inicio.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Cuánto dura?</summary>
+        <div class="faq-answer">
+          Base: 1 mes. Puede extenderse hasta 2 meses dependiendo de cómo avance el evento.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Hay bosses?</summary>
+        <div class="faq-answer">
+          Sí, pero pocos. No son el núcleo. El foco es adaptación, PVE y decisiones bajo presión.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Cómo se decide el ganador?</summary>
+        <div class="faq-answer">
+          No gana solo el último en pie. El ganador final se decide por rendimiento global (juego + social).
+          Los criterios se publicarán en Discord antes del inicio.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Habrá tienda?</summary>
+        <div class="faq-answer">
+          Sí, pero más cerca del estreno. El enfoque es apoyo y estética. No se cruzará la línea de ventajas injustas.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Qué nivel necesito?</summary>
+        <div class="faq-answer">
+          Si te mueves con soltura en videojuegos, puedes sobrevivir aunque no seas top mundial.
+          Si no tienes agilidad básica con teclado/ratón, este evento se te puede hacer cuesta arriba.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- TIENDA -->
+  <section id="tienda">
+    <h2 class="section-title">Tienda</h2>
+
+    <p style="color:var(--muted); font-size:0.95rem; line-height:1.65; max-width:80ch; margin-bottom:1rem;">
+      La tienda de Origins se activa más cerca del lanzamiento. La prioridad es que el evento funcione perfecto.
+      Cuando exista tienda, será de <strong>apoyo y estética</strong>, con entregas claras por PayPal + ticket en Discord.
+    </p>
+
+    <div class="store-grid">
+      <article class="store-card">
+        <span class="pill soon">Próximamente</span>
+        <div style="font-weight:800;">Rangos (estéticos)</div>
+        <div style="color:var(--muted); line-height:1.6; font-size:0.93rem;">
+          Roles e insignias visibles (Discord / in-game si aplica). Sin romper el equilibrio.
+        </div>
+      </article>
+
+      <article class="store-card">
+        <span class="pill soon">Próximamente</span>
+        <div style="font-weight:800;">Packs de apoyo</div>
+        <div style="color:var(--muted); line-height:1.6; font-size:0.93rem;">
+          Apoyo al proyecto con ventajas moderadas y controladas (si existen), entregadas tarde y anunciadas con transparencia.
+        </div>
+      </article>
+
+      <article class="store-card">
+        <span class="pill soon">Próximamente</span>
+        <div style="font-weight:800;">Economía física (Dragonita)</div>
+        <div style="color:var(--muted); line-height:1.6; font-size:0.93rem;">
+          Sin economía virtual. Intercambios con ítems reales (ej: diamantes → dragonita) y recompensas de misiones.
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TEASER -->
+  <section id="teaser">
+    <h2 class="section-title">Teaser #1</h2>
+    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; line-height:1.6; max-width:80ch;">
+      Teaser oficial de Espermadeath: Origins. Para cambios, acceso y fechas: Discord.
+    </p>
+
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/eIJYJP7kyOU"
+        title="Espermadeath: Origins – Teaser #1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
 
   <footer class="footer">
     Peanut Reborn Studios · Espermadeath: Origins
+    <br/><br/>
+    Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener noreferrer">discord.gg/yzZRu8yTF5</a> ·
+    PayPal: <a href="https://paypal.me/asirtic" target="_blank" rel="noopener noreferrer">paypal.me/asirtic</a> ·
+    YouTube: <a href="https://www.youtube.com/@Asirtic" target="_blank" rel="noopener noreferrer">@Asirtic</a>
   </footer>
 
-    <script>
-    // MISMO SISTEMA DE NICK QUE EN EL INDEX / GRIMWARD
+  <script>
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
     function updateUserBar() {
@@ -638,9 +924,7 @@
       const loginBtn = document.getElementById('btn-login');
       const logoutBtn = document.getElementById('btn-logout');
 
-      if (!greetEl || !inputEl || !loginBtn || !logoutBtn || !currentEl) {
-        return;
-      }
+      if (!greetEl || !inputEl || !loginBtn || !logoutBtn || !currentEl) return;
 
       if (name) {
         greetEl.textContent = 'Has iniciado sesión como: ' + name;
