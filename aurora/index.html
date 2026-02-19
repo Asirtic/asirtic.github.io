@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aurora SMP – Tienda Oficial</title>
-  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="icon" type="image/png" href="/assets/logo/logo.png">
 
   <style>
     :root{
@@ -15,24 +15,21 @@
 
       --accent: #7cf7d4;
       --accent-2: #8aa7ff;
-      --accent-3: #b6f9ea;
 
       --text: #f5f5f5;
       --muted: #aeb6df;
 
       --border: rgba(255,255,255,0.09);
-      --border-2: rgba(255,255,255,0.14);
       --shadow: 0 22px 55px rgba(0,0,0,0.72);
 
       --radius-xl: 1.35rem;
       --radius-lg: 1.05rem;
-      --radius-md: .9rem;
 
       --max: 1120px;
     }
 
-    *{ box-sizing:border-box; margin:0; padding:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    html{ scroll-behavior:smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    html { scroll-behavior: smooth; }
     body{
       color: var(--text);
       min-height: 100vh;
@@ -40,9 +37,8 @@
         radial-gradient(1200px 560px at 18% -10%, rgba(138,167,255,0.22), transparent 62%),
         radial-gradient(900px 560px at 86% 0%, rgba(124,247,212,0.18), transparent 64%),
         radial-gradient(circle at top, #191938 0, #050510 55%);
-      overflow-x:hidden;
+      overflow-x: hidden;
     }
-    img{ max-width:100%; height:auto; display:block; }
 
     .grain{
       pointer-events:none;
@@ -53,6 +49,7 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
       transform: translateZ(0);
     }
+
     .aurora-streak{
       height: 4px;
       background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), var(--accent), transparent);
@@ -67,6 +64,7 @@
       z-index: 50;
       background: linear-gradient(to bottom, rgba(5,5,16,0.92), rgba(5,5,16,0.70));
     }
+
     .nav{
       max-width: var(--max);
       margin: 0 auto;
@@ -76,19 +74,22 @@
       padding: 1rem 1.4rem;
       gap: 1rem;
     }
+
     .logo{
       display:inline-flex;
       align-items:center;
       gap: .6rem;
       text-decoration:none;
+      min-width: 0;
     }
-    .logo img{ height: 28px; width:auto; }
+    .logo img{ height: 28px; display:block; }
     .logo .brand{
       font-weight: 760;
       letter-spacing: .09em;
       text-transform: uppercase;
       font-size: .82rem;
       color: var(--muted);
+      white-space: nowrap;
     }
     .logo .brand b{ color: var(--accent); }
 
@@ -120,8 +121,9 @@
       background: rgba(5,5,16,0.80);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .user-bar-main{ display:flex; flex-direction:column; gap:.15rem; }
+    .user-bar-main{ display:flex; flex-direction:column; gap:.15rem; min-width: 0; }
     .user-bar-main strong{ color: var(--text); }
+    .user-bar-main span { overflow-wrap: anywhere; }
 
     .user-bar-actions{ display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; }
     .user-input{
@@ -132,6 +134,7 @@
       color: var(--text);
       font-size: .86rem;
       outline: none;
+      width: min(260px, 70vw);
     }
     .user-input::placeholder{ color: rgba(174,182,223,0.55); }
     .btn-small{
@@ -169,6 +172,7 @@
       align-items: center;
       margin-bottom: 1.65rem;
     }
+
     .hero-copy h1{
       font-size: clamp(2.15rem, 3.25vw, 2.8rem);
       margin-bottom: .65rem;
@@ -189,6 +193,7 @@
       margin-bottom: 1.05rem;
       max-width: 760px;
     }
+
     .hero-tags{
       display:flex;
       flex-wrap:wrap;
@@ -211,6 +216,7 @@
       color: var(--accent-2);
       border: 1px solid rgba(138,167,255,0.16);
     }
+
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
@@ -267,6 +273,7 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       overflow: hidden;
+      min-width: 0;
     }
     .hero-art::before{
       content:"";
@@ -278,9 +285,12 @@
     .hero-art img{
       position: relative;
       width:100%;
+      display:block;
       border-radius: 1.05rem;
       border: 1px solid rgba(255,255,255,0.07);
       box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
     }
     .hero-caption{
       position: relative;
@@ -355,9 +365,10 @@
 
     .grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.35rem;
       margin-bottom: 1.1rem;
+      align-items: stretch;
     }
 
     .card{
@@ -371,7 +382,7 @@
       flex-direction: column;
       overflow: hidden;
       transform: translateZ(0);
-      min-height: 100%;
+      min-width: 0;
     }
     .card::after{
       content:"";
@@ -391,6 +402,9 @@
       margin-bottom: .9rem;
       border: 1px solid rgba(255,255,255,0.07);
       box-shadow: 0 14px 28px rgba(0,0,0,0.5);
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
+      background: rgba(0,0,0,0.18);
     }
 
     .tagline{
@@ -415,7 +429,7 @@
       color: var(--muted);
       margin-bottom: .7rem;
       line-height: 1.6;
-      overflow-wrap:anywhere;
+      overflow-wrap: anywhere;
     }
 
     .list{
@@ -425,10 +439,10 @@
       margin-bottom: .95rem;
       padding-left: 1rem;
       line-height: 1.55;
-      overflow-wrap:anywhere;
-      word-break: break-word;
+      overflow-wrap: anywhere;
     }
     .list li{ margin-bottom: .22rem; }
+    .list strong { color: rgba(245,245,245,0.95); }
 
     .footer-row{
       position: relative;
@@ -439,6 +453,7 @@
       gap: .8rem;
       flex-wrap: wrap;
     }
+
     .price{
       font-weight: 900;
       font-size: 1.05rem;
@@ -448,13 +463,14 @@
       color: transparent;
       letter-spacing: -0.01em;
     }
+
     .mini-note{
       position: relative;
       margin-top: .65rem;
       font-size: .82rem;
       color: var(--muted);
       line-height: 1.55;
-      overflow-wrap:anywhere;
+      overflow-wrap: anywhere;
     }
 
     .card.featured{ border-color: rgba(138,167,255,0.22); }
@@ -476,7 +492,10 @@
       letter-spacing: .08em;
       text-transform: uppercase;
       backdrop-filter: blur(10px);
-      user-select:none;
+      max-width: calc(100% - 1.8rem);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .badge b{
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -485,75 +504,82 @@
       color: transparent;
       font-weight: 900;
     }
-    .badge.dim{
-      border-color: rgba(255,255,255,0.10);
-      color: rgba(245,245,245,0.90);
-    }
 
+    /* Perks (estilo simplificado como en tu captura) */
     .perks{
       position: relative;
       z-index: 2;
-      margin-top: .85rem;
-      border-radius: 1.15rem;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.14);
-      backdrop-filter: blur(10px);
-      padding: .85rem .85rem;
-      display:flex;
-      flex-direction:column;
-      gap: .7rem;
-    }
-    .perk-row{
+      margin-top: .75rem;
+      padding: .8rem;
       border-radius: 1rem;
       border: 1px solid rgba(255,255,255,0.10);
       background:
-        radial-gradient(700px 200px at 10% 0%, rgba(124,247,212,0.08), transparent 60%),
-        radial-gradient(700px 200px at 95% 30%, rgba(138,167,255,0.08), transparent 62%),
-        rgba(5,5,16,0.40);
-      padding: .75rem .85rem;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: .9rem;
-      overflow:hidden;
+        radial-gradient(700px 180px at 20% 0%, rgba(124,247,212,0.10), transparent 58%),
+        radial-gradient(700px 180px at 85% 20%, rgba(138,167,255,0.10), transparent 60%),
+        rgba(0,0,0,0.16);
+      backdrop-filter: blur(10px);
+      display: grid;
+      gap: .6rem;
     }
-    .perk-left{ min-width:0; }
-    .perk-name{
+
+    .perk-row{
       display:flex;
       align-items:center;
-      gap:.55rem;
-      font-weight: 820;
-      color: rgba(245,245,245,0.95);
-      font-size: .86rem;
-      margin-bottom: .18rem;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .75rem .8rem;
+      border-radius: .95rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(5,5,16,0.42);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+      min-width: 0;
     }
+
+    .perk-left{
+      display:flex;
+      flex-direction: column;
+      gap: .15rem;
+      min-width: 0;
+    }
+
+    .perk-name{
+      display:inline-flex;
+      align-items:center;
+      gap: .5rem;
+      font-size: .88rem;
+      font-weight: 800;
+      color: rgba(245,245,245,0.95);
+      line-height: 1.1;
+      min-width: 0;
+    }
+    .perk-sub{
+      font-size: .78rem;
+      color: rgba(174,182,223,0.9);
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
     .dot{
       width: 8px; height: 8px; border-radius: 999px;
-      background: rgba(124,247,212,0.90);
+      background: rgba(124,247,212,0.85);
       box-shadow: 0 0 0 4px rgba(124,247,212,0.10);
       flex: 0 0 auto;
     }
     .dot.alt{
-      background: rgba(138,167,255,0.92);
+      background: rgba(138,167,255,0.9);
       box-shadow: 0 0 0 4px rgba(138,167,255,0.10);
     }
-    .perk-sub{
-      font-size: .78rem;
-      color: rgba(174,182,223,0.88);
-      line-height: 1.4;
-      overflow-wrap:anywhere;
-    }
+
     .perk-right{
-      flex:0 0 auto;
+      font-size: 1.05rem;
       font-weight: 950;
       letter-spacing: -0.02em;
-      font-size: 1.15rem;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      padding-top: .05rem;
-      user-select:none;
+      flex: 0 0 auto;
+      padding-left: .25rem;
     }
 
     .info-grid{
@@ -570,7 +596,7 @@
       font-size: .93rem;
       color: var(--muted);
       line-height: 1.65;
-      overflow-wrap:anywhere;
+      overflow-wrap: anywhere;
     }
     .info-card strong{ color: var(--text); }
 
@@ -607,12 +633,14 @@
       outline-offset: 3px;
     }
 
+    /* Sponsor */
     .sponsor-card{ padding: 1.05rem 1.25rem 1.2rem; }
     .sponsor-top{
       display:grid;
       grid-template-columns: 1.02fr 0.98fr;
       gap: 1.2rem;
       align-items: start;
+      min-width: 0;
     }
     .pill{
       display:inline-flex;
@@ -628,22 +656,19 @@
       margin-bottom: .6rem;
       position: relative;
       z-index: 2;
-      user-select:none;
     }
-
     details{
-      background: rgba(0,0,0,0.16);
+      background: rgba(0,0,0,0.18);
       border: 1px solid rgba(255,255,255,0.10);
-      border-radius: .95rem;
+      border-radius: .9rem;
       padding: .7rem .9rem;
       position: relative;
       z-index: 2;
-      overflow:hidden;
     }
     summary{
       cursor:pointer;
       color: var(--text);
-      font-weight: 800;
+      font-weight: 760;
       font-size: .92rem;
       list-style:none;
       display:flex;
@@ -653,40 +678,19 @@
     }
     summary::-webkit-details-marker{ display:none; }
     .details-hint{
-      color: rgba(174,182,223,0.9);
+      color: var(--muted);
       font-size: .83rem;
       margin-top: .45rem;
       line-height: 1.6;
     }
-
-    .reward-grid{
-      margin-top: .7rem;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: .45rem .9rem;
-      padding-left: 0;
-      list-style: none;
-    }
-    .reward-grid li{
-      color: rgba(174,182,223,0.96);
-      font-size: .85rem;
-      line-height: 1.45;
-      overflow-wrap:anywhere;
-      position:relative;
-      padding-left: 1.05rem;
-    }
-    .reward-grid li::before{
-      content:"•";
-      position:absolute;
-      left: 0;
-      top: 0;
-      color: rgba(124,247,212,0.9);
-    }
+    .cols-2{ columns: 2; column-gap: 1.3rem; margin-top: .65rem; }
+    .cols-2 li{ break-inside: avoid; }
 
     @media (max-width: 940px){
       .hero{ grid-template-columns: 1fr; }
       .user-bar{ flex-direction: column; align-items: flex-start; }
       .sponsor-top{ grid-template-columns: 1fr; }
+      .cols-2{ columns: 1; }
       nav{ gap: .9rem; }
       .subnav-wrap{ top: 108px; }
     }
@@ -706,12 +710,7 @@
   <header>
     <div class="nav">
       <a href="/" class="logo">
-        <img
-          src="assets/logo/logo.png"
-          data-fallback="/assets/logo/logo.png"
-          data-fallback2="../assets/logo/logo.png"
-          alt="Peanut Reborn Studios - Asirtic"
-        />
+        <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios - Asirtic" />
         <span class="brand">Peanut <b>Reborn</b> Studios</span>
       </a>
       <nav>
@@ -748,7 +747,6 @@
         <p>
           Rangos, <strong>Contratos</strong> (Dragonita + Monedovich) y protecciones.
           Pagos por <strong>PayPal</strong> y validación por <strong>ticket en Discord</strong>.
-          El nick que veas arriba se usa como referencia de entrega.
         </p>
 
         <div class="hero-tags">
@@ -764,16 +762,14 @@
           <a href="#como-comprar" class="btn btn-outline">Cómo comprar</a>
         </div>
 
-        <p class="notice">Recomendación: inicia sesión con tu nick antes de comprar.</p>
+        <p class="notice">Si inicias sesión con tu nick, la entrega por ticket es más rápida.</p>
       </div>
 
       <aside class="hero-art">
-        <img
-          src="assets/rangos/elite_aurora.PNG"
-          data-fallback="/assets/rangos/elite_aurora.PNG"
-          data-fallback2="../assets/rangos/elite_aurora.PNG"
-          alt="Aurora SMP - Rango Elite"
-        />
+        <img class="product"
+             src="/assets/rangos/elite_aurora.PNG"
+             data-fallbacks="assets/rangos/elite_aurora.PNG|../assets/rangos/elite_aurora.PNG"
+             alt="Aurora SMP - Rango Elite" />
         <div class="hero-caption">
           <span class="caption-pill">Rangos + Kits</span>
           <span class="caption-pill">Validación por ticket</span>
@@ -794,58 +790,23 @@
   </div>
 
   <main>
+    <!-- RANGOS (sin "Cuenta Base", sin duplicados raros) -->
     <section id="rangos">
       <h2 class="section-title">Rangos</h2>
       <p class="section-subtitle">
-        Cada rango incluye su kit y mejora límites de calidad de vida. Las protecciones (bloques) se compran en su sección.
+        Ventajas de calidad de vida incluidas: <strong>Homes</strong>, <strong>Protecciones</strong> y mejora del <strong>/rtp</strong>.
+        Entrega por ticket con tu nick y comprobante.
       </p>
 
       <div class="grid">
-        <article class="card">
-          <span class="badge dim"><b>Tier</b> Base</span>
-
-          <div class="tagline">Por defecto</div>
-          <h3 class="title">Cuenta Base</h3>
-          <p class="desc">Límites estándar del servidor.</p>
-
-          <div class="perks">
-            <div class="perk-row">
-              <div class="perk-left">
-                <div class="perk-name"><span class="dot"></span>Homes</div>
-                <div class="perk-sub">Límite de <strong>/sethome</strong>.</div>
-              </div>
-              <div class="perk-right">2</div>
-            </div>
-
-            <div class="perk-row">
-              <div class="perk-left">
-                <div class="perk-name"><span class="dot alt"></span>Protecciones</div>
-                <div class="perk-sub">Límite total.</div>
-              </div>
-              <div class="perk-right">2</div>
-            </div>
-
-            <div class="perk-row">
-              <div class="perk-left">
-                <div class="perk-name"><span class="dot"></span>/rtp</div>
-                <div class="perk-sub">Cooldown estándar.</div>
-              </div>
-              <div class="perk-right">•</div>
-            </div>
-          </div>
-
-          <p class="mini-note">Incluido al entrar al servidor.</p>
-        </article>
-
+        <!-- PREMIUM -->
         <article class="card">
           <span class="badge"><b>Rango</b> Premium</span>
 
           <img class="product"
-            src="assets/rangos/premium_aurora.PNG"
-            data-fallback="/assets/rangos/premium_aurora.PNG"
-            data-fallback2="../assets/rangos/premium_aurora.PNG"
-            alt="Rango Premium Aurora SMP"
-          />
+               src="/assets/rangos/premium_aurora.PNG"
+               data-fallbacks="assets/rangos/premium_aurora.PNG|../assets/rangos/premium_aurora.PNG"
+               alt="Rango Premium Aurora SMP">
 
           <div class="tagline">Inicio fuerte</div>
           <h3 class="title">Rango Premium</h3>
@@ -886,7 +847,7 @@
             </div>
           </div>
 
-          <div class="footer-row" style="margin-top:.95rem;">
+          <div class="footer-row" style="margin-top: .95rem;">
             <span class="price">4 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
@@ -894,15 +855,14 @@
           <p class="mini-note">Ticket: “<strong>Premium – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
+        <!-- VIP -->
         <article class="card featured">
           <span class="badge"><b>Rango</b> VIP</span>
 
           <img class="product"
-            src="assets/rangos/vip_aurora.PNG"
-            data-fallback="/assets/rangos/vip_aurora.PNG"
-            data-fallback2="../assets/rangos/vip_aurora.PNG"
-            alt="Rango VIP Aurora SMP"
-          />
+               src="/assets/rangos/vip_aurora.PNG"
+               data-fallbacks="assets/rangos/vip_aurora.PNG|../assets/rangos/vip_aurora.PNG"
+               alt="Rango VIP Aurora SMP">
 
           <div class="tagline">Progreso serio</div>
           <h3 class="title">Rango VIP</h3>
@@ -946,7 +906,7 @@
             </div>
           </div>
 
-          <div class="footer-row" style="margin-top:.95rem;">
+          <div class="footer-row" style="margin-top: .95rem;">
             <span class="price">10 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
@@ -954,15 +914,14 @@
           <p class="mini-note">Ticket: “<strong>VIP – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
+        <!-- ELITE -->
         <article class="card featured">
           <span class="badge"><b>Rango</b> Elite</span>
 
           <img class="product"
-            src="assets/rangos/elite_aurora.PNG"
-            data-fallback="/assets/rangos/elite_aurora.PNG"
-            data-fallback2="../assets/rangos/elite_aurora.PNG"
-            alt="Rango Elite Aurora SMP"
-          />
+               src="/assets/rangos/elite_aurora.PNG"
+               data-fallbacks="assets/rangos/elite_aurora.PNG|../assets/rangos/elite_aurora.PNG"
+               alt="Rango Elite Aurora SMP">
 
           <div class="tagline">Máximo nivel</div>
           <h3 class="title">Rango Elite</h3>
@@ -1006,7 +965,7 @@
             </div>
           </div>
 
-          <div class="footer-row" style="margin-top:.95rem;">
+          <div class="footer-row" style="margin-top: .95rem;">
             <span class="price">16 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
@@ -1016,27 +975,25 @@
       </div>
     </section>
 
+    <!-- CONTRATOS -->
     <section id="contratos">
       <h2 class="section-title">Contratos</h2>
       <p class="section-subtitle">
-        Packs de <strong>Monedas de Dragonita + Monedovich</strong>. D = Dragonita · M = Monedovich
+        Packs de <strong>Moneda de Dragonita</strong> + <strong>Monedovich</strong>.
       </p>
 
       <div class="grid">
         <article class="card">
           <img class="product"
-            src="assets/llaves/contrato1.png"
-            data-fallback="/assets/llaves/contrato1.png"
-            data-fallback2="../assets/llaves/contrato1.png"
-            alt="Contrato de Aurora · Aprendiz"
-          />
+               src="/assets/llaves/contrato1.png"
+               data-fallbacks="assets/llaves/contrato1.png|../assets/llaves/contrato1.png|/assets/contratos/contrato1.png|/assets/contratos/contrato1.PNG|/assets/llaves/contrato1.PNG"
+               alt="Contrato de Aurora · Aprendiz">
           <div class="tagline">Entrada</div>
           <h3 class="title">Contrato de Aurora · Aprendiz</h3>
-          <p class="desc"><strong>2D + 3M</strong></p>
+          <p class="desc">2D + 3M</p>
           <ul class="list">
-            <li>Incluye: <strong>2</strong> Monedas de Dragonita</li>
-            <li>Incluye: <strong>3</strong> Monedovich</li>
-            <li>Entrega por ticket (nick + comprobante)</li>
+            <li><strong>2</strong> Monedas de Dragonita</li>
+            <li><strong>3</strong> Monedovich</li>
           </ul>
           <div class="footer-row">
             <span class="price">1 €</span>
@@ -1047,18 +1004,15 @@
 
         <article class="card">
           <img class="product"
-            src="assets/llaves/contrato2.png"
-            data-fallback="/assets/llaves/contrato2.png"
-            data-fallback2="../assets/llaves/contrato2.png"
-            alt="Contrato de Aurora · Mercader"
-          />
+               src="/assets/llaves/contrato2.png"
+               data-fallbacks="assets/llaves/contrato2.png|../assets/llaves/contrato2.png|/assets/contratos/contrato2.png|/assets/contratos/contrato2.PNG|/assets/llaves/contrato2.PNG"
+               alt="Contrato de Aurora · Mercader">
           <div class="tagline">Equilibrado</div>
           <h3 class="title">Contrato de Aurora · Mercader</h3>
-          <p class="desc"><strong>6D + 8M</strong></p>
+          <p class="desc">6D + 8M</p>
           <ul class="list">
-            <li>Incluye: <strong>6</strong> Monedas de Dragonita</li>
-            <li>Incluye: <strong>8</strong> Monedovich</li>
-            <li>Entrega por ticket (nick + comprobante)</li>
+            <li><strong>6</strong> Monedas de Dragonita</li>
+            <li><strong>8</strong> Monedovich</li>
           </ul>
           <div class="footer-row">
             <span class="price">4 €</span>
@@ -1069,18 +1023,15 @@
 
         <article class="card featured">
           <img class="product"
-            src="assets/llaves/contrato3.png"
-            data-fallback="/assets/llaves/contrato3.png"
-            data-fallback2="../assets/llaves/contrato3.png"
-            alt="Contrato de Aurora · Forjador"
-          />
+               src="/assets/llaves/contrato3.png"
+               data-fallbacks="assets/llaves/contrato3.png|../assets/llaves/contrato3.png|/assets/contratos/contrato3.png|/assets/contratos/contrato3.PNG|/assets/llaves/contrato3.PNG"
+               alt="Contrato de Aurora · Forjador">
           <div class="tagline">Progreso</div>
           <h3 class="title">Contrato de Aurora · Forjador</h3>
-          <p class="desc"><strong>12D + 15M</strong></p>
+          <p class="desc">12D + 15M</p>
           <ul class="list">
-            <li>Incluye: <strong>12</strong> Monedas de Dragonita</li>
-            <li>Incluye: <strong>15</strong> Monedovich</li>
-            <li>Entrega por ticket (nick + comprobante)</li>
+            <li><strong>12</strong> Monedas de Dragonita</li>
+            <li><strong>15</strong> Monedovich</li>
           </ul>
           <div class="footer-row">
             <span class="price">8 €</span>
@@ -1091,18 +1042,15 @@
 
         <article class="card featured">
           <img class="product"
-            src="assets/llaves/contrato4.png"
-            data-fallback="/assets/llaves/contrato4.png"
-            data-fallback2="../assets/llaves/contrato4.png"
-            alt="Contrato de Aurora · Custodio"
-          />
+               src="/assets/llaves/contrato4.png"
+               data-fallbacks="assets/llaves/contrato4.png|../assets/llaves/contrato4.png|/assets/contratos/contrato4.png|/assets/contratos/contrato4.PNG|/assets/llaves/contrato4.PNG"
+               alt="Contrato de Aurora · Custodio">
           <div class="tagline">Máximo valor</div>
           <h3 class="title">Contrato de Aurora · Custodio</h3>
-          <p class="desc"><strong>20D + 25M</strong></p>
+          <p class="desc">20D + 25M</p>
           <ul class="list">
-            <li>Incluye: <strong>20</strong> Monedas de Dragonita</li>
-            <li>Incluye: <strong>25</strong> Monedovich</li>
-            <li>Entrega por ticket (nick + comprobante)</li>
+            <li><strong>20</strong> Monedas de Dragonita</li>
+            <li><strong>25</strong> Monedovich</li>
           </ul>
           <div class="footer-row">
             <span class="price">15 €</span>
@@ -1112,18 +1060,19 @@
         </article>
       </div>
 
-      <p class="notice">
-        Ticket: “<strong>Contrato</strong>” + tier (Aprendiz/Mercader/Forjador/Custodio) + nick + comprobante.
-      </p>
+      <p class="notice">Ticket: producto + tier + nick + comprobante.</p>
     </section>
 
+    <!-- PROTECCIONES -->
     <section id="protecciones">
       <h2 class="section-title">Protecciones</h2>
       <p class="section-subtitle">Bloques de protección para asegurar tu zona.</p>
 
       <div class="grid">
         <article class="card">
-          <img class="product" src="assets/protecciones/carbon.png" data-fallback="/assets/protecciones/carbon.png" data-fallback2="../assets/protecciones/carbon.png" alt="Protección Carbón 8x8">
+          <img class="product" src="/assets/protecciones/carbon.png"
+               data-fallbacks="assets/protecciones/carbon.png|../assets/protecciones/carbon.png|/assets/protecciones/carbon.PNG"
+               alt="Protección Carbón 8x8">
           <div class="tagline">8x8</div>
           <h3 class="title">Protección de Carbón</h3>
           <p class="desc">Para base pequeña o inicio.</p>
@@ -1134,7 +1083,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/hierro.png" data-fallback="/assets/protecciones/hierro.png" data-fallback2="../assets/protecciones/hierro.png" alt="Protección Hierro 16x16">
+          <img class="product" src="/assets/protecciones/hierro.png"
+               data-fallbacks="assets/protecciones/hierro.png|../assets/protecciones/hierro.png|/assets/protecciones/hierro.PNG"
+               alt="Protección Hierro 16x16">
           <div class="tagline">16x16</div>
           <h3 class="title">Protección de Hierro</h3>
           <p class="desc">Base media.</p>
@@ -1145,7 +1096,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/oro.png" data-fallback="/assets/protecciones/oro.png" data-fallback2="../assets/protecciones/oro.png" alt="Protección Oro 24x24">
+          <img class="product" src="/assets/protecciones/oro.png"
+               data-fallbacks="assets/protecciones/oro.png|../assets/protecciones/oro.png|/assets/protecciones/oro.PNG"
+               alt="Protección Oro 24x24">
           <div class="tagline">24x24</div>
           <h3 class="title">Protección de Oro</h3>
           <p class="desc">Más espacio para construir.</p>
@@ -1156,7 +1109,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/esmeralda.png" data-fallback="/assets/protecciones/esmeralda.png" data-fallback2="../assets/protecciones/esmeralda.png" alt="Protección Esmeralda 32x32">
+          <img class="product" src="/assets/protecciones/esmeralda.png"
+               data-fallbacks="assets/protecciones/esmeralda.png|../assets/protecciones/esmeralda.png|/assets/protecciones/esmeralda.PNG"
+               alt="Protección Esmeralda 32x32">
           <div class="tagline">32x32</div>
           <h3 class="title">Protección de Esmeralda</h3>
           <p class="desc">Terreno amplio.</p>
@@ -1167,7 +1122,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/cobre.png" data-fallback="/assets/protecciones/cobre.png" data-fallback2="../assets/protecciones/cobre.png" alt="Protección Cobre 36x36">
+          <img class="product" src="/assets/protecciones/cobre.png"
+               data-fallbacks="assets/protecciones/cobre.png|../assets/protecciones/cobre.png|/assets/protecciones/cobre.PNG"
+               alt="Protección Cobre 36x36">
           <div class="tagline">36x36</div>
           <h3 class="title">Protección de Cobre</h3>
           <p class="desc">Extra de tamaño.</p>
@@ -1178,7 +1135,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/diamante.png" data-fallback="/assets/protecciones/diamante.png" data-fallback2="../assets/protecciones/diamante.png" alt="Protección Diamante 44x44">
+          <img class="product" src="/assets/protecciones/diamante.png"
+               data-fallbacks="assets/protecciones/diamante.png|../assets/protecciones/diamante.png|/assets/protecciones/diamante.PNG"
+               alt="Protección Diamante 44x44">
           <div class="tagline">44x44</div>
           <h3 class="title">Protección de Diamante</h3>
           <p class="desc">Para proyectos grandes.</p>
@@ -1189,7 +1148,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/redstone.png" data-fallback="/assets/protecciones/redstone.png" data-fallback2="../assets/protecciones/redstone.png" alt="Protección Redstone 1 Chunk">
+          <img class="product" src="/assets/protecciones/redstone.png"
+               data-fallbacks="assets/protecciones/redstone.png|../assets/protecciones/redstone.png|/assets/protecciones/redstone.PNG"
+               alt="Protección Redstone 1 Chunk">
           <div class="tagline">1 Chunk</div>
           <h3 class="title">Protección de Redstone</h3>
           <p class="desc">Exactamente un chunk.</p>
@@ -1200,7 +1161,9 @@
         </article>
 
         <article class="card">
-          <img class="product" src="assets/protecciones/lapislazuli.png" data-fallback="/assets/protecciones/lapislazuli.png" data-fallback2="../assets/protecciones/lapislazuli.png" alt="Protección Lapislázuli 60x60">
+          <img class="product" src="/assets/protecciones/lapislazuli.png"
+               data-fallbacks="assets/protecciones/lapislazuli.png|../assets/protecciones/lapislazuli.png|/assets/protecciones/lapislazuli.PNG"
+               alt="Protección Lapislázuli 60x60">
           <div class="tagline">60x60</div>
           <h3 class="title">Protección de Lapislázuli</h3>
           <p class="desc">La más grande.</p>
@@ -1214,24 +1177,25 @@
       <p class="notice">Ticket: “<strong>Protección</strong>” + tipo + nick + comprobante.</p>
     </section>
 
+    <!-- CÓMO COMPRAR -->
     <section id="como-comprar">
       <h2 class="section-title">Cómo comprar</h2>
-      <p class="section-subtitle">3 pasos, sin líos.</p>
+      <p class="section-subtitle">3 pasos.</p>
 
       <div class="info-grid">
         <article class="info-card">
           <strong>1) Inicia sesión con tu nick</strong><br/>
-          Escribe tu nick arriba. Ese será el nombre que se usa para la entrega.
+          Escribe tu nick arriba para que quede como referencia de entrega.
         </article>
 
         <article class="info-card">
           <strong>2) Paga por PayPal</strong><br/>
-          En la nota del pago escribe: <em>nick + producto</em>.
+          En la nota del pago: <em>nick + producto</em>.
         </article>
 
         <article class="info-card">
           <strong>3) Abre ticket en Discord</strong><br/>
-          Envía: comprobante + nick + producto. Entrega manual y clara.
+          Envía: comprobante + nick + producto.
         </article>
       </div>
 
@@ -1239,24 +1203,21 @@
         <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Ir a PayPal →</a>
         <a class="btn btn-outline" href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">Abrir Discord →</a>
       </div>
-
-      <p class="notice">
-        Discord oficial: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">https://discord.gg/yzZRu8yTF5</a>
-      </p>
     </section>
 
+    <!-- SPONSOR -->
     <section id="sponsor">
       <h2 class="section-title">Kit Sponsor</h2>
-      <p class="section-subtitle">Kit de apoyo (no es rango). Se valida por ticket.</p>
+      <p class="section-subtitle">
+        Kit de apoyo (no es rango). Entrega por ticket tras validación.
+      </p>
 
       <article class="card sponsor-card">
         <div class="sponsor-top">
           <img class="product"
-            src="assets/rangos/sponsor_aurora.PNG"
-            data-fallback="/assets/rangos/sponsor_aurora.PNG"
-            data-fallback2="../assets/rangos/sponsor_aurora.PNG"
-            alt="Kit Sponsor Aurora SMP"
-          />
+               src="/assets/rangos/sponsor_aurora.PNG"
+               data-fallbacks="assets/rangos/sponsor_aurora.PNG|../assets/rangos/sponsor_aurora.PNG"
+               alt="Kit Sponsor Aurora SMP">
 
           <div class="sponsor-meta">
             <span class="pill">Sin rango · Entrega por ticket</span>
@@ -1268,9 +1229,10 @@
 
             <details>
               <summary>Ver contenido del Kit Sponsor <span style="color:var(--muted);font-weight:650;font-size:.85rem;">(desplegar)</span></summary>
-              <div class="details-hint">Lista completa del pack.</div>
-
-              <ul class="reward-grid">
+              <div class="details-hint">
+                Lista completa (compacta). Se entrega manualmente tras validar pago.
+              </div>
+              <ul class="list cols-2">
                 <li>x8 Antorcha Vidente (Visión Nocturna)</li>
                 <li>x8 Antorcha Olímpica (Velocidad)</li>
                 <li>x8 Antorcha del Cazador (Fuerza)</li>
@@ -1302,6 +1264,7 @@
       </article>
     </section>
 
+    <!-- TRÁILER -->
     <section id="trailer">
       <h2 class="section-title">Tráiler</h2>
       <p class="section-subtitle">Tráiler principal de Aurora SMP.</p>
@@ -1321,7 +1284,7 @@
   <footer class="site-footer">
     Aurora SMP · Peanut Reborn Studios
     <br><br>
-    Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">https://discord.gg/yzZRu8yTF5</a>
+    Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">discord.gg/yzZRu8yTF5</a>
     <br>
     PayPal: <a href="https://paypal.me/asirtic" target="_blank" rel="noopener">paypal.me/asirtic</a>
   </footer>
@@ -1371,23 +1334,30 @@
       updateUserBar();
     }
 
-    function setupImageFallbacks() {
-      const imgs = document.querySelectorAll('img[data-fallback], img[data-fallback2]');
-      imgs.forEach((img) => {
-        let tried1 = false;
-        let tried2 = false;
-        img.addEventListener('error', () => {
-          const fb1 = img.getAttribute('data-fallback');
-          const fb2 = img.getAttribute('data-fallback2');
-          if (!tried1 && fb1) { tried1 = true; img.src = fb1; return; }
-          if (!tried2 && fb2) { tried2 = true; img.src = fb2; return; }
-        });
-      });
+    document.addEventListener('DOMContentLoaded', updateUserBar);
+  </script>
+
+  <script>
+    // Fallback de imágenes (por si el path real difiere)
+    function attachImageFallback(img) {
+      const raw = img.getAttribute('data-fallbacks');
+      if (!raw) return;
+      const fallbacks = raw.split('|').map(s => s.trim()).filter(Boolean);
+      let i = 0;
+
+      img.addEventListener('error', () => {
+        while (i < fallbacks.length) {
+          const next = fallbacks[i++];
+          if (next && img.src !== new URL(next, window.location.href).href) {
+            img.src = next;
+            return;
+          }
+        }
+      }, { once: false });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      updateUserBar();
-      setupImageFallbacks();
+      document.querySelectorAll('img[data-fallbacks]').forEach(attachImageFallback);
     });
   </script>
 
@@ -1396,7 +1366,7 @@
     document.addEventListener("keydown", function (e) {
       const key = e.key.toLowerCase();
       if ((e.ctrlKey || e.metaKey) && (key === "s" || key === "u")) e.preventDefault();
-      if (e.key === "F12") e.preventDefault();
+      if (e.key === "f12") e.preventDefault();
     });
   </script>
 </body>
