@@ -8,8 +8,9 @@
 
   <style>
     /* =========================
-       AURORA SHOP — ULTRA REVAMP 2026
-       Mantiene paleta/vibe, pero más moderno, limpio y “premium”.
+       AURORA SHOP — REVAMP 2026
+       Ultra moderno, premium, mantiene paleta/vibe.
+       NOTA: Homes NO tienen cooldown. El cooldown relevante es RTP.
        ========================= */
 
     :root{
@@ -30,12 +31,10 @@
       --shadow: 0 22px 55px rgba(0,0,0,0.72);
 
       --radius-xl: 1.35rem;
-      --radius-lg: 1.08rem;
-      --radius-md: .92rem;
+      --radius-lg: 1.05rem;
+      --radius-md: .9rem;
 
       --max: 1120px;
-
-      --ease: cubic-bezier(.2,.8,.2,1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -59,12 +58,6 @@
       mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
       transform: translateZ(0);
-      animation: grainMove 10s linear infinite;
-    }
-    @keyframes grainMove{
-      0%{ transform: translate3d(0,0,0); }
-      50%{ transform: translate3d(-1.5%, 1.2%, 0); }
-      100%{ transform: translate3d(0,0,0); }
     }
 
     /* top aurora streak */
@@ -79,7 +72,7 @@
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      z-index: 60;
+      z-index: 50;
       background: linear-gradient(to bottom, rgba(5,5,16,0.92), rgba(5,5,16,0.70));
     }
 
@@ -121,9 +114,8 @@
       font-size: .92rem;
       padding: .35rem .25rem;
       border-radius: .5rem;
-      transition: color .15s var(--ease), transform .15s var(--ease);
     }
-    nav a:hover{ color: var(--accent); transform: translateY(-1px); }
+    nav a:hover{ color: var(--accent); }
 
     /* user bar */
     .user-bar{
@@ -151,14 +143,8 @@
       color: var(--text);
       font-size: .86rem;
       outline: none;
-      transition: border-color .15s var(--ease), box-shadow .15s var(--ease);
-    }
-    .user-input:focus{
-      border-color: rgba(124,247,212,0.35);
-      box-shadow: 0 0 0 4px rgba(124,247,212,0.08);
     }
     .user-input::placeholder{ color: rgba(174,182,223,0.55); }
-
     .btn-small{
       border-radius: 999px;
       padding: .38rem .9rem;
@@ -167,20 +153,15 @@
       background: transparent;
       color: var(--muted);
       cursor:pointer;
-      transition: transform .12s var(--ease), border-color .12s var(--ease), color .12s var(--ease), background .12s var(--ease);
+      transition: transform .12s ease, border-color .12s ease, color .12s ease;
     }
-    .btn-small:hover{
-      border-color: rgba(124,247,212,0.45);
-      color: var(--accent);
-      transform: translateY(-1px);
-      background: rgba(124,247,212,0.06);
-    }
+    .btn-small:hover{ border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
     .btn-small:active{ transform: translateY(0px); }
 
     main{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 2.25rem 1.4rem 3.6rem;
+      padding: 2.3rem 1.4rem 3.6rem;
     }
 
     .breadcrumb{
@@ -202,9 +183,9 @@
     }
 
     .hero-copy h1{
-      font-size: clamp(2.15rem, 3.25vw, 2.85rem);
+      font-size: clamp(2.15rem, 3.25vw, 2.8rem);
       margin-bottom: .65rem;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.025em;
       line-height: 1.05;
     }
     .hero-copy h1 span{
@@ -212,14 +193,14 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-weight: 900;
+      font-weight: 860;
     }
     .hero-copy p{
       color: var(--muted);
-      font-size: .98rem;
+      font-size: .97rem;
       line-height: 1.68;
       margin-bottom: 1.05rem;
-      max-width: 780px;
+      max-width: 760px;
     }
 
     .hero-tags{
@@ -264,15 +245,15 @@
       align-items:center;
       gap: .42rem;
       white-space: nowrap;
-      transition: transform .14s var(--ease), filter .14s var(--ease), border-color .14s var(--ease), color .14s var(--ease), box-shadow .14s var(--ease);
+      transition: transform .12s ease, filter .12s ease, border-color .12s ease, color .12s ease;
     }
     .btn-primary{
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       color: #071016;
-      font-weight: 820;
+      font-weight: 780;
       box-shadow: 0 14px 34px rgba(124,247,212,0.12);
     }
-    .btn-primary:hover{ filter: brightness(1.03); transform: translateY(-1px); box-shadow: 0 18px 44px rgba(124,247,212,0.14); }
+    .btn-primary:hover{ filter: brightness(1.03); transform: translateY(-1px); }
     .btn-primary:active{ transform: translateY(0px); }
 
     .btn-outline{
@@ -281,12 +262,7 @@
       background: rgba(5,5,16,0.30);
       backdrop-filter: blur(8px);
     }
-    .btn-outline:hover{
-      border-color: rgba(124,247,212,0.35);
-      color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-    }
+    .btn-outline:hover{ border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
     .btn-outline:active{ transform: translateY(0px); }
 
     .notice{
@@ -321,11 +297,7 @@
       border-radius: 1.05rem;
       border: 1px solid rgba(255,255,255,0.07);
       box-shadow: 0 18px 40px rgba(0,0,0,0.55);
-      transform: translateZ(0);
-      transition: transform .25s var(--ease);
     }
-    .hero-art:hover img{ transform: scale(1.01); }
-
     .hero-caption{
       position: relative;
       margin-top: .7rem;
@@ -349,14 +321,14 @@
       font-size: .76rem;
     }
 
-    /* SUBNAV STICKY + active */
+    /* Subnav — sticky + clean */
     .subnav-wrap{
       position: sticky;
       top: 86px;
-      z-index: 55;
+      z-index: 40;
       margin: 0 0 1.8rem;
       padding: .65rem 0;
-      background: linear-gradient(to bottom, rgba(5,5,16,0.76), rgba(5,5,16,0.18));
+      background: linear-gradient(to bottom, rgba(5,5,16,0.75), rgba(5,5,16,0.20));
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
@@ -377,16 +349,10 @@
       color: var(--muted);
       text-decoration:none;
       background: rgba(5,5,16,0.62);
-      transition: transform .12s var(--ease), border-color .12s var(--ease), color .12s var(--ease), background .12s var(--ease);
-      position: relative;
+      transition: transform .12s ease, border-color .12s ease, color .12s ease;
     }
     .subnav a:hover{ border-color: rgba(124,247,212,0.35); color: var(--accent); transform: translateY(-1px); }
     .subnav a:active{ transform: translateY(0px); }
-    .subnav a.active{
-      border-color: rgba(124,247,212,0.42);
-      color: var(--text);
-      background: rgba(124,247,212,0.10);
-    }
 
     /* Sections */
     .section-title{
@@ -401,7 +367,7 @@
       font-size: .93rem;
       color: var(--muted);
       margin-bottom: 1.15rem;
-      max-width: 840px;
+      max-width: 820px;
       line-height: 1.65;
     }
 
@@ -424,22 +390,18 @@
       flex-direction: column;
       overflow: hidden;
       transform: translateZ(0);
-      transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
     }
     .card::after{
       content:"";
       position:absolute;
       inset:-1px;
-      background:
-        radial-gradient(900px 240px at 20% 0%, rgba(124,247,212,0.10), transparent 55%),
-        radial-gradient(900px 240px at 85% 10%, rgba(138,167,255,0.10), transparent 60%);
+      background: radial-gradient(900px 240px at 20% 0%, rgba(124,247,212,0.10), transparent 55%),
+                  radial-gradient(900px 240px at 85% 10%, rgba(138,167,255,0.10), transparent 60%);
       opacity: .85;
       pointer-events: none;
     }
     .card:hover{
       border-color: rgba(124,247,212,0.24);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 42px rgba(0,0,0,0.42);
     }
 
     .card img{
@@ -449,7 +411,6 @@
       margin-bottom: .9rem;
       border: 1px solid rgba(255,255,255,0.07);
       box-shadow: 0 14px 28px rgba(0,0,0,0.5);
-      background: rgba(0,0,0,0.12);
     }
 
     .tagline{
@@ -463,9 +424,9 @@
     .title{
       position: relative;
       font-size: 1.12rem;
-      font-weight: 860;
+      font-weight: 820;
       margin-bottom: .35rem;
-      letter-spacing: -0.012em;
+      letter-spacing: -0.01em;
       line-height: 1.15;
     }
     .desc{
@@ -497,8 +458,8 @@
     }
 
     .price{
-      font-weight: 950;
-      font-size: 1.06rem;
+      font-weight: 900;
+      font-size: 1.05rem;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text;
       background-clip: text;
@@ -514,11 +475,10 @@
       line-height: 1.55;
     }
 
-    /* Highlighted cards (VIP/ELITE/Top contracts) */
+    /* Highlighted cards (VIP/ELITE) */
     .card.featured{
       border-color: rgba(138,167,255,0.22);
     }
-
     .badge{
       position: absolute;
       top: .9rem;
@@ -542,7 +502,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-weight: 950;
+      font-weight: 900;
     }
 
     /* Sponsor compact */
@@ -579,7 +539,7 @@
     summary{
       cursor:pointer;
       color: var(--text);
-      font-weight: 780;
+      font-weight: 760;
       font-size: .92rem;
       list-style:none;
       display:flex;
@@ -645,43 +605,190 @@
     .site-footer a{ color: var(--accent); text-decoration:none; }
     .site-footer a:hover{ color: var(--accent-2); }
 
-    /* Floating actions (mobile) */
-    .floating{
-      position: fixed;
-      right: 14px;
-      bottom: 14px;
-      z-index: 70;
-      display: none;
-      gap: .55rem;
-      flex-direction: column;
-    }
-    .fab{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      padding: .62rem .9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(5,5,16,0.65);
-      color: var(--text);
-      text-decoration: none;
-      font-size: .82rem;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.45);
-      transition: transform .12s var(--ease), border-color .12s var(--ease);
-    }
-    .fab:hover{ transform: translateY(-1px); border-color: rgba(124,247,212,0.35); }
-    .fab.primary{
-      border: 1px solid rgba(124,247,212,0.22);
-      background: rgba(124,247,212,0.10);
-    }
-
     /* Focus states (accessibility) */
     a:focus, button:focus, input:focus, summary:focus{
       outline: 2px solid rgba(124,247,212,0.35);
       outline-offset: 3px;
     }
+
+    /* =========================
+       RANGOS — Ventajas QoL
+       Homes (sin cooldown), Protecciones máximas, RTP cooldown
+       ========================= */
+
+    .perks{
+      position: relative;
+      z-index: 2;
+      margin-top: .75rem;
+      padding: .85rem .9rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(700px 180px at 20% 0%, rgba(124,247,212,0.10), transparent 58%),
+        radial-gradient(700px 180px at 85% 20%, rgba(138,167,255,0.10), transparent 60%),
+        rgba(0,0,0,0.16);
+      backdrop-filter: blur(10px);
+    }
+
+    .perks-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: .6rem;
+      flex-wrap: wrap;
+    }
+
+    .perks-title{
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 850;
+    }
+
+    .perks-note{
+      font-size: .78rem;
+      color: rgba(174,182,223,0.82);
+    }
+
+    .perk-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .7rem;
+    }
+
+    .perk{
+      border-radius: .95rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(5,5,16,0.42);
+      padding: .7rem .75rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+      min-height: 78px;
+    }
+
+    .perk-top{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: .6rem;
+      margin-bottom: .35rem;
+    }
+
+    .perk-label{
+      font-size: .78rem;
+      color: rgba(245,245,245,0.92);
+      font-weight: 780;
+      display:flex;
+      align-items:center;
+      gap: .5rem;
+    }
+    .perk-label .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: rgba(124,247,212,0.85);
+      box-shadow: 0 0 0 4px rgba(124,247,212,0.10);
+    }
+
+    .perk-label.alt .dot{
+      background: rgba(138,167,255,0.9);
+      box-shadow: 0 0 0 4px rgba(138,167,255,0.10);
+    }
+
+    .perk-value{
+      font-size: 1.25rem;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .perk-sub{
+      font-size: .78rem;
+      color: rgba(174,182,223,0.9);
+      line-height: 1.45;
+    }
+
+    .cool-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      width: fit-content;
+      padding: .26rem .62rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.18);
+      color: rgba(245,245,245,0.92);
+      font-size: .76rem;
+      margin-top: .25rem;
+    }
+    .cool-pill b{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 900;
+    }
+
+    /* Comparación rápida */
+    .compare{
+      margin-top: 1.2rem;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      overflow: hidden;
+      background: rgba(0,0,0,0.18);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .compare::after{
+      content:"";
+      position:absolute; inset:-1px;
+      pointer-events:none;
+      opacity:.8;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(124,247,212,0.08), transparent 55%),
+        radial-gradient(900px 240px at 85% 10%, rgba(138,167,255,0.08), transparent 60%);
+    }
+    .compare-top{
+      position: relative;
+      z-index: 2;
+      padding: .85rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .compare-top strong{ color: var(--text); }
+    .compare-top span{
+      color: rgba(174,182,223,0.9);
+      font-size: .86rem;
+      line-height: 1.5;
+    }
+    .compare table{
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+    .compare th, .compare td{
+      padding: .85rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-align: left;
+    }
+    .compare th{
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(174,182,223,0.95);
+      background: rgba(5,5,16,0.35);
+    }
+    .compare td{ color: rgba(174,182,223,0.98); }
+    .compare td b{ color: var(--text); }
+    .compare tr:last-child td{ border-bottom: none; }
 
     /* Mobile */
     @media (max-width: 940px){
@@ -691,15 +798,16 @@
       .cols-2{ columns: 1; }
       nav{ gap: .9rem; }
       .subnav-wrap{ top: 108px; }
-      .floating{ display: flex; }
+      .perk-grid{ grid-template-columns: 1fr; }
+      .compare{ overflow-x:auto; }
+      .compare table{ min-width: 820px; }
     }
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       html { scroll-behavior: auto; }
-      .btn, .btn-small, .subnav a, .card, .hero-art img, .fab { transition: none; }
-      .btn:hover, .btn-outline:hover, .btn-small:hover, .subnav a:hover, .card:hover, .fab:hover { transform: none; }
-      .grain{ animation: none; }
+      .btn, .btn-small, .subnav a { transition: none; }
+      .btn:hover, .btn-outline:hover, .btn-small:hover, .subnav a:hover { transform: none; }
     }
   </style>
 </head>
@@ -783,7 +891,7 @@
 
   <!-- SUBNAV STICKY -->
   <div class="subnav-wrap">
-    <nav class="subnav" id="subnav">
+    <nav class="subnav">
       <a href="#rangos">Rangos</a>
       <a href="#contratos">Contratos</a>
       <a href="#protecciones">Protecciones</a>
@@ -795,10 +903,14 @@
 
   <main>
     <!-- RANGOS -->
-    <section id="rangos" data-spy>
+    <section id="rangos">
       <h2 class="section-title">Rangos</h2>
       <p class="section-subtitle">
         Elige el rango que quieras, paga por PayPal y abre ticket con tu comprobante + tu nick.
+        <br/>
+        <strong>Importante:</strong> los <strong>homes NO tienen cooldown</strong>. El cooldown relevante es el de <strong>/rtp</strong> (según el changelog).
+        <br/>
+        Los rangos ajustan <strong>límites</strong> de homes/protecciones y <strong>cooldown de /rtp</strong>. Las protecciones como ítem se compran en su sección.
       </p>
 
       <div class="grid">
@@ -819,7 +931,43 @@
             <li>x3 Moneda de Dragonita · x3 Monedovich</li>
           </ul>
 
-          <div class="footer-row">
+          <div class="perks">
+            <div class="perks-head">
+              <div class="perks-title">Ventajas del rango</div>
+              <div class="perks-note">QoL (homes + protecciones + RTP)</div>
+            </div>
+
+            <div class="perk-grid">
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Homes</div>
+                  <div class="perk-value">4</div>
+                </div>
+                <div class="perk-sub">Máximo de <strong>/sethome</strong>. <em>Sin cooldown</em>.</div>
+              </div>
+
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label alt"><span class="dot"></span>Protecciones</div>
+                  <div class="perk-value">3</div>
+                </div>
+                <div class="perk-sub">Máximo de protecciones activas. <em>No incluye bloques</em>.</div>
+              </div>
+
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>/rtp</div>
+                  <div class="perk-value">↓</div>
+                </div>
+                <div class="perk-sub">
+                  Cooldown de <strong>/rtp</strong> ajustado por rango.
+                  <div class="cool-pill">Nivel: <b>Reducido</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-row" style="margin-top: .95rem;">
             <span class="price">4 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
@@ -847,7 +995,43 @@
             <li>x10 Monedovich · x10 Moneda de Dragonita</li>
           </ul>
 
-          <div class="footer-row">
+          <div class="perks">
+            <div class="perks-head">
+              <div class="perks-title">Ventajas del rango</div>
+              <div class="perks-note">QoL (homes + protecciones + RTP)</div>
+            </div>
+
+            <div class="perk-grid">
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Homes</div>
+                  <div class="perk-value">6</div>
+                </div>
+                <div class="perk-sub">Máximo de <strong>/sethome</strong>. <em>Sin cooldown</em>.</div>
+              </div>
+
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label alt"><span class="dot"></span>Protecciones</div>
+                  <div class="perk-value">5</div>
+                </div>
+                <div class="perk-sub">Máximo de protecciones activas. <em>No incluye bloques</em>.</div>
+              </div>
+
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>/rtp</div>
+                  <div class="perk-value">↓↓</div>
+                </div>
+                <div class="perk-sub">
+                  Cooldown de <strong>/rtp</strong> ajustado por rango.
+                  <div class="cool-pill">Nivel: <b>Muy reducido</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-row" style="margin-top: .95rem;">
             <span class="price">10 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
@@ -875,7 +1059,43 @@
             <li>x4 Amuleto KeepInventory III · x4 Amuleto Vida II</li>
           </ul>
 
-          <div class="footer-row">
+          <div class="perks">
+            <div class="perks-head">
+              <div class="perks-title">Ventajas del rango</div>
+              <div class="perks-note">QoL (homes + protecciones + RTP)</div>
+            </div>
+
+            <div class="perk-grid">
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Homes</div>
+                  <div class="perk-value">7</div>
+                </div>
+                <div class="perk-sub">Máximo de <strong>/sethome</strong>. <em>Sin cooldown</em>.</div>
+              </div>
+
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label alt"><span class="dot"></span>Protecciones</div>
+                  <div class="perk-value">7</div>
+                </div>
+                <div class="perk-sub">Máximo de protecciones activas. <em>No incluye bloques</em>.</div>
+              </div>
+
+              <div class="perk">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>/rtp</div>
+                  <div class="perk-value">—</div>
+                </div>
+                <div class="perk-sub">
+                  Mejor cooldown posible de <strong>/rtp</strong>.
+                  <div class="cool-pill">Nivel: <b>Máximo beneficio</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-row" style="margin-top: .95rem;">
             <span class="price">16 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
@@ -883,22 +1103,79 @@
           <p class="mini-note">Ticket: “<strong>Elite – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
       </div>
+
+      <!-- Comparación rápida (incluye BASE) -->
+      <div class="compare">
+        <div class="compare-top">
+          <strong>Comparación rápida</strong>
+          <span>
+            Homes = límite de <b>/sethome</b> (sin cooldown). RTP = cooldown de <b>/rtp</b> (según changelog).
+          </span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Homes</th>
+              <th>Protecciones</th>
+              <th>/rtp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Base</b> (por defecto)</td>
+              <td>2</td>
+              <td>2</td>
+              <td>Estándar</td>
+            </tr>
+            <tr>
+              <td><b>Premium</b></td>
+              <td>4</td>
+              <td>3</td>
+              <td>Reducido</td>
+            </tr>
+            <tr>
+              <td><b>VIP</b></td>
+              <td>6</td>
+              <td>5</td>
+              <td>Muy reducido</td>
+            </tr>
+            <tr>
+              <td><b>Elite</b></td>
+              <td>7</td>
+              <td>7</td>
+              <td>Máximo beneficio</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="notice" style="margin-top: .85rem;">
+        Nota: los rangos cambian <strong>límites</strong> y <strong>QoL</strong>. Las <strong>protecciones como ítem</strong> se compran aparte en su sección.
+      </p>
     </section>
 
     <!-- CONTRATOS -->
-    <section id="contratos" data-spy>
+    <section id="contratos">
       <h2 class="section-title">Contratos</h2>
       <p class="section-subtitle">
-        Packs de <strong>Dragonita + Monedovich</strong>. Entrega manual por ticket.
+        Packs de <strong>Monedas de Dragonita + Monedovich</strong>. Cuatro tiers claros, sin ruido.
+        <br/>
+        D = Dragonita · M = Monedovich
       </p>
 
       <div class="grid">
+        <!-- CONTRATO I -->
         <article class="card">
-          <span class="badge"><b>Contrato</b> I</span>
-          <img src="/assets/llaves/contrato1.png" alt="Contrato Aprendiz">
-          <div class="tagline">Aprendiz</div>
-          <h3 class="title">Contrato Aprendiz</h3>
-          <p class="desc">2 Dragonita + 3 Monedovich.</p>
+          <img src="assets/llaves/contrato1.png" alt="Contrato de Aurora · Aprendiz">
+          <div class="tagline">Entrada</div>
+          <h3 class="title">Contrato de Aurora · Aprendiz</h3>
+          <p class="desc">2D + 3M</p>
+          <ul class="list">
+            <li>Incluye: <strong>2</strong> Monedas de Dragonita</li>
+            <li>Incluye: <strong>3</strong> Monedovich</li>
+            <li>Entrega por ticket (nick + comprobante)</li>
+          </ul>
           <div class="footer-row">
             <span class="price">1 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
@@ -906,12 +1183,17 @@
           <p class="mini-note">Ticket: “<strong>Contrato Aprendiz</strong>” + nick + comprobante.</p>
         </article>
 
+        <!-- CONTRATO II -->
         <article class="card">
-          <span class="badge"><b>Contrato</b> II</span>
-          <img src="/assets/llaves/contrato2.png" alt="Contrato Mercader">
-          <div class="tagline">Mercader</div>
-          <h3 class="title">Contrato Mercader</h3>
-          <p class="desc">6 Dragonita + 8 Monedovich.</p>
+          <img src="assets/llaves/contrato2.png" alt="Contrato de Aurora · Mercader">
+          <div class="tagline">Equilibrado</div>
+          <h3 class="title">Contrato de Aurora · Mercader</h3>
+          <p class="desc">6D + 8M</p>
+          <ul class="list">
+            <li>Incluye: <strong>6</strong> Monedas de Dragonita</li>
+            <li>Incluye: <strong>8</strong> Monedovich</li>
+            <li>Entrega por ticket (nick + comprobante)</li>
+          </ul>
           <div class="footer-row">
             <span class="price">4 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
@@ -919,12 +1201,17 @@
           <p class="mini-note">Ticket: “<strong>Contrato Mercader</strong>” + nick + comprobante.</p>
         </article>
 
+        <!-- CONTRATO III -->
         <article class="card featured">
-          <span class="badge"><b>Contrato</b> III</span>
-          <img src="/assets/llaves/contrato3.png" alt="Contrato Forjador">
-          <div class="tagline">Forjador</div>
-          <h3 class="title">Contrato Forjador</h3>
-          <p class="desc">12 Dragonita + 15 Monedovich.</p>
+          <img src="assets/llaves/contrato3.png" alt="Contrato de Aurora · Forjador">
+          <div class="tagline">Progreso</div>
+          <h3 class="title">Contrato de Aurora · Forjador</h3>
+          <p class="desc">12D + 15M</p>
+          <ul class="list">
+            <li>Incluye: <strong>12</strong> Monedas de Dragonita</li>
+            <li>Incluye: <strong>15</strong> Monedovich</li>
+            <li>Entrega por ticket (nick + comprobante)</li>
+          </ul>
           <div class="footer-row">
             <span class="price">8 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
@@ -932,12 +1219,17 @@
           <p class="mini-note">Ticket: “<strong>Contrato Forjador</strong>” + nick + comprobante.</p>
         </article>
 
+        <!-- CONTRATO IV -->
         <article class="card featured">
-          <span class="badge"><b>Contrato</b> IV</span>
-          <img src="/assets/llaves/contrato4.png" alt="Contrato Custodio">
-          <div class="tagline">Custodio</div>
-          <h3 class="title">Contrato Custodio</h3>
-          <p class="desc">20 Dragonita + 25 Monedovich.</p>
+          <img src="assets/llaves/contrato4.png" alt="Contrato de Aurora · Custodio">
+          <div class="tagline">Máximo valor</div>
+          <h3 class="title">Contrato de Aurora · Custodio</h3>
+          <p class="desc">20D + 25M</p>
+          <ul class="list">
+            <li>Incluye: <strong>20</strong> Monedas de Dragonita</li>
+            <li>Incluye: <strong>25</strong> Monedovich</li>
+            <li>Entrega por ticket (nick + comprobante)</li>
+          </ul>
           <div class="footer-row">
             <span class="price">15 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
@@ -947,12 +1239,12 @@
       </div>
 
       <p class="notice">
-        Nota: los contratos son packs de monedas. Los rangos y las protecciones se compran por separado.
+        Ticket: “<strong>Contrato</strong>” + tier (Aprendiz/Mercader/Forjador/Custodio) + nick + comprobante.
       </p>
     </section>
 
     <!-- PROTECCIONES -->
-    <section id="protecciones" data-spy>
+    <section id="protecciones">
       <h2 class="section-title">Protecciones</h2>
       <p class="section-subtitle">
         Bloques de protección para asegurar tu zona.
@@ -1052,7 +1344,7 @@
     </section>
 
     <!-- CÓMO COMPRAR -->
-    <section id="como-comprar" data-spy>
+    <section id="como-comprar">
       <h2 class="section-title">Cómo comprar</h2>
       <p class="section-subtitle">3 pasos, sin líos.</p>
 
@@ -1084,10 +1376,10 @@
     </section>
 
     <!-- SPONSOR -->
-    <section id="sponsor" data-spy>
+    <section id="sponsor">
       <h2 class="section-title">Kit Sponsor</h2>
       <p class="section-subtitle">
-        Kit de apoyo (no es rango). Es una ayuda extra para quien quiera aportar.
+        Kit de apoyo (no es rango). Lo dejamos al final: primero rangos, contratos y protecciones.
       </p>
 
       <article class="card sponsor-card">
@@ -1140,7 +1432,7 @@
     </section>
 
     <!-- TRÁILER -->
-    <section id="trailer" data-spy>
+    <section id="trailer">
       <h2 class="section-title">Tráiler</h2>
       <p class="section-subtitle">Tráiler principal de Aurora SMP.</p>
 
@@ -1163,12 +1455,6 @@
     <br>
     PayPal: <a href="https://paypal.me/asirtic" target="_blank" rel="noopener">paypal.me/asirtic</a>
   </footer>
-
-  <!-- Floating buttons (mobile) -->
-  <div class="floating">
-    <a class="fab primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">PayPal</a>
-    <a class="fab" href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">Discord</a>
-  </div>
 
   <script>
     // Sistema de nick global
@@ -1217,35 +1503,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', updateUserBar);
-
-    // Scrollspy suave para subnav (marca sección activa)
-    (function(){
-      const links = Array.from(document.querySelectorAll('#subnav a'));
-      const sections = Array.from(document.querySelectorAll('[data-spy]'));
-      if(!links.length || !sections.length) return;
-
-      const map = new Map();
-      links.forEach(a => {
-        const id = (a.getAttribute('href') || '').replace('#','');
-        map.set(id, a);
-      });
-
-      const setActive = (id) => {
-        links.forEach(l => l.classList.remove('active'));
-        const a = map.get(id);
-        if(a) a.classList.add('active');
-      };
-
-      const obs = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if(!visible) return;
-        setActive(visible.target.id);
-      }, { rootMargin: '-35% 0px -55% 0px', threshold: [0.12, 0.2, 0.35, 0.5, 0.65] });
-
-      sections.forEach(s => obs.observe(s));
-    })();
   </script>
 
   <!-- 🔒 Bloqueo de click derecho y atajos -->
