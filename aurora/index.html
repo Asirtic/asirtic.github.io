@@ -64,7 +64,7 @@
     header{
       position:sticky;
       top:0;
-      z-index:50;
+      z-index:60;
       border-bottom:1px solid rgba(255,255,255,.06);
       backdrop-filter: blur(12px);
       background: linear-gradient(to bottom, rgba(5,5,16,0.92), rgba(5,5,16,0.70));
@@ -157,7 +157,8 @@
     .btn-small:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
     .btn-small:active{ transform:translateY(0); }
 
-    main{
+    /* Contenedor (usado en dos bloques) */
+    .container{
       max-width:var(--max);
       margin:0 auto;
       padding:2.3rem 1.4rem 3.6rem;
@@ -335,7 +336,7 @@
     .subnav-wrap{
       position:sticky;
       top:86px;
-      z-index:40;
+      z-index:50;
       margin:0 0 1.8rem;
       padding:.65rem 0;
       background: linear-gradient(to bottom, rgba(5,5,16,0.75), rgba(5,5,16,0.20));
@@ -359,10 +360,21 @@
       color:var(--muted);
       text-decoration:none;
       background: rgba(5,5,16,0.62);
-      transition: transform .12s ease, border-color .12s ease, color .12s ease;
+      transition: transform .12s ease, border-color .12s ease, color .12s ease, background .12s ease;
     }
-    .subnav a:hover{ border-color: rgba(124,247,212,0.35); color: var(--accent); transform: translateY(-1px); }
+    .subnav a:hover{
+      border-color: rgba(124,247,212,0.35);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
     .subnav a:active{ transform: translateY(0); }
+    .subnav a.active{
+      border-color: rgba(124,247,212,0.40);
+      color: var(--text);
+      background:
+        radial-gradient(220px 70px at 20% 0%, rgba(124,247,212,0.18), transparent 62%),
+        rgba(5,5,16,0.72);
+    }
 
     .section-title{
       font-size:1.05rem;
@@ -376,7 +388,7 @@
       font-size:.93rem;
       color:var(--muted);
       margin-bottom:1.15rem;
-      max-width:820px;
+      max-width:880px;
       line-height:1.65;
     }
 
@@ -399,6 +411,7 @@
       overflow:hidden;
       transform:translateZ(0);
       min-width:0;
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
     }
     .card::after{
       content:"";
@@ -410,7 +423,11 @@
       opacity:.85;
       pointer-events:none;
     }
-    .card:hover{ border-color: rgba(124,247,212,0.24); }
+    .card:hover{
+      border-color: rgba(124,247,212,0.24);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.45);
+    }
 
     .badge{
       position:absolute;
@@ -540,8 +557,9 @@
     }
 
     .card.featured{ border-color: rgba(138,167,255,0.22); }
+    .card.featured:hover{ border-color: rgba(138,167,255,0.32); }
 
-    /* Panel simplificado (como tu captura): 3 filas apiladas */
+    /* Panel simplificado (3 filas apiladas) */
     .perks{
       position:relative;
       z-index:2;
@@ -555,10 +573,7 @@
         rgba(0,0,0,0.16);
       backdrop-filter: blur(10px);
     }
-    .perk-stack{
-      display:grid;
-      gap:.65rem;
-    }
+    .perk-stack{ display:grid; gap:.65rem; }
     .perk-item{
       border-radius:.95rem;
       border:1px solid rgba(255,255,255,0.10);
@@ -767,8 +782,8 @@
 
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior:auto; }
-      .btn, .btn-small, .subnav a{ transition:none; }
-      .btn:hover, .btn-outline:hover, .btn-small:hover, .subnav a:hover{ transform:none; }
+      .btn, .btn-small, .subnav a, .card{ transition:none; }
+      .btn:hover, .btn-outline:hover, .btn-small:hover, .subnav a:hover, .card:hover{ transform:none; }
     }
   </style>
 </head>
@@ -806,7 +821,7 @@
     </div>
   </div>
 
-  <main>
+  <div class="container">
     <div class="breadcrumb">
       <a href="/">Inicio</a> · Aurora SMP · Tienda oficial
     </div>
@@ -815,7 +830,7 @@
       <div class="hero-copy">
         <h1><span>Aurora SMP</span> · Tienda digital</h1>
         <p>
-          Rangos, <strong>Contratos</strong> (Dragonita + Monedovich) y protecciones.
+          Rangos de temporada, <strong>rangos permanentes</strong>, <strong>Contratos</strong> (Dragonita + Monedovich) y protecciones.
           Pagos por <strong>PayPal</strong> y validación por <strong>ticket en Discord</strong>.
           El nick de arriba se usa como referencia de entrega.
         </p>
@@ -828,6 +843,7 @@
 
         <div class="hero-actions">
           <a href="#rangos" class="btn btn-primary">Rangos →</a>
+          <a href="#permanentes" class="btn btn-outline">Permanentes</a>
           <a href="#contratos" class="btn btn-outline">Contratos</a>
           <a href="#protecciones" class="btn btn-outline">Protecciones</a>
           <a href="#como-comprar" class="btn btn-outline">Cómo comprar</a>
@@ -848,11 +864,12 @@
         </div>
       </aside>
     </section>
-  </main>
+  </div>
 
   <div class="subnav-wrap">
-    <nav class="subnav">
+    <nav class="subnav" aria-label="Secciones de tienda">
       <a href="#rangos">Rangos</a>
+      <a href="#permanentes">Permanentes</a>
       <a href="#contratos">Contratos</a>
       <a href="#protecciones">Protecciones</a>
       <a href="#como-comprar">Cómo comprar</a>
@@ -861,7 +878,7 @@
     </nav>
   </div>
 
-  <main>
+  <main class="container">
     <section id="rangos">
       <h2 class="section-title">Rangos</h2>
       <p class="section-subtitle">
@@ -1048,6 +1065,100 @@
           <p class="mini-note">Ticket: “<strong>Elite – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
       </div>
+    </section>
+
+    <!-- PERMANENTES (NUEVO) -->
+    <section id="permanentes">
+      <h2 class="section-title">Rangos permanentes</h2>
+      <p class="section-subtitle">
+        Extra para tu cuenta. <strong>No caduca</strong>. Se suma a lo que ya tengas en temporada.
+      </p>
+
+      <div class="grid">
+        <!-- PREMIUM PERM -->
+        <article class="card">
+          <span class="badge"><b>Perm</b> Premium</span>
+
+          <div class="media rango">
+            <img src="/assets/rangos/premium_perm.png" alt="Premium Permanente Aurora SMP" loading="lazy">
+          </div>
+
+          <div class="tagline">No caduca</div>
+          <h3 class="title">Premium Permanente</h3>
+          <p class="desc">Medalla + Discord + contrato.</p>
+
+          <ul class="list">
+            <li>+5 niveles en Discord</li>
+            <li>Medalla exclusiva dentro del servidor</li>
+            <li>Contrato de Aurora · Mercader</li>
+          </ul>
+
+          <div class="footer-row" style="margin-top:.95rem;">
+            <span class="price">14 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Premium Permanente – Aurora SMP</strong>” + nick + comprobante.</p>
+        </article>
+
+        <!-- VIP PERM -->
+        <article class="card featured">
+          <span class="badge"><b>Perm</b> VIP</span>
+
+          <div class="media rango">
+            <img src="/assets/rangos/vip_perm.png" alt="VIP Permanente Aurora SMP" loading="lazy">
+          </div>
+
+          <div class="tagline">No caduca</div>
+          <h3 class="title">VIP Permanente</h3>
+          <p class="desc">Medalla + Discord + protección + contrato.</p>
+
+          <ul class="list">
+            <li>+8 niveles en Discord</li>
+            <li>Medalla exclusiva dentro del servidor</li>
+            <li>Protección 16×16 incluida</li>
+            <li>Contrato de Aurora · Forjador</li>
+          </ul>
+
+          <div class="footer-row" style="margin-top:.95rem;">
+            <span class="price">24 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>VIP Permanente – Aurora SMP</strong>” + nick + comprobante.</p>
+        </article>
+
+        <!-- ELITE PERM -->
+        <article class="card featured">
+          <span class="badge"><b>Perm</b> Elite</span>
+
+          <div class="media rango">
+            <img src="/assets/rangos/elite_perm.png" alt="Elite Permanente Aurora SMP" loading="lazy">
+          </div>
+
+          <div class="tagline">No caduca</div>
+          <h3 class="title">Elite Permanente</h3>
+          <p class="desc">Top permanente con protección mayor.</p>
+
+          <ul class="list">
+            <li>+12 niveles en Discord</li>
+            <li>Medalla exclusiva dentro del servidor</li>
+            <li>Protección 24×24 incluida</li>
+            <li>Contrato de Aurora · Forjador</li>
+          </ul>
+
+          <div class="footer-row" style="margin-top:.95rem;">
+            <span class="price">35 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Elite Permanente – Aurora SMP</strong>” + nick + comprobante.</p>
+        </article>
+      </div>
+
+      <p class="notice">
+        Si ya compraste contrato/protección por separado y quieres evitar duplicados, dilo en el ticket y lo revisas con el staff.
+      </p>
     </section>
 
     <section id="contratos">
@@ -1374,6 +1485,11 @@
   <script>
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
+    function isValidMinecraftName(name){
+      // Mojang: 3-16 caracteres, letras/números/guion_bajo
+      return /^[A-Za-z0-9_]{3,16}$/.test(name);
+    }
+
     function updateUserBar() {
       const name = localStorage.getItem(PBS_KEY_MCNAME) || '';
       const greetEl = document.getElementById('user-greeting');
@@ -1403,8 +1519,9 @@
       const inputEl = document.getElementById('mcname-input');
       if (!inputEl) return;
       const value = (inputEl.value || '').trim();
-      if (!value) {
-        alert('Por favor, escribe un nick válido.');
+
+      if (!value || !isValidMinecraftName(value)) {
+        alert('Nick inválido. Usa 3–16 caracteres (letras, números o _).');
         return;
       }
       localStorage.setItem(PBS_KEY_MCNAME, value);
@@ -1416,7 +1533,39 @@
       updateUserBar();
     }
 
-    document.addEventListener('DOMContentLoaded', updateUserBar);
+    document.addEventListener('DOMContentLoaded', () => {
+      updateUserBar();
+
+      // Subnav active state
+      const links = Array.from(document.querySelectorAll('.subnav a'));
+      const sections = links
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+      const byId = new Map(links.map(a => [a.getAttribute('href')?.slice(1), a]));
+
+      const setActive = (id) => {
+        links.forEach(a => a.classList.remove('active'));
+        const el = byId.get(id);
+        if (el) el.classList.add('active');
+      };
+
+      if ('IntersectionObserver' in window && sections.length) {
+        const obs = new IntersectionObserver((entries) => {
+          // elige el más visible
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a,b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
+
+          if (visible?.target?.id) setActive(visible.target.id);
+        }, { root: null, threshold: [0.18, 0.32, 0.5], rootMargin: "-20% 0px -70% 0px" });
+
+        sections.forEach(s => obs.observe(s));
+      } else {
+        // fallback simple
+        setActive('rangos');
+      }
+    });
   </script>
 
   <script>
