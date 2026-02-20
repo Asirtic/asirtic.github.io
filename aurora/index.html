@@ -290,7 +290,6 @@
       pointer-events:none;
     }
 
-    /* Ajuste: ratio 16/9 y <img> sin forzar ambas dimensiones */
     .hero-media{
       position:relative;
       border-radius: 1.05rem;
@@ -298,16 +297,15 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.55);
       background: rgba(0,0,0,0.20);
       overflow:hidden;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16/10;
       display:grid;
       place-items:center;
     }
     .hero-media img{
-      width:auto;
-      height:auto;
-      max-width:100%;
-      max-height:100%;
+      width:100%;
+      height:100%;
       object-fit:contain;
+      object-position:center;
       display:block;
       image-rendering:auto;
     }
@@ -442,7 +440,6 @@
       font-weight:900;
     }
 
-    /* Ajuste: ratios y <img> sin deformar */
     .media{
       position:relative;
       z-index:1;
@@ -457,16 +454,15 @@
       margin-bottom:.9rem;
       min-width:0;
     }
-    .media.rango{ aspect-ratio: 16/9; }
+    .media.rango{ aspect-ratio: 16/10; }
     .media.square{ aspect-ratio: 1/1; }
-    .media.icon{ aspect-ratio: 1/1; }
+    .media.icon{ aspect-ratio: 4/3; }
 
     .media img{
-      width:auto;
-      height:auto;
-      max-width:100%;
-      max-height:100%;
+      width:100%;
+      height:100%;
       object-fit:contain;
+      object-position:center;
       display:block;
       image-rendering:auto;
       -ms-interpolation-mode: bicubic;
@@ -546,74 +542,6 @@
     }
 
     .card.featured{ border-color: rgba(138,167,255,0.22); }
-
-    .perks{
-      position:relative;
-      z-index:2;
-      margin-top:.75rem;
-      padding:.85rem .9rem;
-      border-radius:1rem;
-      border:1px solid rgba(255,255,255,0.10);
-      background:
-        radial-gradient(700px 180px at 20% 0%, rgba(124,247,212,0.10), transparent 58%),
-        radial-gradient(700px 180px at 85% 20%, rgba(138,167,255,0.10), transparent 60%),
-        rgba(0,0,0,0.16);
-      backdrop-filter: blur(10px);
-    }
-    .perk-stack{ display:grid; gap:.65rem; }
-    .perk-item{
-      border-radius:.95rem;
-      border:1px solid rgba(255,255,255,0.10);
-      background: rgba(5,5,16,0.42);
-      padding:.72rem .8rem;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-      min-width:0;
-    }
-    .perk-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:.6rem;
-      margin-bottom:.18rem;
-      min-width:0;
-    }
-    .perk-label{
-      font-size:.80rem;
-      color: rgba(245,245,245,0.92);
-      font-weight:780;
-      display:flex;
-      align-items:center;
-      gap:.5rem;
-      min-width:0;
-    }
-    .dot{
-      width:8px; height:8px;
-      border-radius:999px;
-      background: rgba(124,247,212,0.85);
-      box-shadow: 0 0 0 4px rgba(124,247,212,0.10);
-      flex:0 0 auto;
-    }
-    .dot.alt{
-      background: rgba(138,167,255,0.9);
-      box-shadow: 0 0 0 4px rgba(138,167,255,0.10);
-    }
-    .perk-value{
-      font-size:1.15rem;
-      font-weight:950;
-      letter-spacing:-0.02em;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      white-space:nowrap;
-      flex:0 0 auto;
-    }
-    .perk-sub{
-      font-size:.78rem;
-      color: rgba(174,182,223,0.9);
-      line-height:1.45;
-      overflow-wrap:anywhere;
-    }
 
     .info-grid{
       display:grid;
@@ -816,6 +744,7 @@
         <p>
           Rangos, rangos permanentes, contratos (Dragonita + Monedovich) y protecciones.
           Pagos por <strong>PayPal</strong> y validación por <strong>ticket en Discord</strong>.
+          El nick de arriba se usa como referencia de entrega.
         </p>
 
         <div class="hero-tags">
@@ -833,7 +762,7 @@
         </div>
 
         <p class="notice">
-          Inicia sesión con tu nick para agilizar la entrega por ticket.
+          Si inicias sesión con tu nick, la entrega por ticket es más rápida.
         </p>
       </div>
 
@@ -865,11 +794,12 @@
     <section id="rangos">
       <h2 class="section-title">Rangos</h2>
       <p class="section-subtitle">
-        Elige el rango y valida por ticket con nick + comprobante.
+        Elige el rango, paga por PayPal y abre ticket con tu comprobante + tu nick.
+        Los rangos ajustan <strong>Homes</strong>, <strong>Protecciones</strong> y mejora de <strong>/rtp</strong>.
+        Los <strong>bloques de protección</strong> se compran aparte en la sección Protecciones.
       </p>
 
       <div class="grid">
-        <!-- PREMIUM -->
         <article class="card">
           <span class="badge"><b>Rango</b> Premium</span>
 
@@ -879,7 +809,7 @@
 
           <div class="tagline">Inicio fuerte</div>
           <h3 class="title">Rango Premium</h3>
-          <p class="desc">Recursos y monedas.</p>
+          <p class="desc">Para empezar cómodo desde el día 1: recursos y monedas.</p>
 
           <ul class="list">
             <li>x1 Armadura de Diamante <strong>[sin casco]</strong> (Protección V)</li>
@@ -890,43 +820,14 @@
             <li>x3 Moneda de Dragonita · x3 Monedovich</li>
           </ul>
 
-          <div class="perks">
-            <div class="perk-stack">
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot"></span>Homes</div>
-                  <div class="perk-value">4</div>
-                </div>
-                <div class="perk-sub">Límite de <strong>/sethome</strong></div>
-              </div>
-
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot alt"></span>Protecciones</div>
-                  <div class="perk-value">3</div>
-                </div>
-                <div class="perk-sub">Límite total</div>
-              </div>
-
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot"></span>/rtp</div>
-                  <div class="perk-value">+</div>
-                </div>
-                <div class="perk-sub">Cooldown mejorado</div>
-              </div>
-            </div>
-          </div>
-
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">4 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
 
-          <p class="mini-note">Ticket: <strong>Premium – Aurora SMP</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Premium – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
-        <!-- VIP -->
         <article class="card featured">
           <span class="badge"><b>Rango</b> VIP</span>
 
@@ -936,7 +837,7 @@
 
           <div class="tagline">Progreso serio</div>
           <h3 class="title">Rango VIP</h3>
-          <p class="desc">Imperium, amuletos y utilidades.</p>
+          <p class="desc">Imperium, amuletos y utilidades para mantener ritmo.</p>
 
           <ul class="list">
             <li>x1 Armadura de Imperium (Protección IV, Irrompibilidad III)</li>
@@ -950,43 +851,14 @@
             <li>x10 Monedovich · x10 Moneda de Dragonita</li>
           </ul>
 
-          <div class="perks">
-            <div class="perk-stack">
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot"></span>Homes</div>
-                  <div class="perk-value">6</div>
-                </div>
-                <div class="perk-sub">Límite de <strong>/sethome</strong></div>
-              </div>
-
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot alt"></span>Protecciones</div>
-                  <div class="perk-value">5</div>
-                </div>
-                <div class="perk-sub">Límite total</div>
-              </div>
-
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot"></span>/rtp</div>
-                  <div class="perk-value">++</div>
-                </div>
-                <div class="perk-sub">Cooldown avanzado</div>
-              </div>
-            </div>
-          </div>
-
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">10 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
 
-          <p class="mini-note">Ticket: <strong>VIP – Aurora SMP</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>VIP – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
-        <!-- ELITE -->
         <article class="card featured">
           <span class="badge"><b>Rango</b> Elite</span>
 
@@ -996,7 +868,7 @@
 
           <div class="tagline">Máximo nivel</div>
           <h3 class="title">Rango Elite</h3>
-          <p class="desc">Herramientas, skins y extras.</p>
+          <p class="desc">Imperium con encantamientos altos, herramientas y extras.</p>
 
           <ul class="list">
             <li>Set Imperium completo (Prot VI, Irromp V, Reparación) + extras</li>
@@ -1010,49 +882,20 @@
             <li>x4 Amuleto KeepInventory III · x4 Amuleto Vida II</li>
           </ul>
 
-          <div class="perks">
-            <div class="perk-stack">
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot"></span>Homes</div>
-                  <div class="perk-value">7</div>
-                </div>
-                <div class="perk-sub">Límite de <strong>/sethome</strong></div>
-              </div>
-
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot alt"></span>Protecciones</div>
-                  <div class="perk-value">7</div>
-                </div>
-                <div class="perk-sub">Límite total</div>
-              </div>
-
-              <div class="perk-item">
-                <div class="perk-top">
-                  <div class="perk-label"><span class="dot"></span>/rtp</div>
-                  <div class="perk-value">★</div>
-                </div>
-                <div class="perk-sub">Cooldown máximo</div>
-              </div>
-            </div>
-          </div>
-
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">16 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
 
-          <p class="mini-note">Ticket: <strong>Elite – Aurora SMP</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Elite – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
       </div>
     </section>
 
-    <!-- PERMANENTES -->
     <section id="permanentes">
       <h2 class="section-title">Rangos permanentes</h2>
       <p class="section-subtitle">
-        Rango permanente (no caduca). Incluye los extras listados.
+        Mismo rango con duración permanente e incluye los extras listados.
       </p>
 
       <div class="grid">
@@ -1060,11 +903,12 @@
           <span class="badge"><b>Permanente</b> Premium</span>
 
           <div class="media rango">
-            <img src="/assets/rangos/premium_aurora.PNG" alt="Premium Permanente Aurora SMP" loading="lazy">
+            <img src="/assets/rangos/premium_perm.png" alt="Premium Permanente Aurora SMP" loading="lazy">
           </div>
 
-          <div class="tagline">Premium Permanente</div>
+          <div class="tagline">Permanente</div>
           <h3 class="title">Premium Permanente</h3>
+
           <ul class="list">
             <li>Medalla exclusiva dentro del servidor</li>
             <li>+5 niveles en Discord</li>
@@ -1076,18 +920,19 @@
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
 
-          <p class="mini-note">Ticket: <strong>Premium Permanente</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Premium Permanente</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card featured">
           <span class="badge"><b>Permanente</b> VIP</span>
 
           <div class="media rango">
-            <img src="/assets/rangos/vip_aurora.PNG" alt="VIP Permanente Aurora SMP" loading="lazy">
+            <img src="/assets/rangos/vip_perm.png" alt="VIP Permanente Aurora SMP" loading="lazy">
           </div>
 
-          <div class="tagline">VIP Permanente</div>
+          <div class="tagline">Permanente</div>
           <h3 class="title">VIP Permanente</h3>
+
           <ul class="list">
             <li>Medalla exclusiva dentro del servidor</li>
             <li>+8 niveles en Discord</li>
@@ -1100,18 +945,19 @@
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
 
-          <p class="mini-note">Ticket: <strong>VIP Permanente</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>VIP Permanente</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card featured">
           <span class="badge"><b>Permanente</b> Elite</span>
 
           <div class="media rango">
-            <img src="/assets/rangos/elite_aurora.PNG" alt="Elite Permanente Aurora SMP" loading="lazy">
+            <img src="/assets/rangos/elite_perm.png" alt="Elite Permanente Aurora SMP" loading="lazy">
           </div>
 
-          <div class="tagline">Elite Permanente</div>
+          <div class="tagline">Permanente</div>
           <h3 class="title">Elite Permanente</h3>
+
           <ul class="list">
             <li>Medalla exclusiva dentro del servidor</li>
             <li>+12 niveles en Discord</li>
@@ -1124,7 +970,7 @@
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
 
-          <p class="mini-note">Ticket: <strong>Elite Permanente</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Elite Permanente</strong>” + nick + comprobante.</p>
         </article>
       </div>
     </section>
@@ -1142,15 +988,17 @@
           </div>
           <div class="tagline">Entrada</div>
           <h3 class="title">Contrato de Aurora · Aprendiz</h3>
+          <p class="desc">2 Dragonita + 3 Monedovich</p>
           <ul class="list">
             <li>2 Monedas de Dragonita</li>
             <li>3 Monedovich</li>
+            <li>Entrega por ticket</li>
           </ul>
           <div class="footer-row">
             <span class="price">1 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Contrato Aprendiz</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Contrato Aprendiz</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1159,15 +1007,17 @@
           </div>
           <div class="tagline">Equilibrado</div>
           <h3 class="title">Contrato de Aurora · Mercader</h3>
+          <p class="desc">6 Dragonita + 8 Monedovich</p>
           <ul class="list">
             <li>6 Monedas de Dragonita</li>
             <li>8 Monedovich</li>
+            <li>Entrega por ticket</li>
           </ul>
           <div class="footer-row">
             <span class="price">4 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Contrato Mercader</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Contrato Mercader</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card featured">
@@ -1176,15 +1026,17 @@
           </div>
           <div class="tagline">Progreso</div>
           <h3 class="title">Contrato de Aurora · Forjador</h3>
+          <p class="desc">12 Dragonita + 15 Monedovich</p>
           <ul class="list">
             <li>12 Monedas de Dragonita</li>
             <li>15 Monedovich</li>
+            <li>Entrega por ticket</li>
           </ul>
           <div class="footer-row">
             <span class="price">8 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Contrato Forjador</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Contrato Forjador</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card featured">
@@ -1193,17 +1045,23 @@
           </div>
           <div class="tagline">Máximo valor</div>
           <h3 class="title">Contrato de Aurora · Custodio</h3>
+          <p class="desc">20 Dragonita + 25 Monedovich</p>
           <ul class="list">
             <li>20 Monedas de Dragonita</li>
             <li>25 Monedovich</li>
+            <li>Entrega por ticket</li>
           </ul>
           <div class="footer-row">
             <span class="price">15 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Contrato Custodio</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Contrato Custodio</strong>” + nick + comprobante.</p>
         </article>
       </div>
+
+      <p class="notice">
+        Ticket: “<strong>Contrato</strong>” + tier (Aprendiz/Mercader/Forjador/Custodio) + nick + comprobante.
+      </p>
     </section>
 
     <section id="protecciones">
@@ -1222,7 +1080,7 @@
             <span class="price">1.20 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Carbón</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Carbón</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1236,7 +1094,7 @@
             <span class="price">2.30 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Hierro</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Hierro</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1250,7 +1108,7 @@
             <span class="price">3.60 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Oro</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Oro</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1264,7 +1122,7 @@
             <span class="price">4.80 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Esmeralda</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Esmeralda</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1278,7 +1136,7 @@
             <span class="price">5.60 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Cobre</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Cobre</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1292,7 +1150,7 @@
             <span class="price">7.10 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Diamante</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Diamante</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1306,7 +1164,7 @@
             <span class="price">8.00 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Redstone</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Redstone</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card">
@@ -1320,29 +1178,31 @@
             <span class="price">10.00 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-          <p class="mini-note">Ticket: <strong>Protección Lapislázuli</strong> + nick + comprobante.</p>
+          <p class="mini-note">Ticket: “<strong>Protección Lapislázuli</strong>” + nick + comprobante.</p>
         </article>
       </div>
+
+      <p class="notice">Ticket: “<strong>Protección</strong>” + tipo + nick + comprobante.</p>
     </section>
 
     <section id="como-comprar">
       <h2 class="section-title">Cómo comprar</h2>
-      <p class="section-subtitle">3 pasos.</p>
+      <p class="section-subtitle">3 pasos, sin líos.</p>
 
       <div class="info-grid">
         <article class="info-card">
-          <strong>1) Nick</strong><br/>
-          Escríbelo arriba.
+          <strong>1) Inicia sesión con tu nick</strong><br/>
+          Escríbelo arriba. Ese nick se usa para la entrega.
         </article>
 
         <article class="info-card">
-          <strong>2) PayPal</strong><br/>
-          Nota: <em>nick + producto</em>.
+          <strong>2) Paga por PayPal</strong><br/>
+          En la nota del pago escribe: <em>nick + producto</em>.
         </article>
 
         <article class="info-card">
-          <strong>3) Ticket</strong><br/>
-          Comprobante + nick + producto.
+          <strong>3) Abre ticket en Discord</strong><br/>
+          Envía: comprobante + nick + producto. Entrega manual.
         </article>
       </div>
 
@@ -1350,12 +1210,16 @@
         <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Ir a PayPal →</a>
         <a class="btn btn-outline" href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">Abrir Discord →</a>
       </div>
+
+      <p class="notice">
+        Discord oficial: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" rel="noopener">discord.gg/yzZRu8yTF5</a>
+      </p>
     </section>
 
     <section id="sponsor">
       <h2 class="section-title">Kit Sponsor</h2>
       <p class="section-subtitle">
-        Kit de apoyo (no es rango). Entrega por ticket tras validar pago.
+        Kit de apoyo (no es rango). Se entrega por ticket tras validar pago.
       </p>
 
       <article class="card sponsor-card">
@@ -1401,7 +1265,7 @@
               <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
             </div>
 
-            <p class="mini-note">Ticket: <strong>Kit Sponsor – Aurora SMP</strong> + nick + comprobante.</p>
+            <p class="mini-note">Ticket: “<strong>Kit Sponsor – Aurora SMP</strong>” + nick + comprobante.</p>
           </div>
         </div>
       </article>
@@ -1434,10 +1298,6 @@
   <script>
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
-    function isValidMinecraftName(name){
-      return /^[A-Za-z0-9_]{3,16}$/.test(name);
-    }
-
     function updateUserBar() {
       const name = localStorage.getItem(PBS_KEY_MCNAME) || '';
       const greetEl = document.getElementById('user-greeting');
@@ -1467,12 +1327,10 @@
       const inputEl = document.getElementById('mcname-input');
       if (!inputEl) return;
       const value = (inputEl.value || '').trim();
-
-      if (!isValidMinecraftName(value)) {
-        alert('Nick inválido. Usa 3–16 caracteres (letras, números o _).');
+      if (!value) {
+        alert('Por favor, escribe un nick válido.');
         return;
       }
-
       localStorage.setItem(PBS_KEY_MCNAME, value);
       updateUserBar();
     }
@@ -1494,4 +1352,4 @@
     });
   </script>
 </body>
-</html
+</html>
