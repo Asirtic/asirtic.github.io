@@ -157,7 +157,6 @@
     .btn-small:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
     .btn-small:active{ transform:translateY(0); }
 
-    /* Contenedor (usado en dos bloques) */
     .container{
       max-width:var(--max);
       margin:0 auto;
@@ -388,7 +387,7 @@
       font-size:.93rem;
       color:var(--muted);
       margin-bottom:1.15rem;
-      max-width:880px;
+      max-width:920px;
       line-height:1.65;
     }
 
@@ -559,7 +558,7 @@
     .card.featured{ border-color: rgba(138,167,255,0.22); }
     .card.featured:hover{ border-color: rgba(138,167,255,0.32); }
 
-    /* Panel simplificado (3 filas apiladas) */
+    /* Panel de perks (3 filas apiladas) */
     .perks{
       position:relative;
       z-index:2;
@@ -627,6 +626,21 @@
       line-height:1.45;
       overflow-wrap:anywhere;
     }
+
+    /* Bloque “aclaración” para permanentes */
+    .clarify{
+      margin-top:.95rem;
+      padding:.95rem 1rem;
+      border-radius: 1rem;
+      border:1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(600px 180px at 15% 0%, rgba(138,167,255,0.12), transparent 60%),
+        rgba(0,0,0,0.16);
+      color: var(--muted);
+      font-size:.88rem;
+      line-height:1.6;
+    }
+    .clarify strong{ color: var(--text); }
 
     /* Info cards */
     .info-grid{
@@ -1067,31 +1081,60 @@
       </div>
     </section>
 
-    <!-- PERMANENTES (NUEVO) -->
+    <!-- PERMANENTES (REHECHO: sin “Perm”, más claro) -->
     <section id="permanentes">
       <h2 class="section-title">Rangos permanentes</h2>
       <p class="section-subtitle">
-        Extra para tu cuenta. <strong>No caduca</strong>. Se suma a lo que ya tengas en temporada.
+        Una compra <strong>para siempre</strong> en tu cuenta. Se suma a lo que ya tengas en temporada (no reemplaza nada).
+        Aquí lo valioso es: <strong>medalla permanente</strong> + <strong>mejora en Discord</strong> + <strong>extras incluidos</strong>.
       </p>
 
-      <div class="grid">
-        <!-- PREMIUM PERM -->
+      <div class="clarify">
+        <strong>Cómo leerlo:</strong> “Permanente” significa que la <strong>medalla se queda</strong> y el beneficio de Discord se aplica a tu cuenta.
+        Además, incluye entregas (contrato/protección) que se dan por ticket.
+        <br><strong>Importante:</strong> los permanentes <strong>no cambian homes/rtp</strong> (eso es del rango de temporada).
+      </div>
+
+      <div class="grid" style="margin-top:1.1rem;">
+        <!-- PREMIUM PERMANENTE -->
         <article class="card">
-          <span class="badge"><b>Perm</b> Premium</span>
+          <span class="badge"><b>Permanente</b> Premium</span>
 
           <div class="media rango">
             <img src="/assets/rangos/premium_perm.png" alt="Premium Permanente Aurora SMP" loading="lazy">
           </div>
 
-          <div class="tagline">No caduca</div>
+          <div class="tagline">Extra de cuenta</div>
           <h3 class="title">Premium Permanente</h3>
-          <p class="desc">Medalla + Discord + contrato.</p>
+          <p class="desc">Compra única: marca tu perfil y llévate un extra sólido.</p>
 
-          <ul class="list">
-            <li>+5 niveles en Discord</li>
-            <li>Medalla exclusiva dentro del servidor</li>
-            <li>Contrato de Aurora · Mercader</li>
-          </ul>
+          <div class="perks">
+            <div class="perk-stack">
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Medalla</div>
+                  <div class="perk-value">✔</div>
+                </div>
+                <div class="perk-sub">Visible en <strong>chat</strong> y <strong>TAB</strong> (permanente)</div>
+              </div>
+
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot alt"></span>Discord</div>
+                  <div class="perk-value">+5</div>
+                </div>
+                <div class="perk-sub">Niveles añadidos a tu perfil</div>
+              </div>
+
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Incluye</div>
+                  <div class="perk-value">1×</div>
+                </div>
+                <div class="perk-sub"><strong>Contrato Mercader</strong> (6D + 8M)</div>
+              </div>
+            </div>
+          </div>
 
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">14 €</span>
@@ -1101,24 +1144,45 @@
           <p class="mini-note">Ticket: “<strong>Premium Permanente – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
-        <!-- VIP PERM -->
+        <!-- VIP PERMANENTE -->
         <article class="card featured">
-          <span class="badge"><b>Perm</b> VIP</span>
+          <span class="badge"><b>Permanente</b> VIP</span>
 
           <div class="media rango">
             <img src="/assets/rangos/vip_perm.png" alt="VIP Permanente Aurora SMP" loading="lazy">
           </div>
 
-          <div class="tagline">No caduca</div>
+          <div class="tagline">Extra de cuenta</div>
           <h3 class="title">VIP Permanente</h3>
-          <p class="desc">Medalla + Discord + protección + contrato.</p>
+          <p class="desc">Más presencia + utilidad real desde el primer día.</p>
 
-          <ul class="list">
-            <li>+8 niveles en Discord</li>
-            <li>Medalla exclusiva dentro del servidor</li>
-            <li>Protección 16×16 incluida</li>
-            <li>Contrato de Aurora · Forjador</li>
-          </ul>
+          <div class="perks">
+            <div class="perk-stack">
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Medalla</div>
+                  <div class="perk-value">✔</div>
+                </div>
+                <div class="perk-sub">Visible en <strong>chat</strong> y <strong>TAB</strong> (permanente)</div>
+              </div>
+
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot alt"></span>Discord</div>
+                  <div class="perk-value">+8</div>
+                </div>
+                <div class="perk-sub">Niveles añadidos a tu perfil</div>
+              </div>
+
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Incluye</div>
+                  <div class="perk-value">2×</div>
+                </div>
+                <div class="perk-sub"><strong>Protección 16×16</strong> + <strong>Contrato Forjador</strong> (12D + 15M)</div>
+              </div>
+            </div>
+          </div>
 
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">24 €</span>
@@ -1128,24 +1192,45 @@
           <p class="mini-note">Ticket: “<strong>VIP Permanente – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
-        <!-- ELITE PERM -->
+        <!-- ELITE PERMANENTE -->
         <article class="card featured">
-          <span class="badge"><b>Perm</b> Elite</span>
+          <span class="badge"><b>Permanente</b> Elite</span>
 
           <div class="media rango">
             <img src="/assets/rangos/elite_perm.png" alt="Elite Permanente Aurora SMP" loading="lazy">
           </div>
 
-          <div class="tagline">No caduca</div>
+          <div class="tagline">Extra de cuenta</div>
           <h3 class="title">Elite Permanente</h3>
-          <p class="desc">Top permanente con protección mayor.</p>
+          <p class="desc">Tu marca definitiva: presencia máxima y extra potente.</p>
 
-          <ul class="list">
-            <li>+12 niveles en Discord</li>
-            <li>Medalla exclusiva dentro del servidor</li>
-            <li>Protección 24×24 incluida</li>
-            <li>Contrato de Aurora · Forjador</li>
-          </ul>
+          <div class="perks">
+            <div class="perk-stack">
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Medalla</div>
+                  <div class="perk-value">✔</div>
+                </div>
+                <div class="perk-sub">Visible en <strong>chat</strong> y <strong>TAB</strong> (permanente)</div>
+              </div>
+
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot alt"></span>Discord</div>
+                  <div class="perk-value">+12</div>
+                </div>
+                <div class="perk-sub">Niveles añadidos a tu perfil</div>
+              </div>
+
+              <div class="perk-item">
+                <div class="perk-top">
+                  <div class="perk-label"><span class="dot"></span>Incluye</div>
+                  <div class="perk-value">2×</div>
+                </div>
+                <div class="perk-sub"><strong>Protección 24×24</strong> + <strong>Contrato Forjador</strong> (12D + 15M)</div>
+              </div>
+            </div>
+          </div>
 
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">35 €</span>
@@ -1157,9 +1242,11 @@
       </div>
 
       <p class="notice">
-        Si ya compraste contrato/protección por separado y quieres evitar duplicados, dilo en el ticket y lo revisas con el staff.
+        Consejo rápido para que no haya líos: en la nota del pago pon <strong>nick + “Permanente” + tier</strong>.
       </p>
     </section>
+
+    <!-- (El resto del documento lo dejo como estaba: contratos, protecciones, etc.) -->
 
     <section id="contratos">
       <h2 class="section-title">Contratos</h2>
@@ -1486,7 +1573,6 @@
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
     function isValidMinecraftName(name){
-      // Mojang: 3-16 caracteres, letras/números/guion_bajo
       return /^[A-Za-z0-9_]{3,16}$/.test(name);
     }
 
@@ -1536,7 +1622,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       updateUserBar();
 
-      // Subnav active state
       const links = Array.from(document.querySelectorAll('.subnav a'));
       const sections = links
         .map(a => document.querySelector(a.getAttribute('href')))
@@ -1552,7 +1637,6 @@
 
       if ('IntersectionObserver' in window && sections.length) {
         const obs = new IntersectionObserver((entries) => {
-          // elige el más visible
           const visible = entries
             .filter(e => e.isIntersecting)
             .sort((a,b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
@@ -1562,7 +1646,6 @@
 
         sections.forEach(s => obs.observe(s));
       } else {
-        // fallback simple
         setActive('rangos');
       }
     });
