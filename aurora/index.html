@@ -742,7 +742,7 @@
       <div class="hero-copy">
         <h1><span>Aurora SMP</span> · Tienda digital</h1>
         <p>
-          Rangos, rangos permanentes, contratos (Dragonita + Monedovich) y protecciones.
+          Rangos, rangos permanentes, contratos, protecciones, mascotas y títulos.
           Pagos por <strong>PayPal</strong> y validación por <strong>ticket en Discord</strong>.
           El nick de arriba se usa como referencia de entrega.
         </p>
@@ -758,6 +758,8 @@
           <a href="#permanentes" class="btn btn-outline">Permanentes</a>
           <a href="#contratos" class="btn btn-outline">Contratos</a>
           <a href="#protecciones" class="btn btn-outline">Protecciones</a>
+          <a href="#mascotas" class="btn btn-outline">Mascotas</a>
+          <a href="#titulos" class="btn btn-outline">Títulos</a>
           <a href="#como-comprar" class="btn btn-outline">Cómo comprar</a>
         </div>
 
@@ -784,6 +786,8 @@
       <a href="#permanentes">Permanentes</a>
       <a href="#contratos">Contratos</a>
       <a href="#protecciones">Protecciones</a>
+      <a href="#mascotas">Mascotas</a>
+      <a href="#titulos">Títulos</a>
       <a href="#como-comprar">Cómo comprar</a>
       <a href="#sponsor">Kit Sponsor</a>
       <a href="#trailer">Tráiler</a>
@@ -971,6 +975,114 @@
           </div>
 
           <p class="mini-note">Ticket: “<strong>Elite Permanente</strong>” + nick + comprobante.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NUEVO: MASCOTAS -->
+    <section id="mascotas">
+      <h2 class="section-title">Mascotas</h2>
+      <p class="section-subtitle">
+        Compra por PayPal y valida por ticket con nick + comprobante.
+      </p>
+
+      <div class="grid">
+        <!-- Capibara -->
+        <article class="card">
+          <span class="badge"><b>Mascota</b> Capibara</span>
+
+          <div class="media square">
+            <img src="/assets/mascotas/capybara.PNG" alt="Mascota Capibara" loading="lazy">
+          </div>
+
+          <div class="tagline">Personalizable</div>
+          <h3 class="title">Capibara</h3>
+          <p class="desc">Nombre y tamaño configurables.</p>
+
+          <ul class="list">
+            <li>Tamaño: 40% → 200%</li>
+            <li>Nombre a elección</li>
+          </ul>
+
+          <div class="footer-row">
+            <span class="price">7 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Mascota Capibara</strong>” + nick + nombre + tamaño (40–200%) + comprobante.</p>
+        </article>
+
+        <!-- Dragonfly (montable) -->
+        <article class="card featured">
+          <span class="badge"><b>Mascota</b> Dragonfly</span>
+
+          <div class="media rango">
+            <img src="/assets/mascotas/Dragonfly_ride.PNG" alt="Mascota Dragonfly (montable)" loading="lazy">
+          </div>
+
+          <div class="tagline">Montura</div>
+          <h3 class="title">Dragonfly</h3>
+          <p class="desc">Montura voladora.</p>
+
+          <ul class="list">
+            <li>Hasta 2 jugadores</li>
+          </ul>
+
+          <div class="footer-row">
+            <span class="price">12 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Mascota Dragonfly</strong>” + nick + comprobante.</p>
+        </article>
+
+        <!-- Dragonfly (solo / preview extra) -->
+        <article class="card">
+          <span class="badge"><b>Preview</b> Dragonfly</span>
+
+          <div class="media rango">
+            <img src="/assets/mascotas/Dragonfly_solo.PNG" alt="Mascota Dragonfly (solo)" loading="lazy">
+          </div>
+
+          <div class="tagline">Vista</div>
+          <h3 class="title">Dragonfly (solo)</h3>
+          <p class="desc">Imagen de referencia.</p>
+
+          <div class="footer-row">
+            <span class="price">—</span>
+            <a class="btn btn-outline" href="#mascotas">Volver</a>
+          </div>
+
+          <p class="mini-note">Producto: <strong>Dragonfly</strong> (12 €).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NUEVO: TÍTULOS -->
+    <section id="titulos">
+      <h2 class="section-title">Títulos</h2>
+      <p class="section-subtitle">
+        Compra por PayPal y valida por ticket con nick + comprobante.
+      </p>
+
+      <div class="grid">
+        <article class="card featured">
+          <span class="badge"><b>Título</b> Custom</span>
+
+          <div class="media rango">
+            <img src="/assets/titles/custom_title.PNG" alt="Título Personalizado" loading="lazy">
+          </div>
+
+          <div class="tagline">Personalizado</div>
+          <h3 class="title">Título Personalizado</h3>
+          <p class="desc">Texto a elección.</p>
+
+          <div class="footer-row">
+            <span class="price">8 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Título Personalizado</strong>” + nick + título + comprobante.</p>
         </article>
       </div>
     </section>
@@ -1298,6 +1410,10 @@
   <script>
     const PBS_KEY_MCNAME = 'pbs_mcname';
 
+    function isValidMinecraftName(name){
+      return /^[A-Za-z0-9_]{3,16}$/.test(name);
+    }
+
     function updateUserBar() {
       const name = localStorage.getItem(PBS_KEY_MCNAME) || '';
       const greetEl = document.getElementById('user-greeting');
@@ -1327,7 +1443,8 @@
       const inputEl = document.getElementById('mcname-input');
       if (!inputEl) return;
       const value = (inputEl.value || '').trim();
-      if (!value) {
+
+      if (!value || !isValidMinecraftName(value)) {
         alert('Por favor, escribe un nick válido.');
         return;
       }
