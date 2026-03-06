@@ -376,7 +376,7 @@
     .section-subtitle{
       font-size:.93rem;
       color:var(--muted);
-      margin-bottom:.85rem;
+      margin-bottom:1.15rem;
       max-width:820px;
       line-height:1.65;
     }
@@ -456,7 +456,7 @@
     }
     .media.rango{ aspect-ratio: 16/10; }
     .media.square{ aspect-ratio: 1/1; }
-    .media.icon{ aspect-ratio: 1/1; } /* iconos cuadrados */
+    .media.icon{ aspect-ratio: 1/1; } /* protecciones cuadradas */
 
     .media img{
       width:100%;
@@ -468,16 +468,14 @@
       -ms-interpolation-mode: bicubic;
     }
 
-    /* FIX: iconos de protecciones (evita recorte en imágenes cuadradas) */
+    /* FIX: Protecciones (evita recorte) */
     .media.icon{
       padding:.45rem;
       background: rgba(0,0,0,0.18);
     }
     .media.icon img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
       padding:.25rem;
+      object-fit:contain;
     }
 
     /* Galería Dragonfly */
@@ -850,6 +848,9 @@
   </div>
 
   <main>
+    <!-- ========================= -->
+    <!-- RANGOS -->
+    <!-- ========================= -->
     <section id="rangos">
       <h2 class="section-title">Rangos</h2>
       <p class="section-subtitle">
@@ -957,6 +958,9 @@
       </div>
     </section>
 
+    <!-- ========================= -->
+    <!-- PERMANENTES -->
+    <!-- ========================= -->
     <section id="permanentes">
       <h2 class="section-title">Rangos permanentes</h2>
       <p class="section-subtitle">
@@ -1040,6 +1044,9 @@
       </div>
     </section>
 
+    <!-- ========================= -->
+    <!-- CONTRATOS -->
+    <!-- ========================= -->
     <section id="contratos">
       <h2 class="section-title">Contratos</h2>
       <p class="section-subtitle">
@@ -1133,6 +1140,9 @@
       </p>
     </section>
 
+    <!-- ========================= -->
+    <!-- PROTECCIONES -->
+    <!-- ========================= -->
     <section id="protecciones">
       <h2 class="section-title">Protecciones</h2>
       <p class="section-subtitle">Bloques de protección para asegurar tu zona.</p>
@@ -1254,8 +1264,117 @@
       <p class="notice">Ticket: “<strong>Protección</strong>” + tipo + nick + comprobante.</p>
     </section>
 
-    <!-- Mascotas + Títulos se mantienen como en tu versión actual (si quieres, las pegamos aquí también) -->
+    <!-- ========================= -->
+    <!-- MASCOTAS (NO TOCADO / COMO QUERÍAS) -->
+    <!-- ========================= -->
+    <section id="mascotas">
+      <h2 class="section-title">Mascotas</h2>
+      <p class="section-subtitle">Compra por PayPal y valida por ticket con nick + comprobante.</p>
 
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <!-- Capibara -->
+        <article class="card">
+          <span class="badge"><b>Mascota</b> Capibara</span>
+
+          <div class="media square">
+            <img src="/assets/mascotas/capybara.PNG" alt="Mascota Capibara" loading="lazy">
+          </div>
+
+          <div class="tagline">Personalizable</div>
+          <h3 class="title">Capibara</h3>
+          <p class="desc">Mascota con nombre y tamaño a elección.</p>
+
+          <ul class="list">
+            <li>Nombre a elección (sin colores)</li>
+            <li>Tamaño 40%–200% (se define al pedir; no se cambia después)</li>
+            <li>Gran durabilidad</li>
+          </ul>
+
+          <div class="footer-row">
+            <span class="price">7 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Mascota Capibara</strong>” + nick + nombre + tamaño (40–200%) + comprobante.</p>
+        </article>
+
+        <!-- Dragonfly -->
+        <article class="card featured">
+          <span class="badge"><b>Mascota</b> Dragonfly</span>
+
+          <div class="media gallery">
+            <div class="gallery-grid">
+              <div class="gallery-main">
+                <img src="/assets/mascotas/Dragonfly_ride.PNG" alt="Dragonfly montable" loading="lazy">
+              </div>
+              <div class="gallery-side">
+                <img src="/assets/mascotas/Dragonfly_solo.PNG" alt="Dragonfly (vista)" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="tagline">Montura</div>
+          <h3 class="title">Dragonfly</h3>
+          <p class="desc">Montura voladora para hasta 2 jugadores.</p>
+
+          <ul class="list">
+            <li>Hasta 2 jugadores a la vez</li>
+            <li>Transferible (no queda vinculado a una cuenta)</li>
+            <li>Transportable en <strong>Jaula</strong> a dimensiones de uso público</li>
+          </ul>
+
+          <div class="footer-row">
+            <span class="price">12 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Mascota Dragonfly</strong>” + nick + comprobante.</p>
+        </article>
+      </div>
+
+      <p class="section-note">
+        Al comprar, el cuidado y conservación de la mascota queda bajo responsabilidad del jugador.
+      </p>
+    </section>
+
+    <!-- ========================= -->
+    <!-- TÍTULOS (NO TOCADO / COMO QUERÍAS) -->
+    <!-- ========================= -->
+    <section id="titulos">
+      <h2 class="section-title">Títulos</h2>
+      <p class="section-subtitle">Compra por PayPal y valida por ticket con nick + comprobante.</p>
+
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <article class="card featured">
+          <span class="badge"><b>Título</b> Personalizado</span>
+
+          <div class="media rango">
+            <img src="/assets/titles/custom_title.PNG" alt="Título Personalizado" loading="lazy">
+          </div>
+
+          <div class="tagline">Prefijo</div>
+          <h3 class="title">Título Personalizado</h3>
+          <p class="desc">Prefijo visible en TAB, sobre el jugador y en el chat.</p>
+
+          <ul class="list">
+            <li>Colores + 1 símbolo permitido</li>
+            <li>Máximo 14 caracteres</li>
+            <li>Requiere aprobación (si no se acepta, se solicita otra opción)</li>
+          </ul>
+
+          <div class="footer-row">
+            <span class="price">8 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+
+          <p class="mini-note">Ticket: “<strong>Título Personalizado</strong>” + nick + título + comprobante. Cambios tras la entrega tienen coste extra.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- CÓMO COMPRAR (PAYPAL + ASTROPAY + DESCUENTO TWITCH) -->
+    <!-- ========================= -->
     <section id="como-comprar">
       <h2 class="section-title">Cómo comprar</h2>
       <p class="section-subtitle">3 pasos, sin líos.</p>
@@ -1292,6 +1411,9 @@
       </p>
     </section>
 
+    <!-- ========================= -->
+    <!-- SPONSOR -->
+    <!-- ========================= -->
     <section id="sponsor">
       <h2 class="section-title">Kit Sponsor</h2>
       <p class="section-subtitle">
@@ -1347,6 +1469,9 @@
       </article>
     </section>
 
+    <!-- ========================= -->
+    <!-- TRÁILER -->
+    <!-- ========================= -->
     <section id="trailer">
       <h2 class="section-title">Tráiler</h2>
       <p class="section-subtitle">Tráiler principal de Aurora SMP.</p>
