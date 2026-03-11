@@ -341,7 +341,7 @@
       padding:.65rem 0;
       background: linear-gradient(to bottom, rgba(5,5,16,0.75), rgba(5,5,16,0.20));
       backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
     .subnav{
       max-width:var(--max);
@@ -456,7 +456,7 @@
     }
     .media.rango{ aspect-ratio: 16/10; }
     .media.square{ aspect-ratio: 1/1; }
-    .media.icon{ aspect-ratio: 1/1; } /* protecciones cuadradas */
+    .media.icon{ aspect-ratio: 1/1; }
 
     .media img{
       width:100%;
@@ -468,7 +468,6 @@
       -ms-interpolation-mode: bicubic;
     }
 
-    /* FIX: Protecciones (evita recorte) */
     .media.icon{
       padding:.45rem;
       background: rgba(0,0,0,0.18);
@@ -478,7 +477,6 @@
       object-fit:contain;
     }
 
-    /* Galería Dragonfly */
     .media.gallery{
       padding:.65rem;
       aspect-ratio:auto;
@@ -850,9 +848,6 @@
   </div>
 
   <main>
-    <!-- ========================= -->
-    <!-- RANGOS -->
-    <!-- ========================= -->
     <section id="rangos">
       <h2 class="section-title">Rangos</h2>
       <p class="section-subtitle">
@@ -862,18 +857,14 @@
       </p>
 
       <div class="grid">
-        <!-- PREMIUM -->
         <article class="card">
           <span class="badge"><b>Rango</b> Premium</span>
-
           <div class="media rango">
             <img src="/assets/rangos/premium_aurora.PNG" alt="Rango Premium Aurora SMP" loading="lazy">
           </div>
-
           <div class="tagline">Inicio fuerte</div>
           <h3 class="title">Rango Premium</h3>
           <p class="desc">Para empezar cómodo desde el día 1: recursos y monedas.</p>
-
           <ul class="list">
             <li>x1 Armadura de Diamante <strong>[sin casco]</strong> (Protección V)</li>
             <li>x60 Bistec</li>
@@ -883,27 +874,21 @@
             <li>x3 Moneda de Dragonita · x3 Monedovich</li>
             <li><strong>+$3000</strong> dinero in-game</li>
           </ul>
-
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">4 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Premium – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
-        <!-- VIP -->
         <article class="card featured">
           <span class="badge"><b>Rango</b> VIP</span>
-
           <div class="media rango">
             <img src="/assets/rangos/vip_aurora.PNG" alt="Rango VIP Aurora SMP" loading="lazy">
           </div>
-
           <div class="tagline">Progreso serio</div>
           <h3 class="title">Rango VIP</h3>
           <p class="desc">Imperium, amuletos y utilidades para mantener ritmo.</p>
-
           <ul class="list">
             <li>x1 Armadura de Imperium (Protección IV, Irrompibilidad III)</li>
             <li>x32 Diamante · x32 Esmeralda</li>
@@ -916,54 +901,43 @@
             <li>x10 Monedovich · x10 Moneda de Dragonita</li>
             <li><strong>+$5000</strong> dinero in-game</li>
           </ul>
-
           <div class="footer-row" style="margin-top:.95rem;">
             <span class="price">10 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>VIP – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
 
-<!-- ELITE -->
-<article class="card featured">
-  <span class="badge"><b>Rango</b> Elite</span>
-
-  <div class="media rango">
-    <img src="/assets/rangos/elite_aurora.PNG" alt="Rango Elite Aurora SMP" loading="lazy">
-  </div>
-
-  <div class="tagline">Máximo nivel</div>
-  <h3 class="title">Rango Elite</h3>
-  <p class="desc">Imperium Élite, herramientas reforzadas, cosméticos y extras de alto valor.</p>
-
-  <ul class="list">
-    <li>Set Imperium Élite completo (Prot VI, Fuego VI, Explosiones VI, Proyectiles VI, Irrompibilidad V)</li>
-    <li>x64 Diamante · x64 Esmeralda</li>
-    <li>x64 Lingote de Oro · x64 Lingote de Hierro</li>
-    <li>x48 Manzana Dorada · x2 Jamón Ibérico · x4 Bolillo Ibérico</li>
-    <li>x3 Skin exclusiva (Alas) · x1 Outfit</li>
-    <li>x10 Monedovich · x10 Moneda de Dragonita</li>
-    <li>x8 Ticketazo</li>
-    <li>Aurora · Hacha del Juicio</li>
-    <li>Pico de Esmeralda • Élite · Pala de Hueso de Dragón • Élite</li>
-    <li>Ender Chest on a Stick</li>
-    <li><strong>+$8000</strong> dinero in-game</li>
-  </ul>
-
-  <div class="footer-row" style="margin-top:.95rem;">
-    <span class="price">16 €</span>
-    <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
-  </div>
-
-  <p class="mini-note">Ticket: “<strong>Elite – Aurora SMP</strong>” + nick + comprobante.</p>
-</article>
+        <article class="card featured">
+          <span class="badge"><b>Rango</b> Elite</span>
+          <div class="media rango">
+            <img src="/assets/rangos/elite_aurora.PNG" alt="Rango Elite Aurora SMP" loading="lazy">
+          </div>
+          <div class="tagline">Máximo nivel</div>
+          <h3 class="title">Rango Elite</h3>
+          <p class="desc">Imperium Élite, herramientas reforzadas, cosméticos y extras de alto valor.</p>
+          <ul class="list">
+            <li>Set Imperium Élite completo (Prot VI, Fuego VI, Explosiones VI, Proyectiles VI, Irrompibilidad V)</li>
+            <li>x64 Diamante · x64 Esmeralda</li>
+            <li>x64 Lingote de Oro · x64 Lingote de Hierro</li>
+            <li>x48 Manzana Dorada · x2 Jamón Ibérico · x4 Bolillo Ibérico</li>
+            <li>x3 Skin exclusiva (Alas) · x1 Outfit</li>
+            <li>x10 Monedovich · x10 Moneda de Dragonita</li>
+            <li>x8 Ticketazo</li>
+            <li>Aurora · Hacha del Juicio</li>
+            <li>Pico de Esmeralda • Élite · Pala de Hueso de Dragón • Élite</li>
+            <li>Ender Chest on a Stick</li>
+            <li><strong>+$8000</strong> dinero in-game</li>
+          </ul>
+          <div class="footer-row" style="margin-top:.95rem;">
+            <span class="price">16 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
+          </div>
+          <p class="mini-note">Ticket: “<strong>Elite – Aurora SMP</strong>” + nick + comprobante.</p>
+        </article>
       </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- PERMANENTES -->
-    <!-- ========================= -->
     <section id="permanentes">
       <h2 class="section-title">Rangos permanentes</h2>
       <p class="section-subtitle">
@@ -973,83 +947,65 @@
       <div class="grid">
         <article class="card">
           <span class="badge"><b>Permanente</b> Premium</span>
-
           <div class="media rango">
             <img src="/assets/rangos/premium_perm.png" alt="Premium Permanente Aurora SMP" loading="lazy">
           </div>
-
           <div class="tagline">Permanente</div>
           <h3 class="title">Premium Permanente</h3>
-
           <ul class="list">
             <li>Medalla exclusiva dentro del servidor</li>
             <li>+5 niveles en Discord</li>
             <li>Contrato de Aurora · Mercader incluido</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">14 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Premium Permanente</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card featured">
           <span class="badge"><b>Permanente</b> VIP</span>
-
           <div class="media rango">
             <img src="/assets/rangos/vip_perm.png" alt="VIP Permanente Aurora SMP" loading="lazy">
           </div>
-
           <div class="tagline">Permanente</div>
           <h3 class="title">VIP Permanente</h3>
-
           <ul class="list">
             <li>Medalla exclusiva dentro del servidor</li>
             <li>+8 niveles en Discord</li>
             <li>Protección 16×16 incluida</li>
             <li>Contrato de Aurora · Forjador incluido</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">24 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>VIP Permanente</strong>” + nick + comprobante.</p>
         </article>
 
         <article class="card featured">
           <span class="badge"><b>Permanente</b> Elite</span>
-
           <div class="media rango">
             <img src="/assets/rangos/elite_perm.png" alt="Elite Permanente Aurora SMP" loading="lazy">
           </div>
-
           <div class="tagline">Permanente</div>
           <h3 class="title">Elite Permanente</h3>
-
           <ul class="list">
             <li>Medalla exclusiva dentro del servidor</li>
             <li>+12 niveles en Discord</li>
             <li>Protección 24×24 incluida</li>
             <li>Contrato de Aurora · Forjador incluido</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">35 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Elite Permanente</strong>” + nick + comprobante.</p>
         </article>
       </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- BATTLEPASS -->
-    <!-- ========================= -->
     <section id="battlepass">
       <h2 class="section-title">BattlePass</h2>
       <p class="section-subtitle">Pase premium para recompensas extra de misiones durante la temporada.</p>
@@ -1057,33 +1013,25 @@
       <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
         <article class="card featured">
           <span class="badge"><b>Pase</b> Premium</span>
-
           <div class="media rango">
             <img src="/assets/battlepass/battlepass.png" alt="BattlePass Premium" loading="lazy">
           </div>
-
           <div class="tagline">Temporada actual</div>
           <h3 class="title">BattlePass (Premium)</h3>
-
           <ul class="list">
             <li>Recompensas premium de misiones</li>
             <li>Válido durante la temporada actual</li>
             <li>Entrega por ticket</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">6 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>BattlePass – Aurora SMP</strong>” + nick + comprobante.</p>
         </article>
       </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- CONTRATOS -->
-    <!-- ========================= -->
     <section id="contratos">
       <h2 class="section-title">Contratos</h2>
       <p class="section-subtitle">
@@ -1177,9 +1125,6 @@
       </p>
     </section>
 
-    <!-- ========================= -->
-    <!-- PROTECCIONES -->
-    <!-- ========================= -->
     <section id="protecciones">
       <h2 class="section-title">Protecciones</h2>
       <p class="section-subtitle">Bloques de protección para asegurar tu zona.</p>
@@ -1301,44 +1246,33 @@
       <p class="notice">Ticket: “<strong>Protección</strong>” + tipo + nick + comprobante.</p>
     </section>
 
-    <!-- ========================= -->
-    <!-- MASCOTAS (NO TOCADO / COMO QUERÍAS) -->
-    <!-- ========================= -->
     <section id="mascotas">
       <h2 class="section-title">Mascotas</h2>
       <p class="section-subtitle">Compra por PayPal y valida por ticket con nick + comprobante.</p>
 
       <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-        <!-- Capibara -->
         <article class="card">
           <span class="badge"><b>Mascota</b> Capibara</span>
-
           <div class="media square">
             <img src="/assets/mascotas/capybara.PNG" alt="Mascota Capibara" loading="lazy">
           </div>
-
           <div class="tagline">Personalizable</div>
           <h3 class="title">Capibara</h3>
           <p class="desc">Mascota con nombre y tamaño a elección.</p>
-
           <ul class="list">
             <li>Nombre a elección (sin colores)</li>
             <li>Tamaño 40%–200% (se define al pedir; no se cambia después)</li>
             <li>Gran durabilidad</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">7 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Mascota Capibara</strong>” + nick + nombre + tamaño (40–200%) + comprobante.</p>
         </article>
 
-        <!-- Dragonfly -->
         <article class="card featured">
           <span class="badge"><b>Mascota</b> Dragonfly</span>
-
           <div class="media gallery">
             <div class="gallery-grid">
               <div class="gallery-main">
@@ -1349,92 +1283,125 @@
               </div>
             </div>
           </div>
-
           <div class="tagline">Montura</div>
           <h3 class="title">Dragonfly</h3>
           <p class="desc">Montura voladora para hasta 2 jugadores.</p>
-
           <ul class="list">
             <li>Hasta 2 jugadores a la vez</li>
             <li>Transferible (no queda vinculado a una cuenta)</li>
             <li>Transportable en <strong>Jaula</strong> a dimensiones de uso público</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">12 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Mascota Dragonfly</strong>” + nick + comprobante.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge"><b>Mascota</b> Triceratops</span>
+          <div class="media gallery">
+            <div class="gallery-grid">
+              <div class="gallery-main">
+                <img src="/assets/mascotas/triceratops_ride.png" alt="Triceratops montable" loading="lazy">
+              </div>
+              <div class="gallery-side">
+                <img src="/assets/mascotas/triceratops_solo.png" alt="Triceratops" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="tagline">Montura terrestre</div>
+          <h3 class="title">Triceratops</h3>
+          <p class="desc">Montura robusta para recorrer Aurora SMP con presencia prehistórica.</p>
+          <ul class="list">
+            <li>Mascota terrestre de gran tamaño</li>
+            <li>Entrega por ticket</li>
+            <li>Ideal para colección o desplazamiento visual premium</li>
+          </ul>
+          <div class="footer-row">
+            <span class="price">14 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+          <p class="mini-note">Ticket: “<strong>Mascota Triceratops</strong>” + nick + comprobante.</p>
+        </article>
+
+        <article class="card featured">
+          <span class="badge"><b>Mascota</b> Tyrannosaurus</span>
+          <div class="media gallery">
+            <div class="gallery-grid">
+              <div class="gallery-main">
+                <img src="/assets/mascotas/tyrannosaurus_ride.png" alt="Tyrannosaurus montable" loading="lazy">
+              </div>
+              <div class="gallery-side">
+                <img src="/assets/mascotas/tyrannosaurus_solo.png" alt="Tyrannosaurus" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="tagline">Montura legendaria</div>
+          <h3 class="title">Tyrannosaurus</h3>
+          <p class="desc">La montura prehistórica más imponente de la tienda, pensada para destacar.</p>
+          <ul class="list">
+            <li>Mascota terrestre de presencia dominante</li>
+            <li>Entrega por ticket</li>
+            <li>Tier visual superior dentro de las mascotas dinosaurio</li>
+          </ul>
+          <div class="footer-row">
+            <span class="price">18 €</span>
+            <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
+          </div>
+          <p class="mini-note">Ticket: “<strong>Mascota Tyrannosaurus</strong>” + nick + comprobante.</p>
         </article>
       </div>
 
-      <!-- Dragones -->
       <h3 class="section-title" style="margin-top:1.6rem;">Dragones</h3>
       <p class="section-subtitle">Mascotas vinculadas al comprador. Transporte mediante cuerno de dragón.</p>
 
       <div class="grid">
-        <!-- DRAGÓN T1 -->
         <article class="card">
           <span class="badge"><b>Mascota</b> Dragón T1</span>
-
           <div class="media rango">
             <img src="/assets/mascotas/dragon1_solo.png" alt="Dragón Tier 1" loading="lazy">
           </div>
-
           <div class="tagline">Tier 1</div>
           <h3 class="title">Dragón (Tier 1)</h3>
-
           <ul class="list">
             <li>Vinculado al comprador</li>
             <li>Nombre (máx. 12 caracteres, con color)</li>
             <li>Transporte mediante cuerno de dragón</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">10 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Dragón T1</strong>” + nick + nombre + comprobante.</p>
         </article>
 
-        <!-- DRAGÓN T2 -->
         <article class="card featured">
           <span class="badge"><b>Mascota</b> Dragón T2</span>
-
           <div class="media rango">
             <img src="/assets/mascotas/dragon2_solo.png" alt="Dragón Tier 2" loading="lazy">
           </div>
-
           <div class="tagline">Tier 2</div>
           <h3 class="title">Dragón (Tier 2)</h3>
-
           <ul class="list">
             <li>Vinculado al comprador</li>
             <li>Nombre (máx. 12 caracteres, con color)</li>
             <li>Transporte mediante cuerno de dragón</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">15 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Dragón T2</strong>” + nick + nombre + comprobante.</p>
         </article>
 
-        <!-- DRAGÓN T3 -->
         <article class="card featured">
           <span class="badge"><b>Mascota</b> Dragón T3</span>
-
           <div class="media rango">
             <img src="/assets/mascotas/dragon3_ride.png" alt="Dragón Tier 3" loading="lazy">
           </div>
-
           <div class="tagline">Tier 3</div>
           <h3 class="title">Dragón (Tier 3)</h3>
-
           <ul class="list">
             <li>Vinculado al comprador</li>
             <li>Nombre (máx. 12 caracteres, con color)</li>
@@ -1442,12 +1409,10 @@
             <li>20% menos velocidad que un dragón natural</li>
             <li>Transporte mediante cuerno de dragón</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">22 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Dragón T3</strong>” + nick + nombre + comprobante.</p>
         </article>
       </div>
@@ -1457,9 +1422,6 @@
       </p>
     </section>
 
-    <!-- ========================= -->
-    <!-- TÍTULOS (NO TOCADO / COMO QUERÍAS) -->
-    <!-- ========================= -->
     <section id="titulos">
       <h2 class="section-title">Títulos</h2>
       <p class="section-subtitle">Compra por PayPal y valida por ticket con nick + comprobante.</p>
@@ -1467,34 +1429,26 @@
       <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
         <article class="card featured">
           <span class="badge"><b>Título</b> Personalizado</span>
-
           <div class="media rango">
             <img src="/assets/titles/custom_title.PNG" alt="Título Personalizado" loading="lazy">
           </div>
-
           <div class="tagline">Prefijo</div>
           <h3 class="title">Título Personalizado</h3>
           <p class="desc">Prefijo visible en TAB, sobre el jugador y en el chat.</p>
-
           <ul class="list">
             <li>Colores + 1 símbolo permitido</li>
             <li>Máximo 14 caracteres</li>
             <li>Requiere aprobación (si no se acepta, se solicita otra opción)</li>
           </ul>
-
           <div class="footer-row">
             <span class="price">8 €</span>
             <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Comprar</a>
           </div>
-
           <p class="mini-note">Ticket: “<strong>Título Personalizado</strong>” + nick + título + comprobante. Cambios tras la entrega tienen coste extra.</p>
         </article>
       </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- CÓMO COMPRAR (PAYPAL + ASTROPAY + DESCUENTO TWITCH) -->
-    <!-- ========================= -->
     <section id="como-comprar">
       <h2 class="section-title">Cómo comprar</h2>
       <p class="section-subtitle">3 pasos, sin líos.</p>
@@ -1531,66 +1485,60 @@
       </p>
     </section>
 
-    <!-- ========================= -->
-    <!-- SPONSOR -->
-    <!-- ========================= -->
-<section id="sponsor">
-  <h2 class="section-title">Kit Sponsor</h2>
-  <p class="section-subtitle">
-    Kit de apoyo (no es rango). Se entrega por ticket tras validar pago.
-  </p>
+    <section id="sponsor">
+      <h2 class="section-title">Kit Sponsor</h2>
+      <p class="section-subtitle">
+        Kit de apoyo (no es rango). Se entrega por ticket tras validar pago.
+      </p>
 
-  <article class="card sponsor-card">
-    <div class="sponsor-top">
-      <div class="media rango" style="margin-bottom:0;">
-        <img src="/assets/rangos/sponsor_aurora.PNG" alt="Kit Sponsor Aurora SMP" loading="lazy">
-      </div>
+      <article class="card sponsor-card">
+        <div class="sponsor-top">
+          <div class="media rango" style="margin-bottom:0;">
+            <img src="/assets/rangos/sponsor_aurora.PNG" alt="Kit Sponsor Aurora SMP" loading="lazy">
+          </div>
 
-      <div class="sponsor-meta">
-        <span class="pill">Sin rango · Entrega por ticket</span>
+          <div class="sponsor-meta">
+            <span class="pill">Sin rango · Entrega por ticket</span>
 
-        <h3 class="title" style="margin-top:0.05rem;">Kit Sponsor</h3>
-        <p class="desc" style="margin-bottom:0.85rem;">
-          Pack de apoyo con equipo Dragonsteel Lightning, cosméticos exclusivos y consumibles premium.
-        </p>
+            <h3 class="title" style="margin-top:0.05rem;">Kit Sponsor</h3>
+            <p class="desc" style="margin-bottom:0.85rem;">
+              Pack de apoyo con equipo Dragonsteel Lightning, cosméticos exclusivos y consumibles premium.
+            </p>
 
-        <details>
-          <summary>Ver contenido del Kit Sponsor <span style="color:var(--muted);font-weight:650;font-size:.85rem;">(desplegar)</span></summary>
-          <div class="details-hint">Lista completa.</div>
-          <ul class="kit-list">
-            <li>x8 Antorcha Vidente (Visión Nocturna)</li>
-            <li>x8 Antorcha Olímpica (Velocidad II)</li>
-            <li>Set completo Dragonsteel Lightning</li>
-            <li>x1 Tide Trident</li>
-            <li>x64 Zanahoria Dorada</li>
-            <li>x32 Manzana Dorada</li>
-            <li>x64 Lingote de Hierro</li>
-            <li>x64 Lingote de Oro</li>
-            <li>x64 Coquita 5L</li>
-            <li>x16 Ticketazo</li>
-            <li>x16 Crobeta</li>
-            <li>x8 Monedovich</li>
-            <li>x8 Moneda de Dragonita</li>
-            <li>x2 Skin exclusiva (Alas)</li>
-            <li>x2 Skin exclusiva (Outfit)</li>
-            <li>x2 Skin exclusiva (Espada)</li>
-          </ul>
-        </details>
+            <details>
+              <summary>Ver contenido del Kit Sponsor <span style="color:var(--muted);font-weight:650;font-size:.85rem;">(desplegar)</span></summary>
+              <div class="details-hint">Lista completa.</div>
+              <ul class="kit-list">
+                <li>x8 Antorcha Vidente (Visión Nocturna)</li>
+                <li>x8 Antorcha Olímpica (Velocidad II)</li>
+                <li>Set completo Dragonsteel Lightning</li>
+                <li>x1 Tide Trident</li>
+                <li>x64 Zanahoria Dorada</li>
+                <li>x32 Manzana Dorada</li>
+                <li>x64 Lingote de Hierro</li>
+                <li>x64 Lingote de Oro</li>
+                <li>x64 Coquita 5L</li>
+                <li>x16 Ticketazo</li>
+                <li>x16 Crobeta</li>
+                <li>x8 Monedovich</li>
+                <li>x8 Moneda de Dragonita</li>
+                <li>x2 Skin exclusiva (Alas)</li>
+                <li>x2 Skin exclusiva (Outfit)</li>
+                <li>x2 Skin exclusiva (Espada)</li>
+              </ul>
+            </details>
 
-        <div class="footer-row" style="margin-top: 1rem;">
-          <span class="price">13 €</span>
-          <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
+            <div class="footer-row" style="margin-top: 1rem;">
+              <span class="price">13 €</span>
+              <a class="btn btn-primary" href="https://paypal.me/asirtic" target="_blank" rel="noopener">Pagar con PayPal</a>
+            </div>
+
+            <p class="mini-note">Ticket: “<strong>Kit Sponsor – Aurora SMP</strong>” + nick + comprobante.</p>
+          </div>
         </div>
+      </article>
+    </section>
 
-        <p class="mini-note">Ticket: “<strong>Kit Sponsor – Aurora SMP</strong>” + nick + comprobante.</p>
-      </div>
-    </div>
-  </article>
-</section>
-
-    <!-- ========================= -->
-    <!-- TRÁILER -->
-    <!-- ========================= -->
     <section id="trailer">
       <h2 class="section-title">Tráiler</h2>
       <p class="section-subtitle">Tráiler principal de Aurora SMP.</p>
