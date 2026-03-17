@@ -4,209 +4,227 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Peanut Reborn Studios</title>
-  <link rel="icon" type="image/png" href="/assets/logo/logo.png">
+  <link rel="icon" type="image/png" href="/assets/branding/logo-peanut-reborn.png" />
 
   <style>
     :root{
       --bg: #050510;
-      --bg-2: #07071a;
-      --card: rgba(5, 5, 16, 0.82);
-      --card-2: rgba(10, 10, 24, 0.82);
+      --bg-2: #090917;
+      --bg-3: #0d1022;
+      --panel: rgba(8, 10, 22, 0.82);
+      --panel-strong: rgba(8, 10, 22, 0.94);
+      --card: rgba(10, 13, 28, 0.9);
+      --card-soft: rgba(255,255,255,0.03);
+
+      --text: #f5f7ff;
+      --muted: #aeb5d6;
+      --muted-2: #8690b9;
 
       --accent: #ffb347;
       --accent-soft: rgba(255, 179, 71, 0.14);
 
-      /* Acento secundario para “Aurora” (sutil, sin cambiar tu identidad) */
-      --aurora: #8be9ff;
-      --aurora-soft: rgba(139, 233, 255, 0.14);
+      --aurora: #87f0d4;
+      --aurora-soft: rgba(135, 240, 212, 0.14);
 
-      --text: #f5f5f5;
-      --muted: #a7a7c7;
+      --border: rgba(255,255,255,0.08);
+      --border-2: rgba(255,255,255,0.14);
 
-      --border: rgba(255,255,255,0.07);
-      --border-2: rgba(255,255,255,0.10);
-      --shadow: 0 18px 45px rgba(0,0,0,0.7);
+      --shadow: 0 24px 60px rgba(0,0,0,0.55);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.35);
+
+      --radius-xl: 1.5rem;
+      --radius-lg: 1.15rem;
+      --radius-md: 0.95rem;
+
+      --max: 1180px;
     }
 
     *{
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    html{
+      scroll-behavior: smooth;
     }
 
     body{
-      background:
-        radial-gradient(circle at top, #1a1a42 0, var(--bg) 55%),
-        radial-gradient(circle at 80% 30%, rgba(139,233,255,0.08), transparent 45%),
-        radial-gradient(circle at 20% 60%, rgba(255,179,71,0.06), transparent 50%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(39, 52, 114, 0.32), transparent 40%),
+        radial-gradient(circle at 80% 18%, rgba(135, 240, 212, 0.07), transparent 28%),
+        radial-gradient(circle at 18% 45%, rgba(255, 179, 71, 0.05), transparent 30%),
+        linear-gradient(180deg, #050510 0%, #060612 38%, #080917 100%);
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img{
+      max-width: 100%;
+      display: block;
+    }
+
+    a{
+      color: inherit;
+      text-decoration: none;
     }
 
     header{
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: linear-gradient(to bottom, rgba(5, 5, 16, 0.95), rgba(5, 5, 16, 0.72));
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5,5,16,0.92), rgba(5,5,16,0.76));
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .nav{
-      max-width: 1120px;
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 0.95rem 1.4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.5rem;
       gap: 1rem;
     }
 
-    .logo{
+    .brand{
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      text-decoration: none;
+      gap: 0.85rem;
+      min-width: 0;
     }
 
-    .logo img{
-      display: block;
-      height: 28px;
+    .brand img{
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
     }
 
-    .logo span{
-      font-weight: 750;
-      letter-spacing: 0.10em;
+    .brand-text{
+      min-width: 0;
+    }
+
+    .brand-title{
+      font-size: 0.96rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.9rem;
-      color: var(--accent);
-      opacity: 0.95;
+      color: var(--text);
+      white-space: nowrap;
     }
 
-    nav{
+    .brand-sub{
+      font-size: 0.74rem;
+      color: var(--muted-2);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+
+    .nav-links{
       display: flex;
       align-items: center;
-      gap: 1.15rem;
       flex-wrap: wrap;
+      gap: 0.45rem;
     }
 
-    nav a{
-      text-decoration: none;
+    .nav-links a{
       color: var(--muted);
       font-size: 0.92rem;
-      padding: 0.35rem 0.55rem;
+      padding: 0.52rem 0.88rem;
       border-radius: 999px;
-      transition: 0.15s ease;
+      transition: 0.18s ease;
     }
 
-    nav a:hover{
+    .nav-links a:hover{
       color: var(--text);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
     }
 
-    nav a.cta-discord{
-      border: 1px solid rgba(139,233,255,0.25);
-      background: rgba(139,233,255,0.08);
-      color: var(--text);
+    .nav-links a.cta{
+      color: #101116;
+      background: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(255, 179, 71, 0.16);
     }
 
-    nav a.cta-discord:hover{
-      border-color: rgba(139,233,255,0.5);
-      background: rgba(139,233,255,0.12);
+    .nav-links a.cta:hover{
+      transform: translateY(-1px);
     }
 
-    /* Barra de usuario (login por nick) */
-    .user-bar{
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.65rem 1.5rem 0.85rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-      background: rgba(5, 5, 16, 0.80);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    main{
+      padding-bottom: 2rem;
     }
-
-    .user-bar-main{
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .user-bar-main strong{
-      color: var(--text);
-    }
-
-    .user-bar-actions{
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .user-input{
-      padding: 0.42rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.35);
-      color: var(--text);
-      font-size: 0.86rem;
-      min-width: 210px;
-    }
-    .user-input::placeholder{ color: #6b6fa0; }
-
-    .btn-small{
-      border-radius: 999px;
-      padding: 0.38rem 0.85rem;
-      font-size: 0.82rem;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      transition: 0.15s ease;
-    }
-    .btn-small:hover{
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Layout general */
-    main{ padding-bottom: 2rem; }
 
     section{
-      max-width: 1120px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 1.2rem 1.5rem 3.2rem;
+      padding: 1.35rem 1.4rem 4rem;
     }
 
-    .section-title{
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+    .eyebrow{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.36rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
       color: var(--muted);
+      font-size: 0.77rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       margin-bottom: 1rem;
     }
 
-    /* HERO */
+    .section-head{
+      max-width: 760px;
+      margin-bottom: 1.45rem;
+    }
+
+    .section-head h2{
+      font-size: clamp(1.65rem, 2.7vw, 2.3rem);
+      line-height: 1.08;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-head p{
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
     .hero{
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 3.2rem 1.5rem 1.8rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-grid{
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.9fr);
       gap: 2.2rem;
       align-items: center;
     }
 
+    .hero-copy{
+      max-width: 700px;
+    }
+
+    .hero-copy .eyebrow{
+      border-color: rgba(255,179,71,0.18);
+      background: rgba(255,179,71,0.08);
+      color: #ffd7a0;
+    }
+
     .hero h1{
-      font-size: clamp(2.25rem, 3.8vw, 3.0rem);
-      line-height: 1.1;
-      margin-bottom: 0.9rem;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
     }
 
     .hero h1 span{
@@ -215,591 +233,1171 @@
 
     .hero p{
       color: var(--muted);
-      margin-bottom: 1.35rem;
-      font-size: 1.0rem;
-      line-height: 1.65;
-      max-width: 62ch;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 60ch;
+      margin-bottom: 1.4rem;
     }
 
     .hero-actions{
       display: flex;
-      gap: 0.8rem;
       flex-wrap: wrap;
-      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.25rem;
     }
 
     .btn{
-      border-radius: 999px;
-      padding: 0.72rem 1.35rem;
-      font-size: 0.92rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.45rem;
-      transition: 0.15s ease;
-      white-space: nowrap;
+      padding: 0.84rem 1.22rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.94rem;
+      font-weight: 650;
+      transition: 0.18s ease;
+      cursor: pointer;
+      min-height: 46px;
     }
 
     .btn-primary{
       background: var(--accent);
-      color: #1b1307;
-      font-weight: 650;
-      box-shadow: 0 12px 28px rgba(255,179,71,0.12);
+      color: #17120a;
+      box-shadow: 0 12px 28px rgba(255,179,71,0.16);
+    }
+
+    .btn-primary:hover{
+      transform: translateY(-1px);
     }
 
     .btn-outline{
-      border-color: rgba(255,255,255,0.16);
-      color: var(--muted);
-      background: transparent;
+      color: var(--text);
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
     }
 
     .btn-outline:hover{
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.05);
     }
 
-    .btn-discord{
-      border-color: rgba(139,233,255,0.25);
-      background: rgba(139,233,255,0.10);
+    .btn-aurora{
       color: var(--text);
-    }
-    .btn-discord:hover{
-      border-color: rgba(139,233,255,0.55);
-      background: rgba(139,233,255,0.14);
+      border-color: rgba(135,240,212,0.24);
+      background: rgba(135,240,212,0.09);
     }
 
-    /* Panel lateral del HERO */
-    .hero-card{
-      background: radial-gradient(circle at top left, #242454, #0a0a18);
-      border-radius: 1.2rem;
-      padding: 1.35rem;
-      border: 1px solid rgba(255,255,255,0.06);
+    .btn-aurora:hover{
+      border-color: rgba(135,240,212,0.44);
+      background: rgba(135,240,212,0.14);
+    }
+
+    .hero-note{
+      color: var(--muted-2);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      max-width: 58ch;
+    }
+
+    .hero-visual{
+      position: relative;
+      min-height: 560px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.07);
+      background:
+        radial-gradient(circle at top, rgba(132, 146, 255, 0.18), transparent 38%),
+        linear-gradient(180deg, rgba(12,14,32,0.96), rgba(7,8,20,0.96));
       box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
     }
 
-    .hero-card h2{
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 0.95rem;
+    .hero-visual::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(255,255,255,0.10), transparent 22%),
+        radial-gradient(circle at 50% 50%, rgba(114, 126, 255, 0.18), transparent 40%);
+      z-index: 0;
+      pointer-events: none;
     }
 
-    .badge-row{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 0.95rem;
+    .hero-visual::after{
+      content: "";
+      position: absolute;
+      inset: auto -10% -12% -10%;
+      height: 42%;
+      background: linear-gradient(to top, rgba(5,5,16,0.95), rgba(5,5,16,0));
+      z-index: 2;
+      pointer-events: none;
     }
 
-    .badge{
-      font-size: 0.74rem;
-      padding: 0.26rem 0.72rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
+    .hero-visual img{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+      transform: scale(1.02);
+    }
+
+    .hero-card{
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 3;
+      padding: 1rem 1.05rem;
+      border-radius: 1rem;
+      background: rgba(7, 9, 20, 0.78);
       border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
     }
 
-    .badge.aurora{
-      background: var(--aurora-soft);
-      border-color: rgba(139,233,255,0.18);
-    }
-
-    .badge.closed{
-      opacity: 0.85;
-    }
-
-    /* Proyectos */
-    .projects-grid{
-      margin-top: 0.6rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.85rem;
-    }
-
-    .project-card{
-      background: rgba(5,5,16,0.66);
-      border-radius: 0.95rem;
-      padding: 0.95rem 1.05rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: 0.15s ease;
-    }
-
-    .project-card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.14);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.55);
-    }
-
-    .project-top{
+    .hero-card-top{
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 0.8rem;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.55rem;
     }
 
-    .project-title{
-      font-size: 1.02rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .status{
-      font-size: 0.72rem;
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
+    .hero-card-title{
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      color: var(--text);
+    }
+
+    .hero-card-badge{
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255,179,71,0.1);
+      border: 1px solid rgba(255,179,71,0.16);
       white-space: nowrap;
     }
 
-    .status.active{
-      color: var(--text);
-      border-color: rgba(139,233,255,0.35);
-      background: rgba(139,233,255,0.10);
-    }
-    .status.future{
-      color: var(--accent);
-      border-color: rgba(255,179,71,0.35);
-      background: rgba(255,179,71,0.10);
-    }
-    .status.closed{
-      opacity: 0.85;
+    .hero-card p{
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
     }
 
-    .project-desc{
-      font-size: 0.9rem;
+    .about-grid{
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .about-card,
+    .quote-card,
+    .project-card,
+    .legacy-card,
+    .future-card,
+    .support-card,
+    .community-card,
+    .login-card,
+    .video-card{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-card,
+    .quote-card,
+    .project-card,
+    .future-card,
+    .support-card,
+    .community-card,
+    .login-card{
+      padding: 1.2rem;
+    }
+
+    .about-card p,
+    .quote-card p,
+    .project-body p,
+    .future-card p,
+    .support-card p,
+    .community-card p,
+    .login-card p{
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.75;
+      font-size: 0.97rem;
+    }
+
+    .quote-card{
+      background:
+        linear-gradient(180deg, rgba(135,240,212,0.08), rgba(10,13,28,0.88));
+      border-color: rgba(135,240,212,0.16);
+    }
+
+    .quote-card strong{
+      display: block;
+      margin-bottom: 0.55rem;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .project-feature{
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .project-card{
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(135,240,212,0.1), transparent 38%),
+        linear-gradient(180deg, rgba(11,16,25,0.96), rgba(8,11,22,0.96));
+      border-color: rgba(135,240,212,0.12);
+    }
+
+    .project-inner{
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      padding: 1.25rem;
+    }
+
+    .project-logo-wrap{
+      border-radius: 1.1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+
+    .project-logo-wrap img{
+      width: 100%;
+      max-width: 130px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(135,240,212,0.18));
+    }
+
+    .project-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .chip{
+      display: inline-flex;
+      align-items: center;
+      padding: 0.34rem 0.68rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .chip.live{
+      color: var(--aurora);
+      border-color: rgba(135,240,212,0.2);
+      background: rgba(135,240,212,0.08);
+    }
+
+    .chip.archive{
+      color: #d9dcec;
+    }
+
+    .project-body h3{
+      font-size: 1.7rem;
+      line-height: 1.05;
       margin-bottom: 0.75rem;
     }
 
     .project-actions{
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-      align-items: center;
+      gap: 0.7rem;
+      margin-top: 1rem;
     }
 
-    .link-pill{
-      font-size: 0.8rem;
-      padding: 0.38rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--muted);
-      text-decoration: none;
-      background: rgba(5,5,16,0.55);
-      transition: 0.15s ease;
-    }
-    .link-pill:hover{
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .link-pill.aurora{
-      border-color: rgba(139,233,255,0.25);
-    }
-    .link-pill.aurora:hover{
-      border-color: rgba(139,233,255,0.55);
-      color: var(--aurora);
-    }
-
-    /* Bloques informativos */
-    .info-grid{
+    .project-side{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
+      gap: 1rem;
     }
 
-    .info-card{
-      background: var(--card);
+    .side-mini{
+      padding: 1rem 1.05rem;
       border-radius: 1rem;
-      padding: 1.05rem 1.2rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.93rem;
-      color: var(--muted);
-      line-height: 1.65;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
     }
-    .info-card strong{ color: var(--text); }
 
-    /* Discord Feature Block */
-    .discord-block{
-      background:
-        radial-gradient(circle at top left, rgba(139,233,255,0.12), transparent 55%),
-        linear-gradient(to bottom, rgba(5,5,16,0.92), rgba(5,5,16,0.78));
-      border: 1px solid rgba(139,233,255,0.18);
-      border-radius: 1.15rem;
-      padding: 1.35rem;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.65);
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 1.2rem;
-      align-items: center;
+    .side-mini h4{
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
     }
-    .discord-block h3{
-      font-size: 1.25rem;
-      margin-bottom: 0.35rem;
-    }
-    .discord-block p{
+
+    .side-mini p{
       color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 0.8rem;
-    }
-    .discord-points{
-      margin-left: 1rem;
-      color: var(--muted);
+      font-size: 0.93rem;
       line-height: 1.7;
+    }
+
+    .videos-grid{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .video-card{
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .video-frame{
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .video-frame iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-body{
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .video-body h3{
+      font-size: 1rem;
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+    }
+
+    .video-body p{
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+    }
+
+    .text-link{
+      color: var(--accent);
+      font-weight: 650;
       font-size: 0.92rem;
     }
-    .discord-side{
-      background: rgba(0,0,0,0.22);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 1rem;
-      padding: 1rem;
-    }
-    .discord-side .mini{
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-top: 0.55rem;
+
+    .legacy-grid{
+      display: grid;
+      grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
     }
 
-    /* Trailer */
-    .video-wrapper{
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
+    .legacy-card{
       overflow: hidden;
-      border-radius: 1rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .video-wrapper iframe{
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
     }
 
-    .footer{
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 1.4rem 1.5rem 1.8rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.82rem;
-      max-width: 1120px;
-      margin: 0 auto;
+    .legacy-card img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      min-height: 320px;
     }
-    .footer a{ color: var(--accent); text-decoration: none; }
+
+    .legacy-list{
+      display: grid;
+      gap: 1rem;
+    }
+
+    .legacy-item{
+      padding: 1rem 1.05rem;
+      border-radius: 1rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .legacy-item-top{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .legacy-item h3{
+      font-size: 1.05rem;
+    }
+
+    .legacy-item p{
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.95rem;
+    }
+
+    .future-grid{
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .future-logo{
+      display: grid;
+      place-items: center;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1rem;
+      min-height: 220px;
+    }
+
+    .future-logo img{
+      width: 100%;
+      max-width: 160px;
+      object-fit: contain;
+      opacity: 0.92;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    }
+
+    .community-banner{
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: var(--shadow);
+      min-height: 240px;
+      background: #070812;
+      margin-bottom: 1rem;
+    }
+
+    .community-banner img{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.92) brightness(0.62);
+    }
+
+    .community-banner::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5,5,16,0.20), rgba(5,5,16,0.88)),
+        radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 35%);
+    }
+
+    .community-banner-content{
+      position: relative;
+      z-index: 1;
+      padding: 1.4rem;
+      max-width: 740px;
+    }
+
+    .community-banner-content h3{
+      font-size: clamp(1.55rem, 3vw, 2.3rem);
+      line-height: 1.04;
+      margin-bottom: 0.7rem;
+    }
+
+    .community-banner-content p{
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 60ch;
+    }
+
+    .community-grid{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .community-card h3,
+    .support-card h3,
+    .login-card h3{
+      font-size: 1.03rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .community-links,
+    .support-actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .community-link{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0.72rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 650;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      transition: 0.16s ease;
+    }
+
+    .community-link:hover{
+      border-color: rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .support-grid{
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.85fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .login-card{
+      background:
+        linear-gradient(180deg, rgba(255,179,71,0.07), rgba(10,13,28,0.92));
+      border-color: rgba(255,179,71,0.14);
+    }
+
+    .user-box{
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .user-status{
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .user-status strong{
+      color: var(--text);
+    }
+
+    .user-input-wrap{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .user-input{
+      flex: 1 1 220px;
+      min-height: 46px;
+      padding: 0.84rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.28);
+      color: var(--text);
+      outline: none;
+      font-size: 0.92rem;
+    }
+
+    .user-input::placeholder{
+      color: #7c83ab;
+    }
+
+    .user-input:focus{
+      border-color: rgba(255,179,71,0.42);
+      box-shadow: 0 0 0 4px rgba(255,179,71,0.08);
+    }
+
+    footer{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.4rem 2.2rem;
+    }
+
+    .footer-inner{
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .footer-brand{
+      max-width: 560px;
+    }
+
+    .footer-brand strong{
+      display: block;
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-brand p{
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .footer-links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover{
+      color: var(--text);
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .project-feature,
+      .about-grid,
+      .future-grid,
+      .support-grid,
+      .legacy-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .videos-grid,
+      .community-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .project-inner{
+        grid-template-columns: 1fr;
+      }
+
+      .project-logo-wrap{
+        min-height: 150px;
+      }
+    }
 
     @media (max-width: 860px){
-      .hero{
-        grid-template-columns: 1fr;
-        padding-top: 2.2rem;
+      .nav-links{
+        display: none;
       }
-      nav{ display: none; }
-      .user-bar{
+
+      .hero{
+        padding-top: 2.15rem;
+      }
+
+      .hero-visual{
+        min-height: 430px;
+      }
+
+      .community-banner{
+        min-height: 220px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero h1{
+        font-size: clamp(2.1rem, 10vw, 3rem);
+      }
+
+      .hero p,
+      .section-head p,
+      .community-banner-content p{
+        font-size: 0.96rem;
+      }
+
+      .hero-visual{
+        min-height: 380px;
+      }
+
+      .hero-card-top{
         flex-direction: column;
         align-items: flex-start;
       }
-      .user-bar-actions{
-        width: 100%;
-        justify-content: flex-start;
-      }
-      .user-input{ min-width: 180px; width: 100%; }
-      .discord-block{
-        grid-template-columns: 1fr;
+
+      .footer-inner{
+        flex-direction: column;
       }
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="nav">
-      <a href="/" class="logo">
-        <img src="/assets/logo/logo.png" alt="Peanut Reborn Studios" />
-        <span>Peanut Reborn Studios</span>
+      <a href="/" class="brand">
+        <img src="/assets/branding/logo-peanut-reborn.png" alt="Peanut Reborn Studios" />
+        <div class="brand-text">
+          <div class="brand-title">Peanut Reborn Studios</div>
+          <div class="brand-sub">Asirtic</div>
+        </div>
       </a>
 
-      <nav>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#discord">Discord</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="/aurora/">Tienda Aurora</a>
-        <a href="/tutoriales/">Tutoriales</a>
-        <a class="cta-discord" href="https://discord.gg/yzZRu8yTF5" target="_blank">Unirse al Discord</a>
+      <nav class="nav-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#aurora">Aurora SMP</a>
+        <a href="#videos">Contenido</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="https://peanutreborn.com/aurora/" class="cta">Tienda Aurora</a>
       </nav>
     </div>
   </header>
 
-  <!-- Barra de usuario -->
-  <div class="user-bar">
-    <div class="user-bar-main">
-      <span id="user-greeting">No has iniciado sesión con tu nick de Minecraft.</span>
-      <span style="font-size:0.82rem;">
-        Nick actual: <strong><span id="user-current">—</span></strong>
-      </span>
-    </div>
-
-    <div class="user-bar-actions">
-      <input
-        id="mcname-input"
-        class="user-input"
-        type="text"
-        placeholder="Tu nick de Minecraft (para compras)"
-        autocomplete="off"
-      />
-      <button id="btn-login" class="btn-small" type="button" onclick="loginMcName()">
-        Iniciar sesión
-      </button>
-      <button id="btn-logout" class="btn-small" type="button" onclick="logoutMcName()" style="display:none;">
-        Cerrar sesión
-      </button>
-    </div>
-  </div>
-
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <h1>
-          Hecho por Asirtic -  <span>Peanut Reborn Studios</span>
-        </h1>
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Peanut Reborn Studios</div>
+          <h1>
+            <span>Asirtic</span><br />
+            Gameplays, crítica y proyectos con identidad propia.
+          </h1>
 
-        <p>
-          Aquí se centralizan las tiendas digitales, tutoriales y enlaces oficiales de los proyectos.
-          Las compras se validan de forma manual y transparente mediante <strong>PayPal</strong> y soporte por <strong>Discord</strong>.
-        </p>
-
-        <div class="hero-actions">
-          <a href="/aurora/" class="btn btn-primary">Ir a la tienda de Aurora →</a>
-          <a href="https://discord.gg/yzZRu8yTF5" target="_blank" class="btn btn-discord">Entrar al Discord</a>
-          <a href="/tutoriales/" class="btn btn-outline">Ver tutoriales</a>
-        </div>
-      </div>
-
-      <aside class="hero-card" id="proyectos">
-        <h2>Proyectos</h2>
-
-        <div class="badge-row">
-          <span class="badge aurora">Aurora SMP · Principal</span>
-          <span class="badge">Soporte por Discord</span>
-          <span class="badge">Pagos por PayPal</span>
-          <span class="badge closed">Historial de proyectos</span>
-        </div>
-
-        <div class="projects-grid">
-          <!-- AURORA -->
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-title">Aurora SMP</div>
-              <div class="status active">Activo</div>
-            </div>
-            <div class="project-desc">
-              Proyecto principal actualmente. Tienda disponible desde el inicio y comunidad gestionada a través de Discord.
-            </div>
-            <div class="project-actions">
-              <a class="link-pill aurora" href="/aurora/">Tienda Aurora</a>
-              <a class="link-pill aurora" href="https://discord.gg/yzZRu8yTF5" target="_blank">Discord</a>
-            </div>
-          </article>
-
-          <!-- ESPERMADEATH -->
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-title">Espermadeath: Origins</div>
-              <div class="status future">Próximamente</div>
-            </div>
-            <div class="project-desc">
-              Serie especial planificada para <strong>mediados de 2026</strong>. La tienda y packs se abrirán más cerca del estreno.
-            </div>
-            <div class="project-actions">
-              <a class="link-pill" href="/origins/">Página del proyecto</a>
-            </div>
-          </article>
-
-          <!-- GRIMWARD -->
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-title">Grimward SMP</div>
-              <div class="status closed">Cerrado</div>
-            </div>
-            <div class="project-desc">
-              Proyecto finalizado por falta de apoyo. Su contenido queda como parte del historial del estudio.
-            </div>
-            <div class="project-actions">
-              <a class="link-pill" href="/tutoriales/">Tutoriales relacionados</a>
-            </div>
-          </article>
-
-          <!-- ASHBORNE -->
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-title">Ashborne SMP</div>
-              <div class="status closed">Cerrado</div>
-            </div>
-            <div class="project-desc">
-              Modpack y servidor temático de <strong>apocalipsis zombie</strong>. Proyecto archivado.
-            </div>
-          </article>
-        </div>
-      </aside>
-    </section>
-
-    <!-- DISCORD -->
-    <section id="discord">
-      <h2 class="section-title">Discord</h2>
-
-      <div class="discord-block">
-        <div>
-          <h3>El centro de la comunidad</h3>
           <p>
-            Discord es el canal principal para anuncios, soporte, tickets de compra y comunidad.
-            Si quieres enterarte de todo, estar dentro es lo recomendable.
+            Peanut Reborn Studios es el espacio donde reúno lo que hago y lo que he ido construyendo con el tiempo. Aquí conviven mis videos, mi comunidad y Aurora SMP como proyecto principal de esta etapa.
           </p>
 
-          <ul class="discord-points">
-            <li>Tickets de compra y soporte en un solo lugar.</li>
-            <li>Anuncios y actualizaciones sin depender de otras redes.</li>
-            <li>Eventos, avisos rápidos y comunicación directa con la comunidad.</li>
-          </ul>
-
-          <div class="hero-actions" style="margin-top:0.9rem;">
-            <a class="btn btn-discord" href="https://discord.gg/yzZRu8yTF5" target="_blank">Unirse al Discord</a>
-            <a class="btn btn-outline" href="/tutoriales/">Ver guías y tutoriales</a>
+          <div class="hero-actions">
+            <a href="#aurora" class="btn btn-primary">Ver Aurora SMP</a>
+            <a href="https://discord.com/invite/peanutreborn" target="_blank" rel="noopener noreferrer" class="btn btn-aurora">Entrar al Discord</a>
+            <a href="#videos" class="btn btn-outline">Ver contenido</a>
           </div>
+
+          <p class="hero-note">
+            No quería que esta página siguiera sintiéndose como una simple tienda. La idea es que primero se entienda quién soy, qué hago y qué estoy levantando ahora mismo.
+          </p>
         </div>
 
-        <div class="discord-side">
-          <div style="font-weight:700;">Enlaces oficiales</div>
-          <div class="mini">
-            Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank" style="color:var(--aurora); text-decoration:none;">discord.gg/yzZRu8yTF5</a><br/>
-            PayPal: <a href="https://paypal.me/asirtic" target="_blank" style="color:var(--accent); text-decoration:none;">paypal.me/asirtic</a><br/>
-            YouTube: <a href="https://www.youtube.com/@Asirtic" target="_blank" style="color:var(--accent); text-decoration:none;">@Asirtic</a>
+        <div class="hero-visual">
+          <img src="/assets/home/asirtic-hero.png" alt="Asirtic" />
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="hero-card-title">Proyecto vivo</div>
+              <div class="hero-card-badge">Aurora SMP</div>
+            </div>
+            <p>
+              Hoy todo gira alrededor de Aurora SMP, del contenido que lo acompaña y de una comunidad que sigue creciendo alrededor de Peanut Reborn Studios.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CÓMO FUNCIONA -->
-    <section id="como-funciona">
-      <h2 class="section-title">Cómo funciona</h2>
+    <section id="sobre-mi">
+      <div class="section-head">
+        <div class="eyebrow">Sobre mí</div>
+        <h2>Un chico sencillo, pero con intención al hacer las cosas.</h2>
+        <p>
+          Soy Asirtic. Me gusta moverme entre gameplays, videos más personales, crítica y proyectos que no se sientan vacíos. Peanut Reborn Studios nació para centralizar todo eso sin convertirlo en algo frío o sin rostro.
+        </p>
+      </div>
 
-      <div class="info-grid">
-        <article class="info-card">
-          <strong>1) Inicia sesión con tu nick</strong><br/>
-          Usa tu nick de Minecraft en la barra superior. Ese nombre se usa como referencia para validar compras.
+      <div class="about-grid">
+        <article class="about-card">
+          <p>
+            No busco sonar como una marca gigante ni vender una imagen que no me representa. Prefiero que esta web se sienta como lo que realmente es: un lugar hecho por alguien que lleva tiempo construyendo cosas propias, aprendiendo en el proceso y tratando de darles una identidad clara.
+          </p>
+          <br />
+          <p>
+            Algunos proyectos se quedaron atrás, otros siguen en pausa, y Aurora SMP terminó convirtiéndose en el centro de esta etapa. Todo lo que hay aquí apunta a eso: contenido, comunidad, ideas y una dirección más clara de lo que quiero hacer.
+          </p>
         </article>
 
-        <article class="info-card">
-          <strong>2) Realiza el pago por PayPal</strong><br/>
-          Los pagos se gestionan mediante PayPal con el enlace oficial.
-          Si puedes, incluye tu nick en la nota del pago.
+        <aside class="quote-card">
+          <strong>Qué representa esta página</strong>
+          <p>
+            No es solo una puerta a la tienda. También es una forma de presentar mejor el recorrido, el contenido y el proyecto que hoy sí está vivo.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="aurora">
+      <div class="section-head">
+        <div class="eyebrow">Proyecto principal</div>
+        <h2>Aurora SMP es el foco real de esta etapa.</h2>
+        <p>
+          Es el proyecto al que más tiempo, cabeza e intención le estoy dedicando ahora mismo. Su tienda, su comunidad y su desarrollo forman parte del núcleo actual de Peanut Reborn Studios.
+        </p>
+      </div>
+
+      <div class="project-feature">
+        <article class="project-card">
+          <div class="project-inner">
+            <div class="project-logo-wrap">
+              <img src="/assets/branding/logo-aurora-smp.png" alt="Logo Aurora SMP" />
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="chip live">Activo</span>
+                <span class="chip">Minecraft</span>
+                <span class="chip">Comunidad</span>
+                <span class="chip">Tienda oficial</span>
+              </div>
+
+              <h3>Aurora SMP</h3>
+              <p>
+                Aurora SMP no está aquí como relleno ni como otra pestaña más. Es el proyecto vivo de la web, el espacio donde todo lo demás termina conectando y la parte del estudio que hoy sí está creciendo de verdad.
+              </p>
+
+              <div class="project-actions">
+                <a href="https://peanutreborn.com/aurora/" class="btn btn-primary">Ir a la tienda</a>
+                <a href="https://discord.com/invite/peanutreborn" target="_blank" rel="noopener noreferrer" class="btn btn-aurora">Entrar al Discord</a>
+              </div>
+            </div>
+          </div>
         </article>
 
-        <article class="info-card">
-          <strong>3) Abre ticket en Discord</strong><br/>
-          Tras pagar, abre un ticket y envía el comprobante + el producto.
-          La entrega y confirmación se gestionan manualmente.
+        <div class="project-side">
+          <article class="side-mini">
+            <h4>Qué mueve Aurora</h4>
+            <p>
+              No se trata solo de vender rangos o cosas dentro del juego. La idea es sostener un proyecto que tenga continuidad, comunidad y una identidad reconocible.
+            </p>
+          </article>
+
+          <article class="side-mini">
+            <h4>Apoyo real</h4>
+            <p>
+              La tienda existe como una forma de apoyar el crecimiento de Aurora SMP, no como el centro absoluto de la página principal.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="section-head">
+        <div class="eyebrow">Contenido destacado</div>
+        <h2>Tres videos que representan bastante bien mi tono.</h2>
+        <p>
+          No todo gira alrededor de Minecraft como servidor. También hay videos con más carga de atmósfera, crítica o reflexión, y eso forma parte de cómo quiero presentarme aquí.
+        </p>
+      </div>
+
+      <div class="videos-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/5wdCnEEQkWw"
+              title="ENFRENTE a DIOS"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-body">
+            <h3>ENFRENTE a DIOS</h3>
+            <p>
+              Un video que empuja más el conflicto, la tensión y ese tipo de tono que me interesa tocar cuando una idea realmente da para más.
+            </p>
+            <a class="text-link" href="https://www.youtube.com/watch?v=5wdCnEEQkWw" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/kHhVKEIBiqI"
+              title="La SOCIEDAD nos DIVIDIÓ por.."
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-body">
+            <h3>La SOCIEDAD nos DIVIDIÓ por..</h3>
+            <p>
+              Este lado más introspectivo o más crítico también me representa, y quería que eso estuviera presente en la página en lugar de reducir todo a una tienda.
+            </p>
+            <a class="text-link" href="https://www.youtube.com/watch?v=kHhVKEIBiqI" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/WOJoTkarbJU"
+              title="ELLA VIENE - PACIFY"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-body">
+            <h3>ELLA VIENE - PACIFY</h3>
+            <p>
+              Otro ejemplo del tipo de ambiente que me gusta construir en video cuando un gameplay permite jugar con tensión, edición y presencia.
+            </p>
+            <a class="text-link" href="https://www.youtube.com/watch?v=WOJoTkarbJU" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <!-- TRÁILER (AL FINAL) -->
-    <section id="trailer">
-      <h2 class="section-title">Tráiler</h2>
-      <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; line-height:1.6; max-width:70ch;">
-        Tráiler oficial del proyecto principal. Si quieres enterarte de los anuncios y fechas, el canal más rápido es Discord.
-      </p>
+    <section id="trayectoria">
+      <div class="section-head">
+        <div class="eyebrow">Trayectoria</div>
+        <h2>Aurora no salió de la nada.</h2>
+        <p>
+          Antes hubo otras etapas, otros intentos y otros proyectos. Algunos ya quedaron cerrados, pero siguen siendo parte del camino que terminó empujando lo que hoy es Peanut Reborn Studios.
+        </p>
+      </div>
 
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/F4mNqV07uls"
-          title="Tráiler Aurora SMP"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <div class="legacy-grid">
+        <article class="legacy-card">
+          <img src="/assets/projects/grimward-legacy.png" alt="Grimward SMP" />
+        </article>
+
+        <div class="legacy-list">
+          <article class="legacy-item">
+            <div class="legacy-item-top">
+              <h3>Grimward SMP</h3>
+              <span class="chip archive">Cerrado</span>
+            </div>
+            <p>
+              Fue una etapa importante dentro del recorrido del estudio. Ya quedó atrás, pero sigue formando parte de la historia que me trajo hasta Aurora.
+            </p>
+          </article>
+
+          <article class="legacy-item">
+            <div class="legacy-item-top">
+              <h3>Ashborne SMP</h3>
+              <span class="chip archive">Archivado</span>
+            </div>
+            <p>
+              Otro proyecto que ayudó a definir mejor la dirección que quería seguir. No está activo hoy, pero tampoco fue una etapa irrelevante.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="futuro">
+      <div class="section-head">
+        <div class="eyebrow">Lo que viene</div>
+        <h2>Hay ideas futuras, pero prefiero no forzarlas.</h2>
+        <p>
+          No todo lo que aparece aquí está listo para salir ya. También hay proyectos que siguen en pausa o que todavía no tienen luz verde definitiva, y prefiero presentarlos con honestidad.
+        </p>
+      </div>
+
+      <div class="future-grid">
+        <article class="future-card">
+          <div class="project-meta" style="margin-bottom:0.9rem;">
+            <span class="chip">Proyecto futuro</span>
+            <span class="chip">Sin fecha cerrada</span>
+          </div>
+
+          <h3 style="font-size:1.3rem; margin-bottom:0.7rem;">Espermadeath: Origins</h3>
+          <p>
+            Sigue existiendo como idea y como dirección posible, pero no quería presentarlo como si ya estuviera activo cuando todavía no es así. Prefiero dejarlo en su sitio hasta que realmente llegue el momento de moverlo.
+          </p>
+        </article>
+
+        <aside class="future-card">
+          <div class="future-logo">
+            <img src="/assets/branding/logo-espermadeath-origins.png" alt="Espermadeath Origins" />
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="comunidad">
+      <div class="section-head">
+        <div class="eyebrow">Comunidad</div>
+        <h2>La parte viva del proyecto también está fuera de la web.</h2>
+        <p>
+          Si quieres seguir lo que hago, enterarte antes de cambios importantes o estar más cerca de Aurora SMP, estos son los canales que realmente importan.
+        </p>
+      </div>
+
+      <div class="community-banner">
+        <img src="/assets/home/asirtic-banner-youtube.png" alt="Banner de Asirtic" />
+        <div class="community-banner-content">
+          <h3>Contenido, comunidad y proyecto en un mismo sitio.</h3>
+          <p>
+            La web ya no está pensada solo para vender. También existe para conectar mejor todo lo que hago y que sea más fácil entender qué representa Peanut Reborn Studios ahora mismo.
+          </p>
+        </div>
+      </div>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <h3>Discord</h3>
+          <p>
+            El centro de la comunidad, avisos, soporte y movimiento real del proyecto.
+          </p>
+          <div class="community-links">
+            <a class="community-link" href="https://discord.com/invite/peanutreborn" target="_blank" rel="noopener noreferrer">Entrar al Discord</a>
+          </div>
+        </article>
+
+        <article class="community-card">
+          <h3>YouTube</h3>
+          <p>
+            Donde más se nota mi tono entre gameplays, edición, crítica y videos con otra carga.
+          </p>
+          <div class="community-links">
+            <a class="community-link" href="https://www.youtube.com/@Asirtic" target="_blank" rel="noopener noreferrer">Ir al canal</a>
+          </div>
+        </article>
+
+        <article class="community-card">
+          <h3>Twitch</h3>
+          <p>
+            Otro punto desde el que seguir el proyecto y ver contenido de una forma más directa.
+          </p>
+          <div class="community-links">
+            <a class="community-link" href="https://www.twitch.tv/asirtic" target="_blank" rel="noopener noreferrer">Ver Twitch</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="apoyo">
+      <div class="section-head">
+        <div class="eyebrow">Apoya el proyecto</div>
+        <h2>La tienda y el apoyo directo siguen estando, solo que en su lugar correcto.</h2>
+        <p>
+          Si te gusta lo que estoy construyendo y quieres apoyar el crecimiento de Aurora SMP, puedes hacerlo desde la tienda oficial o por PayPal. Quería que eso siguiera presente, pero sin convertirlo en el primer mensaje de la página.
+        </p>
+      </div>
+
+      <div class="support-grid">
+        <article class="support-card">
+          <h3>Tienda y apoyo directo</h3>
+          <p>
+            Aurora SMP tiene su propia tienda oficial dentro de la web. También dejo disponible el apoyo por PayPal para quien prefiera hacerlo así.
+          </p>
+
+          <div class="support-actions">
+            <a href="https://peanutreborn.com/aurora/" class="btn btn-primary">Tienda Aurora</a>
+            <a href="https://www.paypal.com/paypalme/asirtic" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Apoyar por PayPal</a>
+          </div>
+        </article>
+
+        <aside class="login-card">
+          <h3>Tu nick de Minecraft</h3>
+          <p>
+            Si vas a comprar en la tienda de Aurora, puedes dejar guardado tu nick aquí para tenerlo a mano.
+          </p>
+
+          <div class="user-box">
+            <div class="user-status">
+              Estado actual: <strong><span id="user-current">No has iniciado sesión.</span></strong>
+            </div>
+
+            <div class="user-input-wrap">
+              <input
+                id="mcname-input"
+                class="user-input"
+                type="text"
+                placeholder="Tu nick de Minecraft"
+                autocomplete="off"
+              />
+              <button id="btn-login" class="btn btn-primary" type="button">Guardar nick</button>
+              <button id="btn-logout" class="btn btn-outline" type="button" style="display:none;">Borrar</button>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    Peanut Reborn Studios · Todos los derechos reservados
-    <br/><br/>
-    Discord: <a href="https://discord.gg/yzZRu8yTF5" target="_blank">discord.gg/yzZRu8yTF5</a> ·
-    PayPal: <a href="https://paypal.me/asirtic" target="_blank">paypal.me/asirtic</a> ·
-    YouTube: <a href="https://www.youtube.com/@Asirtic" target="_blank">@Asirtic</a>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>Asirtic · Peanut Reborn Studios</strong>
+        <p>
+          Un espacio para reunir contenido, comunidad y proyectos con identidad propia.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://peanutreborn.com/aurora/">Aurora SMP</a>
+        <a href="https://discord.com/invite/peanutreborn" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.youtube.com/@Asirtic" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.twitch.tv/asirtic" target="_blank" rel="noopener noreferrer">Twitch</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    const PBS_KEY_MCNAME = 'pbs_mcname';
+    const PBS_KEY_MCNAME = "pbs_mcname";
 
-    function updateUserBar() {
-      const name = localStorage.getItem(PBS_KEY_MCNAME) || '';
-      const greetEl = document.getElementById('user-greeting');
-      const currentEl = document.getElementById('user-current');
-      const inputEl = document.getElementById('mcname-input');
-      const loginBtn = document.getElementById('btn-login');
-      const logoutBtn = document.getElementById('btn-logout');
+    const currentEl = document.getElementById("user-current");
+    const inputEl = document.getElementById("mcname-input");
+    const loginBtn = document.getElementById("btn-login");
+    const logoutBtn = document.getElementById("btn-logout");
 
-      if (!greetEl || !inputEl || !loginBtn || !logoutBtn || !currentEl) return;
+    function updateUserBox() {
+      const savedName = localStorage.getItem(PBS_KEY_MCNAME) || "";
 
-      if (name) {
-        greetEl.textContent = 'Has iniciado sesión como: ' + name;
-        currentEl.textContent = name;
-        inputEl.style.display = 'none';
-        loginBtn.style.display = 'none';
-        logoutBtn.style.display = 'inline-flex';
+      if (savedName) {
+        currentEl.textContent = savedName;
+        inputEl.style.display = "none";
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-flex";
       } else {
-        greetEl.textContent = 'No has iniciado sesión con tu nick de Minecraft.';
-        currentEl.textContent = '—';
-        inputEl.style.display = 'inline-block';
-        loginBtn.style.display = 'inline-flex';
-        logoutBtn.style.display = 'none';
+        currentEl.textContent = "No has iniciado sesión.";
+        inputEl.style.display = "inline-flex";
+        loginBtn.style.display = "inline-flex";
+        logoutBtn.style.display = "none";
       }
     }
 
     function loginMcName() {
-      const inputEl = document.getElementById('mcname-input');
-      if (!inputEl) return;
-      const value = (inputEl.value || '').trim();
+      const value = (inputEl.value || "").trim();
+
       if (!value) {
-        alert('Por favor, escribe un nick válido.');
+        alert("Por favor, escribe un nick válido.");
         return;
       }
+
       localStorage.setItem(PBS_KEY_MCNAME, value);
-      updateUserBar();
+      updateUserBox();
     }
 
     function logoutMcName() {
       localStorage.removeItem(PBS_KEY_MCNAME);
-      updateUserBar();
+      inputEl.value = "";
+      updateUserBox();
     }
 
-    document.addEventListener('DOMContentLoaded', updateUserBar);
-  </script>
+    loginBtn.addEventListener("click", loginMcName);
+    logoutBtn.addEventListener("click", logoutMcName);
 
-  <!-- 🔒 Bloqueo de click derecho y atajos -->
-  <script>
-    document.addEventListener("contextmenu", function (e) {
-      e.preventDefault();
-    });
-
-    document.addEventListener("keydown", function (e) {
-      const key = e.key.toLowerCase();
-      if ((e.ctrlKey || e.metaKey) && (key === "s" || key === "u")) {
-        e.preventDefault();
-      }
-      if (e.key === "F12") {
-        e.preventDefault();
+    inputEl.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        loginMcName();
       }
     });
+
+    document.addEventListener("DOMContentLoaded", updateUserBox);
   </script>
 </body>
 </html>
